@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>João Raphael Cunha - Portfolio</title>
+  <!-- Tailwind CSS v3 with Plugins -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- AlpineJS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Helvetica', 'Arial', 'sans-serif'], // Brutalist standard
+            modern: ['"Space Grotesk"', 'sans-serif']
+          },
+          colors: {
+            'industrial-bg': '#bfbfae', // Lighter greenish-beige base from reference
+            'glass-border': 'rgba(0, 0, 0, 0.2)',
+            'glass-bg': 'rgba(255, 255, 255, 0.4)',
+            'text-dark': '#1a1a1a'
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'blade-shine': 'blade-shine 1.2s ease-in-out'
+          },
+          keyframes: {
+            'blade-shine': {
+              '0%': { transform: 'skewX(-20deg) translateX(-150%)' },
+              '100%': { transform: 'skewX(-20deg) translateX(300%)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- BEGIN: Custom Styles -->
+  <style data-purpose="background-texture">
+    body {
+      background-color: #bfbfae;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+  </style>
+  <style data-purpose="typography-and-effects">
+    /* Brutalist heavy typography shadows */
+    .text-shadow-heavy {
+      text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8), 0 0 2px rgba(0, 0, 0, 1);
+    }
+
+    /* Fine lines for technical feel */
+    .tech-line {
+      height: 1px;
+      background: rgba(0, 0, 0, 0.6);
+      transition: filter 0.5s ease;
+    }
+
+    .tech-line-vertical {
+      width: 1px;
+      background: rgba(0, 0, 0, 0.6);
+      transition: filter 0.5s ease;
+    }
+  </style>
+  <style data-purpose="glassmorphism">
+    .glass-panel {
+      background: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  </style>
+  <style data-purpose="scroll-animations">
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Utility to hide scrollbar but keep functionality */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .fade-out-text {
+      opacity: 0 !important;
+      transform: translateY(30px) !important;
+      pointer-events: none !important;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+
+    .teleport-out-anim {
+      animation: teleport-beam 0.5s cubic-bezier(0.8, 0, 0.2, 1) forwards !important;
+      animation-delay: 0.25s !important;
+    }
+
+    @keyframes teleport-beam {
+      0% {
+        transform: translateX(-50%) scaleY(1) scaleX(1);
+        filter: blur(0px) brightness(1);
+        opacity: 1;
+      }
+
+      30% {
+        transform: translateX(-50%) scaleY(3) scaleX(0.8);
+        filter: blur(8px) brightness(1.5);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: translateX(-50%) scaleY(20) scaleX(0.01) translateY(-30%);
+        filter: blur(30px) brightness(3);
+        opacity: 0;
+      }
+    }
+
+    .hud-negative {
+      filter: invert(1) hue-rotate(180deg);
+    }
+
+    .hud-element {
+      transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Dynamic Project Hover States */
+    .project-node {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-node.glow-active {
+      color: #fff !important;
+      text-shadow: 0 0 15px rgba(255, 250, 205, 0.6), 0 0 30px rgba(255, 250, 205, 0.3) !important;
+      transform: scale(1.05);
+    }
+
+    div.project-node.glow-active {
+      border-color: rgba(255, 250, 205, 0.8) !important;
+      background-color: rgba(255, 250, 205, 0.15) !important;
+      box-shadow: 0 0 20px rgba(255, 250, 205, 0.15) !important;
+    }
+
+    .project-dimmed {
+      opacity: 0.15 !important;
+      filter: blur(2px);
+    }
+
+    /* Modal Interaction */
+    #project-modal.modal-open {
+      pointer-events: auto;
+      opacity: 1;
+    }
+
+
+    #wwwav-modal.modal-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #wwwav-modal.modal-open #wwwav-modal-content {
+      transform: scale(1);
+    }
+
+    #project-modal.modal-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #project-modal.modal-open #project-modal-content {
+      transform: scale(1);
+    }
+  </style>
+
+
+
+</head>
+
+<body x-data="{ activeSection: 'vwvwwvv' }"
+  class="h-[100dvh] w-full text-text-dark overflow-hidden relative selection:bg-black selection:text-white" x-cloak>
+  <!-- BEGIN: Main Container -->
+  <!-- Using relative positioning to stack elements absolutely -->
+  <main class="relative w-full h-full z-10 block">
+    <!-- BEGIN: Top Bar Area -->
+    <!-- Top Left: Media Player Widget -->
+    <div
+      class="fixed z-[60] animate-pulse-slow pointer-events-auto max-md:top-[1%] top-[25%] md:top-[8%] max-md:left-1/2 max-md:-translate-x-1/2 md:left-[40px] max-md:origin-top md:origin-top-left max-md:scale-[0.43] md:scale-[0.575] transition-all duration-300 w-[120vw] max-w-[30rem]">
+      <div id="audio-player-container"
+        class="w-full flex flex-col gap-1 cursor-pointer transition-opacity hover:opacity-80"
+        data-purpose="media-player">
+
+        <!-- Hidden Audio Element -->
+        <audio id="bg-audio" src="assets/beats/YAHARD-BEAT0021_DANGER.mp3"></audio>
+
+        <!-- Header Row -->
+        <div class="flex justify-between items-end border-b border-[#fffacd]/50 pb-1 mb-1 relative">
+          <span
+            class="font-sans font-extrabold tracking-tight text-[#fffacd] uppercase text-sm md:text-base leading-none">CURRENT_TRACK</span>
+          <div class="flex items-center gap-2 md:gap-4">
+            <span
+              class="font-mono text-[#fffacd]/70 font-bold uppercase tracking-widest flex items-center gap-1 md:gap-2 text-[0.6rem] md:text-[0.85rem]">
+              <span class="w-1.5 h-1.5 md:w-2 md:h-2 inline-block bg-[#fffacd] transition-opacity"
+                id="playing-indicator" style="opacity: 0;"></span>
+              STATUS: <span id="play-text" class="text-[1.8rem] md:text-[2.8rem] leading-none"><i
+                  class="fas fa-play"></i></span>
+            </span>
+            <button id="next-track-btn"
+              class="font-mono text-[#fffacd] hover:text-[#fffacd]/50 transition-colors active:scale-95 z-10 flex items-center justify-center p-2 text-[1.8rem] md:text-[2.8rem] leading-none"
+              onclick="if(event) event.stopPropagation(); window.playNextTrack(event);">
+              <i class="fas fa-forward-step text-[1.8rem] md:text-[2.8rem] leading-none"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Track Title (Marquee) -->
+        <div
+          class="overflow-hidden whitespace-nowrap font-mono font-bold text-white text-base md:text-[1.7rem] leading-tight">
+          <div id="track-title-marquee" class="animate-marquee inline-block whitespace-nowrap">
+            YAHARD-BEAT0021_DANGER \ YAHARD-BEAT0021_DANGER \ YAHARD-BEAT0021_DANGER \ YAHARD-BEAT0021_DANGER \
+          </div>
+        </div>
+
+        <!-- Times and Controls -->
+        <div class="flex items-center justify-between font-mono font-bold text-[#fffacd]/90 mt-1 text-xs md:text-base">
+          <span id="current-time">0:00</span>
+
+          <!-- Slim Progress Line -->
+          <div class="w-full flex-grow mx-4 h-px bg-[#fffacd]/20 relative flex items-center">
+            <!-- Progress Bar Fill -->
+            <div id="progress-bar-fill"
+              class="h-[2px] bg-[#fffacd] absolute top-1/2 -translate-y-1/2 left-0 transition-all duration-100 ease-linear"
+              style="width: 0%;">
+            </div>
+          </div>
+
+          <span id="duration">-0:00</span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="fixed z-[60] flex flex-col items-end w-auto pointer-events-auto max-md:top-[28dvh] top-[24%] md:top-[8%] max-md:right-[1%] right-4 md:right-[20px] origin-right max-md:scale-[0.69] md:scale-[0.63] transition-all duration-300">
+
+      <!-- Top Wave -->
+      <div class="flex items-center gap-3 mb-1 w-full justify-end cursor-pointer group"
+        @click="activeSection = 'vwvwwvv'">
+        <span id="nav-item-vwvwwvv"
+          class="font-modern font-bold uppercase transition-all duration-500 leading-none text-sm md:text-xl tracking-wider"
+          :class="[activeSection === 'vwvwwvv' ? 'opacity-100 scale-110 md:scale-125' : 'opacity-40 hover:opacity-80', activeSection === 'vwvwwvv' ? 'text-white' : 'text-[#fffacd]']"
+          style="transform-origin: right;">VWVWWVV</span>
+      </div>
+
+      <!-- Center Text -->
+      <div class="w-full border-y py-1 md:py-1.5 my-1 transition-colors duration-500" :class="activeSection === 'vwvwwvv' ? 'border-white/50' : 'border-[#fffacd]/50'" @click="activeSection = 'projects'">
+        <h2 id="nav-item-projects"
+          class="w-full text-right font-modern font-bold cursor-pointer transition-all duration-500 leading-none text-base md:text-3xl tracking-widest"
+          :class="[activeSection === 'projects' ? 'opacity-100 scale-110 md:scale-125' : 'opacity-40 hover:opacity-80', activeSection === 'vwvwwvv' ? 'text-white' : 'text-[#fffacd]']"
+          style="transform-origin: right;">
+          PROJECTS
+        </h2>
+      </div>
+
+      <!-- Bottom Wave -->
+      <div class="flex items-center gap-3 mt-1 w-full justify-end cursor-pointer group"
+        @click="activeSection = 'wwwav'">
+        <span id="nav-item-wwwav"
+          class="font-modern font-bold uppercase transition-all duration-500 leading-none text-sm md:text-xl tracking-wider"
+          :class="[activeSection === 'wwwav' ? 'opacity-100 scale-110 md:scale-125' : 'opacity-40 hover:opacity-80', activeSection === 'vwvwwvv' ? 'text-white' : 'text-[#fffacd]']"
+          style="transform-origin: right;">WWWAV</span>
+      </div>
+
+    </div>
+    <!-- END: Top Bar Area -->
+    <!-- BEGIN: Decorative Grid Lines -->
+    <!-- Horizontal line left -->
+    <div class="fixed tech-line z-[1]" style="top: 50.5%; left: 0; width: 42%;"></div>
+    <!-- Horizontal line right -->
+    <div class="fixed tech-line z-[1]" style="top: 50.5%; right: 0; width: 42%;"></div>
+
+    <!-- Vertical line left of name -->
+    <div class="fixed tech-line-vertical z-[1]" style="left: 7%; top: 40%; height: 30%;"></div>
+    <!-- Vertical line right of name -->
+    <div class="fixed tech-line-vertical z-[1]" style="right: 7%; top: 40%; height: 30%;"></div>
+    <!-- BEGIN: Social Icons -->
+    <div
+      class="fixed max-md:right-[1%] md:right-[44px] top-1/2 flex flex-col gap-6 z-[100] pointer-events-auto hud-element max-md:scale-[0.8] max-md:origin-right max-md:-mt-[2%] md:-mt-[2%]"
+      style="transform: translateY(-50%);">
+      <a aria-label="Instagram" class="text-white/70 hover:text-white transition-colors duration-300"
+        href="https://instagram.com/yahard42" target="_blank"><i class="fab fa-instagram text-xl"></i></a>
+      <a aria-label="LinkedIn" class="text-white/70 hover:text-white transition-colors duration-300"
+        href="https://www.linkedin.com/in/joão-raphael-cunha" target="_blank"><i
+          class="fab fa-linkedin-in text-xl"></i></a>
+      <a aria-label="WhatsApp" class="text-white/70 hover:text-white transition-colors duration-300"
+        href="https://wa.me/5521987790428" target="_blank"><i class="fab fa-whatsapp text-xl"></i></a>
+    </div>
+    <!-- END: Social Icons -->
+    <!-- BEGIN: Central Visuals -->
+    <section id="section-vwvwwvv"
+      class="absolute inset-0 w-full h-[100dvh] overflow-hidden flex items-center justify-center transition-all duration-700 ease-in-out origin-center"
+      x-bind:class="activeSection === 'vwvwwvv' ? 'opacity-100 pointer-events-auto z-20' : 'opacity-0 pointer-events-none z-0'"
+      style="background-image: url('assets/ai_engineer_&_sound_designer_portfolio_home.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
+      <div class="relative w-full max-w-7xl h-full flex items-center justify-center">
+
+        <!-- Layer 1: Logo -->
+        <div
+          class="absolute pointer-events-none max-md:-translate-x-[47%] md:-translate-x-[46%] max-md:top-[3%] md:top-[8%] max-md:w-[98vw] md:w-full md:max-w-[900px] max-md:scale-[1.15] md:scale-[1.47] origin-top transition-all duration-700"
+          data-purpose="logo-container"
+          style="left: 50%; z-index: 2; display: flex; justify-content: center; align-items: flex-start; opacity: 0.95;"
+          x-data="{ isHovered: false }"
+          @mouseenter="if(window.matchMedia('(hover: hover)').matches) isHovered = true"
+          @mouseleave="if(window.matchMedia('(hover: hover)').matches) isHovered = false"
+          @touchstart="isHovered = true"
+          @touchend="isHovered = false"
+          @touchcancel="isHovered = false">
+          <div class="relative w-full overflow-hidden pointer-events-auto cursor-pointer select-none"
+            style="-webkit-mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
+            <img alt="Y42 Logo" style="width: 100%; height: auto; object-fit: contain; pointer-events: none;"
+              src="assets/vwvwwvv_logo_upscaled.webp" />
+            <!-- The Shine -->
+            <div
+              class="absolute top-0 left-[-50%] w-[50%] h-full pointer-events-none bg-gradient-to-r from-transparent via-white to-transparent opacity-80"
+              :class="isHovered ? 'animate-blade-shine' : ''"
+              style="transform: skewX(-20deg) translateX(-150%);"></div>
+          </div>
+        </div>
+
+        <!-- Layer 2: Character -->
+        <div class="absolute pointer-events-none" data-purpose="character-container"
+          style="bottom: 0; left: 50%; transform: translateX(-50%); z-index: 3; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-end;">
+          <img alt="João Raphael"
+            class="h-[85vh] max-md:-translate-x-[20vw] max-md:scale-[0.8] md:scale-100 max-w-none w-auto object-contain origin-bottom transition-transform duration-300"
+            src="assets/character_solo.webp" />
+        </div>
+
+        <!-- Left Text Group: AI ENGINEER -->
+        <div
+          class="absolute z-30 pointer-events-none max-md:!top-[51%] max-md:-translate-x-2 max-md:scale-[0.74] md:scale-[1.03] max-md:origin-left transition-all duration-300"
+          style="left: 7%; top: 65%; z-index: 10;">
+          <div class="relative inline-block pointer-events-auto cursor-default mb-3 select-none"
+               x-data="{ isHovered: false }"
+               @mouseenter="if(window.matchMedia('(hover: hover)').matches) isHovered = true"
+               @mouseleave="if(window.matchMedia('(hover: hover)').matches) isHovered = false"
+               @touchstart="isHovered = true"
+               @touchend="isHovered = false"
+               @touchcancel="isHovered = false">
+            <span
+              class="block font-sans text-[#fffacd] font-bold relative z-10 transition-transform duration-500"
+              :class="isHovered ? 'scale-105' : ''"
+              style="left: 0.05%; font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase; -webkit-text-stroke: 0.5px rgba(255,255,255,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.3);">AI
+              ENGINEER</span>
+            <!-- Ghost terms -->
+            <!-- Ghost terms Above -->
+            <div
+              class="absolute bottom-full left-0 mb-1 flex items-end gap-x-3 max-md:gap-x-1 pointer-events-none opacity-0 transition-all duration-700 ease-out z-0 w-max max-md:scale-[0.85] max-md:origin-bottom-left"
+              :class="isHovered ? '!opacity-100' : ''">
+              <span
+                class="font-sans font-bold text-[#fafafa] opacity-90 whitespace-nowrap transition-all duration-700 translate-y-3"
+                :class="isHovered ? '!translate-y-0' : ''"
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">PYTHON DEVELOPER</span>
+              <span
+                class="font-sans font-bold text-[#fafafa] opacity-60 whitespace-nowrap transition-all duration-700 translate-y-1.5"
+                :class="isHovered ? '!translate-y-0' : ''"
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">CREATIVE CONTEXT
+                ENGINEER</span>
+            </div>
+            <!-- Ghost terms Right -->
+            <div
+              class="absolute left-full top-0 h-full ml-6 max-md:ml-5 mt-[1%] max-md:mt-[2%] flex items-center gap-x-3 max-md:gap-x-1 pointer-events-none opacity-0 transition-all duration-700 ease-out z-0 w-max max-md:scale-[0.85] max-md:origin-left"
+              :class="isHovered ? '!opacity-100' : ''">
+              <span
+                class="font-sans font-bold text-[#fafafa] opacity-80 whitespace-nowrap transition-all duration-700 -translate-x-2"
+                :class="isHovered ? '!translate-x-0' : ''"
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">SOFTWARE ENGINEER</span>
+              <span
+                class="font-sans font-bold text-[#fafafa] opacity-70 whitespace-nowrap transition-all duration-700 -translate-x-4"
+                :class="isHovered ? '!translate-x-0' : ''"
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">SOLUTIONS ARCHITECT</span>
+            </div>
+          </div>
+          <!-- Interactive Text Block: JOÃO RAPHAEL CUNHA -->
+          <div x-data="{ showDetail: false }"
+            class="relative cursor-default pointer-events-auto group/main w-[85vw] sm:max-w-md max-md:h-auto sm:h-[180px] md:h-[230px] grid max-md:mt-8"
+            style="grid-template-columns: 1fr;"
+            @click="showDetail = !showDetail">
+            <!-- Default State (Name) -->
+            <h1
+              class="text-white max-md:self-start md:self-center transition-all duration-700 ease-in-out group-hover/main:scale-105 text-[14vw] sm:text-7xl md:text-[5.5rem]"
+              x-bind:class="showDetail ? 'opacity-0 pointer-events-none blur-sm scale-95' : 'opacity-100 scale-100'"
+              style="grid-area: 1 / 1; letter-spacing: -2px; font-weight: 800; line-height: 0.85; text-align: left; text-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
+              <span class="hover:text-[#fafafa] transition-colors duration-300">JOÃO<br />RAPHAEL<br />CUNHA</span>
+            </h1>
+            <!-- Detailed State (Bio) -->
+            <div
+              class="text-[#fafafa] font-sans leading-relaxed text-left transition-all duration-700 ease-in-out flex flex-col justify-start opacity-0 pointer-events-none blur-sm scale-105 max-md:self-start md:self-center overflow-y-auto hide-scrollbar max-md:max-h-[22vh] md:max-h-[40vh] max-md:-translate-y-8"
+              x-bind:class="showDetail ? '!opacity-100 !pointer-events-auto !blur-none !scale-100' : ''"
+              style="grid-area: 1 / 1;">
+              <p class="mb-5 text-[0.95rem] font-medium text-white/90">17+ years of experience engineering systems—from
+                core technology to sound design. I see
+                no boundary between routing audio signals and architecting data pipelines; both require the same mastery
+                of logic and flow.</p>
+              <p class="text-[0.95rem] font-medium text-white/90">Operating as a Software Engineer and Sound Designer
+                with a focus on creative product
+                thinking, I bridge the gap between AI Engineering and Solutions Architecture. This hybrid expertise
+                defines my approach to Context Engineering: translating abstract domain nuances into scalable, efficient
+                infrastructure.</p>
+            </div>
+          </div>
+          <!-- Decorative element (removed bottom absolute positioning for fluidity) -->
+        </div>
+
+        <!-- Right Text Group: SOUND DESIGNER -->
+        <div x-data="{ showPlaylist: false }" @click.outside="showPlaylist = false"
+          class="absolute z-30 pointer-events-none max-md:!top-[78%] max-md:!bottom-auto max-md:scale-[0.74] md:scale-[1.03] max-md:origin-top-right transition-all duration-300"
+          style="right: 4%; top: 65%; z-index: 10; text-align: right;">
+          <div
+            class="relative inline-block pointer-events-auto cursor-default transition-all duration-700 ease-in-out mb-3 select-none"
+            x-data="{ isHovered: false }"
+            @mouseenter="if(window.matchMedia('(hover: hover)').matches) isHovered = true"
+            @mouseleave="if(window.matchMedia('(hover: hover)').matches) isHovered = false"
+            @touchstart="isHovered = true"
+            @touchend="isHovered = false"
+            @touchcancel="isHovered = false">
+            <span
+              class="block font-sans text-[#fffacd] font-bold relative z-10 transition-transform duration-500"
+              :class="isHovered ? 'scale-105' : ''"
+              style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase; -webkit-text-stroke: 0.5px rgba(255,255,255,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.3);">SOUND
+              DESIGNER</span>
+            <!-- Ghost terms -->
+            <!-- Ghost terms Above -->
+            <div
+              class="absolute bottom-full right-0 mb-1 flex items-end gap-x-3 max-md:gap-x-1 flex-row-reverse pointer-events-none opacity-0 transition-all duration-700 ease-out z-0 w-max max-md:scale-[0.85] max-md:origin-bottom-right"
+              :class="isHovered ? '!opacity-100' : ''">
+              <span
+                class="font-sans font-bold text-[#fafafa] opacity-80 whitespace-nowrap transition-all duration-700 translate-y-3"
+                :class="isHovered ? '!translate-y-0' : ''"
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">MUSIC PRODUCER</span>
+              <span
+                class="font-sans font-bold text-[#fafafa] opacity-60 whitespace-nowrap transition-all duration-700 translate-y-1.5"
+                :class="isHovered ? '!translate-y-0' : ''"
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">AUDIO ENGINEER</span>
+            </div>
+            <!-- Ghost terms Left (Now naturally to the left without negative margins) -->
+            <div
+              class="absolute right-full top-0 h-full mr-6 max-md:mr-5 mt-[1%] max-md:mt-[2%] flex items-center justify-end gap-x-2 max-md:gap-x-1 flex-row-reverse pointer-events-none opacity-0 transition-all duration-700 ease-out z-0 w-max max-md:scale-[0.85] max-md:origin-right"
+              :class="isHovered ? '!opacity-100' : ''">
+              <span
+                class="font-sans font-bold text-[#fafafa] opacity-90 whitespace-nowrap transition-all duration-700 translate-x-2"
+                :class="isHovered ? '!translate-x-0' : ''"
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">BEATMAKER</span>
+              <span
+                class="font-sans font-bold text-[#fafafa] opacity-70 whitespace-nowrap transition-all duration-700 translate-x-4"
+                :class="isHovered ? '!translate-x-0' : ''"
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">MULTI-INSTRUMENTIST</span>
+            </div>
+          </div>
+          <!-- Interactive Text Block: YAHARD / Y42_BEATS -->
+          <div
+            class="relative cursor-default pointer-events-auto group/right w-[85vw] sm:max-w-xl max-md:h-auto sm:h-[120px] md:h-[150px] grid max-md:-mt-[15%]"
+            style="grid-template-columns: 1fr;"
+            @click="showPlaylist = !showPlaylist">
+            <!-- Default State (Name) -->
+            <h1
+              class="text-white transition-all duration-700 ease-in-out flex flex-col justify-end items-end group-hover/right:scale-105 text-[16vw] sm:text-7xl md:text-[5.5rem] max-md:self-end md:self-end"
+              x-bind:class="showPlaylist ? 'opacity-0 pointer-events-none blur-sm scale-95' : 'opacity-100 scale-100'"
+              style="grid-area: 1 / 1; letter-spacing: -2px; font-weight: 800; line-height: 0.85; text-align: right; text-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
+              <span class="hover:text-[#fafafa] transition-colors duration-300">YAHARD /<br />Y42_BEATS</span>
+            </h1>
+            <!-- Detailed State (Playlist) -->
+            <div
+              class="transition-all duration-700 ease-in-out flex flex-col justify-end items-end text-right opacity-0 pointer-events-none blur-sm scale-105 max-md:self-start md:self-end"
+              x-bind:class="showPlaylist ? '!opacity-100 !pointer-events-auto !blur-none !scale-100' : ''"
+              style="grid-area: 1 / 1; margin-bottom: -10px;">
+              <div class="w-full max-w-sm flex flex-col gap-y-1 relative h-full justify-end max-md:scale-[0.85] max-md:origin-bottom-right">
+                <div class="flex-grow w-full"></div>
+                <div class="w-full">
+
+                  <div
+                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
+                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0021_DANGER.mp3', 'YAHARD-BEAT0021_DANGER')">
+                    <span class="font-bold flex items-center gap-2">
+                      <div
+                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
+                      </div>BEAT0021_DANGER
+                    </span>
+                    <span class="font-mono text-xs opacity-50">WAV</span>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
+                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0089_WIND.mp3', 'YAHARD-BEAT0089_WIND')">
+                    <span class="font-bold flex items-center gap-2">
+                      <div
+                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
+                      </div>BEAT0089_WIND
+                    </span>
+                    <span class="font-mono text-xs opacity-50">WAV</span>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
+                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0167_FEEL.mp3', 'YAHARD-BEAT0167_FEEL')">
+                    <span class="font-bold flex items-center gap-2">
+                      <div
+                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
+                      </div>BEAT0167_FEEL
+                    </span>
+                    <span class="font-mono text-xs opacity-50">WAV</span>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
+                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0176_FRI8PM.mp3', 'YAHARD-BEAT0176_FRI8PM')">
+                    <span class="font-bold flex items-center gap-2">
+                      <div
+                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
+                      </div>BEAT0176_FRI8PM
+                    </span>
+                    <span class="font-mono text-xs opacity-50">WAV</span>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
+                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0265_TUE11PM.mp3', 'YAHARD-BEAT0265_TUE11PM')">
+                    <span class="font-bold flex items-center gap-2">
+                      <div
+                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
+                      </div>BEAT0265_TUE11PM
+                    </span>
+                    <span class="font-mono text-xs opacity-50">WAV</span>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
+                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0345_VISIONS.mp3', 'YAHARD-BEAT0345_VISIONS')">
+                    <span class="font-bold flex items-center gap-2">
+                      <div
+                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
+                      </div>BEAT0345_VISIONS
+                    </span>
+                    <span class="font-mono text-xs opacity-50">WAV</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="position: absolute; bottom: -20px; right: 0; width: 20px; height: 20px; border: 1px solid rgba(0,0,0,0.3);">
+          </div>
+          <div style="position: absolute; bottom: -45px; right: 0; width: 20px; height: 20px; background: black;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Section: PROJECTS -->
+    <section id="section-projects"
+      class="absolute inset-0 w-full h-[100dvh] flex flex-col justify-between items-center text-white transition-all duration-700 ease-in-out origin-center overflow-hidden"
+      x-bind:class="activeSection === 'projects' ? 'opacity-100 pointer-events-auto z-20' : 'opacity-0 pointer-events-none z-0'"
+      style="background-image: url('assets/download.png'); background-size: cover; background-position: center;">
+      <!-- Dark overlay -->
+      <div class="absolute inset-0 bg-black/[.59] z-0 pointer-events-none transition-all duration-500"
+        id="projects-overlay"></div>
+
+      <!-- Content Container -->
+      <div
+        class="relative z-10 w-full h-[100dvh] max-w-[95rem] px-2 max-md:px-[4%] md:px-8 grid max-md:grid-rows-[26dvh_6dvh_28dvh_1fr] md:grid-rows-[auto_auto_auto] md:place-content-center items-center md:py-0 md:gap-y-14 overflow-hidden translate-y-[3%]"
+        id="projects-content">
+
+        <!-- Nível 1: Services & Skills (Top Third) -->
+        <div
+          class="max-md:row-start-1 md:row-start-1 flex flex-col items-center max-md:justify-center md:justify-end w-full px-2 max-md:scale-[0.88] md:scale-[1.18] lg:scale-[1.18] transition-all duration-300 max-md:pt-[8dvh] select-none">
+            <div class="flex flex-wrap justify-center gap-x-4 md:gap-x-6 max-md:gap-y-3 md:gap-y-2" style="-webkit-user-select: none; user-select: none;">
+              <span
+                class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
+                data-node="ai-automation">AI AUTOMATION</span>
+              <span
+                class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
+                data-node="data-engineering">DATA ENGINEERING</span>
+              <span
+                class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
+                data-node="full-stack-development">FULL-STACK DEVELOPMENT</span>
+              <span
+                class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
+                data-node="enterprise-architecture">ENTERPRISE ARCHITECTURE</span>
+              <span
+                class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
+                data-node="audio-engineering-sound-design">AUDIO ENGINEERING & SOUND DESIGN</span>
+              <span
+                class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
+                data-node="autonomous-agents">AUTONOMOUS AGENTS & RAG SYSTEMS</span>
+            </div>
+        </div>
+        <!-- Nível 2: Tech Stack (Middle Third) -->
+        <div class="max-md:row-start-3 md:row-start-2 flex items-center justify-center w-full md:scale-[1.18] lg:scale-[1.18] select-none max-md:translate-y-[1%]" style="-webkit-user-select: none; user-select: none;">
+          <div class="flex flex-wrap justify-center gap-2 md:gap-3 max-w-4xl mx-auto w-full px-1 transition-transform scale-[0.83] md:scale-[0.83] origin-center md:origin-top">
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="python"><i class="fab fa-python text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">PYTHON</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="crewai"><i class="fas fa-robot text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">CREWAI</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="langchain"><i class="fas fa-link text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">LANGCHAIN</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="gemini"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M24 12c-6.627 0-12-5.373-12-12 0 6.627-5.373 12-12 12 6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12z" />
+              </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">GEMINI</span>
+            </div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="openai"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.073zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0985 4.2104l-5.8617-3.3827 2.0152-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.3784-.6718zM8.5209 4.3312a4.4992 4.4992 0 0 1 6.1313-1.6464l-.142.0852-4.783 2.7582a.7712.7712 0 0 0-.7806 0L3.1037 8.8967V6.5643a.0804.0804 0 0 1 .0332-.0615l4.384-2.1716zm9.8456-1.1542a4.4755 4.4755 0 0 1 2.8764 1.0408l-.1419.0804-4.7783 2.7582a.7948.7948 0 0 0-.3927.6813v6.7369l-2.02-1.1686a.071.071 0 0 1-.038-.052V7.6713a4.504 4.504 0 0 1 4.4945-4.4944zM10.74 12.0135l2.42-1.4 2.4247 1.4v2.8188l-2.4248 1.4-2.42-1.4z" />
+              </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">OPENAI</span>
+            </div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="postgresql"><i class="fas fa-database text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">POSTGRESQL</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="mongodb"><i class="fas fa-leaf text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">MONGODB</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="react"><i class="fab fa-react text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">REACT</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="vector-db"><i class="fas fa-vector-square text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">VECTOR DB</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="playwright"><i class="fas fa-theater-masks text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">PLAYWRIGHT</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="aws"><i class="fab fa-aws text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">AWS</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="docker"><i class="fab fa-docker text-sm md:text-lg"></i><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">DOCKER</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="monday-com"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M11.666 4.603C11.666 2.059 13.725 0 16.273 0c2.544 0 4.604 2.059 4.604 4.603v15.253a.92.92 0 0 1-.922.922h-2.76A.92.92 0 0 1 16.274 19.855V8.286c0-1.02-.821-1.841-1.841-1.841h-.002c-1.018 0-1.84.821-1.84 1.841v11.569a.92.92 0 0 1-.921.922H8.911a.92.92 0 0 1-.922-.922V8.286c0-1.02-.822-1.841-1.842-1.841s-1.84.821-1.84 1.841v11.569a.92.92 0 0 1-.923.922H.921A.92.92 0 0 1 0 19.855V4.604C0 2.06 2.06 0 4.604 0s4.603 2.06 4.603 4.604v4.463c.48-2.618 2.378-4.463 4.921-4.463 1.579 0 2.91.802 3.81 2.057a4.568 4.568 0 0 0 3.73-2.058Z"
+                  fill-rule="evenodd" clip-rule="evenodd" />
+              </svg><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">MONDAY.COM</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="servicenow"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M12.28 0a11.96 11.96 0 00-6.102 1.63L9.623 7.641a4.956 4.956 0 012.394-.61H12.28a4.958 4.958 0 014.288 2.45h7.025a11.972 11.972 0 00-11.312-9.48zm-8.86 3.018a11.942 11.942 0 00-3.376 9.424 11.996 11.996 0 006.772 9.07l3.6-5.835A4.975 4.975 0 018.3 12.378a4.953 4.953 0 011.666-3.743L6.463 2.872a11.895 11.895 0 00-3.044.146zm17.47.469l-3.535 5.86a4.95 4.95 0 011.9 3.031c.228 1.488-.2 3.035-1.288 4.1l3.52 5.952a11.95 11.95 0 00-.598-18.943zm-10.468 15.65h-.008a4.966 4.966 0 01-4.218-2.327l-6.91 1.096a11.963 11.963 0 0011.085 6.094l.215-.008a11.972 11.972 0 006.012-1.571l-3.328-6.1a4.956 4.956 0 01-2.848.816z" />
+              </svg><span
+                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">SERVICENOW</span></div>
+            <div
+              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+              data-node="ableton-live"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M0 6.4v1.6h1.6V6.4H0zm0 4v1.6h1.6v-1.6H0zm0 4v1.6h1.6v-1.6H0zm3.2-8v1.6h1.6V6.4H3.2zm0 4v1.6h1.6v-1.6H3.2zm0 4v1.6h1.6v-1.6H3.2zm3.2-8v1.6h1.6V6.4H6.4zm0 4v1.6h1.6v-1.6H6.4zm0 4v1.6h1.6v-1.6H6.4zm3.2-8v1.6h1.6V6.4H9.6zm0 4v1.6h1.6v-1.6H9.6zm0 4v1.6h1.6v-1.6H9.6zM14.4 6.4v8h1.6V8h1.6v6.4h1.6V8h1.6v6.4h1.6V8h1.6v6.4C24 16.16 22.56 16 22.56 16H14.4V6.4z" />
+              </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">ABLETON
+                LIVE</span></div>
+          </div>
+        </div>
+
+        <!-- Nível 3: Project Squares (Bottom on Mobile) -->
+        <div
+          class="max-md:row-start-4 md:row-start-3 flex flex-col justify-start items-center w-full pb-6 md:pb-0 max-md:scale-[0.94] md:scale-[1.18] transition-transform">
+          <!-- Zone Azul -->
+          <div class="flex flex-wrap justify-center gap-2 md:gap-8 w-full content-center px-1 md:scale-[1.14] max-md:scale-[1.07] origin-center transition-transform">
+            <!-- Beatmatch AI -->
+            <div
+              class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] md:max-w-[170px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
+              data-node="beatmatch-ai">
+              <!-- Clickable Center Area -->
+              <div class="absolute inset-[15%] md:inset-[20%] z-20 cursor-pointer rounded-lg" onclick="openProjectModal('BEATMATCH AI')"></div>
+              <img src="assets/project_cover_1.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span
+                class="relative z-10 font-sans font-black text-[11px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;">BEATMATCH<br />AI</span>
+            </div>
+            <!-- Quality Ops Agent -->
+            <div
+              class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
+              data-node="quality-ops-agent">
+              <!-- Clickable Center Area -->
+              <div class="absolute inset-[15%] md:inset-[20%] z-20 cursor-pointer rounded-lg" onclick="openProjectModal('INTERNAL SUPPORT RAG AGENT')"></div>
+              <img src="assets/project_cover_2.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span
+                class="relative z-10 font-sans font-black text-[9px] sm:text-[11px] md:text-[13px] lg:text-[14px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;">INTERNAL<br />SUPPORT<br />RAG
+                AGENT</span>
+            </div>
+            <!-- Enterprise Orchestration -->
+            <div
+              class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
+              data-node="enterprise-orchestration">
+              <!-- Clickable Center Area -->
+              <div class="absolute inset-[15%] md:inset-[20%] z-20 cursor-pointer rounded-lg" onclick="openProjectModal('ENTERPRISE ORCHESTRATION & ECOSYSTEMS')"></div>
+              <img src="assets/project_cover_3.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span
+                class="relative z-10 font-sans font-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[13px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;">ENTERPRISE<br />ORCHESTRATION<br />&
+                ECOSYSTEMS</span>
+            </div>
+            <!-- Scraper Automation -->
+            <div
+              class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
+              data-node="scraper-automation">
+              <!-- Clickable Center Area -->
+              <div class="absolute inset-[15%] md:inset-[20%] z-20 cursor-pointer rounded-lg" onclick="openProjectModal('AI-DRIVEN WEB SCRAPER AUTOMATION')"></div>
+              <img src="assets/project_cover_4.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span
+                class="relative z-10 font-sans font-black text-[9px] sm:text-[10px] md:text-[12px] lg:text-[13px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 break-words hyphens-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;">AI-DRIVEN<br />WEB
+                SCRAPER<br />AUTOMATION</span>
+            </div>
+            <!-- Beats & Custom -->
+            <div
+              class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
+              data-node="beats-custom">
+              <!-- Clickable Center Area -->
+              <div class="absolute inset-[15%] md:inset-[20%] z-20 cursor-pointer rounded-lg" onclick="openProjectModal('BEATS & CUSTOM MUSIC PROJECTS')"></div>
+              <img src="assets/project_cover_5.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <span
+                class="relative z-10 font-sans font-black text-[10px] sm:text-[11px] md:text-[13px] lg:text-[14px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;">BEATS
+                &<br />CUSTOM<br />MUSIC PROJECTS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Base Structure -->
+    <div id="project-modal"
+      class="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
+      <div class="absolute inset-0 bg-black/70 backdrop-blur-md cursor-pointer" onclick="closeProjectModal()"></div>
+      <div
+        class="relative w-[95%] md:w-[90%] max-w-5xl h-[85vh] md:h-[75vh] bg-black/85 border border-white/20 shadow-2xl rounded-xl flex flex-col transform scale-95 transition-transform duration-300 ease-out overflow-hidden"
+        id="project-modal-content">
+        <!-- Background Image -->
+        <img src="assets/39863a28c07047563e4e8ba9672d1bad.jpg" alt="Modal Background" class="absolute inset-0 w-full h-full object-cover opacity-30 pointer-events-none mix-blend-lighten z-0" />
+        
+        <!-- Header -->
+        <div class="flex justify-between items-center p-4 md:p-6 border-b border-white/20 shrink-0 z-10 bg-black/40 backdrop-blur-sm relative">
+          <h3 id="modal-title" class="text-xl md:text-3xl font-sans font-black tracking-widest uppercase text-[#fffacd] drop-shadow-md leading-tight">PROJECT NAME
+          </h3>
+          <button onclick="closeProjectModal()" class="text-white/50 hover:text-white transition-colors cursor-pointer shrink-0 ml-4 p-2">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+        <!-- Body -->
+        <div id="modal-inner-content"
+          class="w-full flex-1 overflow-hidden relative text-white flex flex-col p-4 md:p-8 bg-black/40 z-10 backdrop-blur-sm">
+          <i class="fas fa-database text-4xl text-white/20 mb-4 animate-pulse"></i>
+          <p class="font-mono tracking-widest text-white/40 text-sm">AWAITING PROJECT DETAILS UPLINK...</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- WWWAV Modal -->
+    <div id="wwwav-modal"
+      class="fixed inset-0 z-[100] flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-300">
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-md cursor-pointer" onclick="closeWwwavModal()"></div>
+      <div
+        class="relative w-[95%] md:w-[85%] max-w-5xl h-[90vh] bg-[#111] border border-white/10 shadow-2xl flex flex-col transform scale-95 transition-transform duration-300 ease-out"
+        id="wwwav-modal-content">
+        <!-- Header -->
+        <div class="flex justify-between items-center p-6 border-b border-white/10 shrink-0">
+          <h3 class="text-2xl font-sans font-black tracking-widest uppercase text-[#fffacd]">WWWAV ARTICLE
+          </h3>
+          <button onclick="closeWwwavModal()" class="text-white/50 hover:text-white transition-colors cursor-pointer">
+            <i class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+        <!-- Body/Scroll Area -->
+        <div
+          class="w-full flex-1 text-white/90 font-sans article-body leading-relaxed relative overflow-hidden flex flex-col">
+          <!-- Fixed Background Image -->
+          <div class="absolute inset-0 z-0" style="background-image: url('assets/b012d85961bf24e3af7b2ba2c7b474fe.jpg'); background-size: cover; background-position: center; background-attachment: fixed;"></div>
+          <div class="absolute inset-0 z-0 bg-black/80"></div>
+          <!-- Sticky Article Header -->
+          <div class="relative z-10 shrink-0 p-6 md:p-12 pb-4 md:pb-6 border-b border-white/10 bg-black/60 backdrop-blur-sm">
+            <h1
+              class="text-4xl md:text-6xl font-sans font-black mb-2 tracking-tighter text-[#fffacd] uppercase leading-none"
+              style="font-family: Arial, Helvetica, sans-serif;">2016: O ÚLTIMO AUGE DA MÚSICA</h1>
+            <p class="text-white/60 font-mono text-sm tracking-widest uppercase">Um top 10 dos álbuns que continuam
+              sendo influência nesses últimos 10 anos</p>
+          </div>
+          <!-- Scrollable Article Body -->
+          <div class="relative z-10 flex-1 overflow-y-auto p-6 md:p-12 pt-6 md:pt-8">
+
+          <p class="mb-6 text-lg">2016 foi um ano que eu sempre soube que iria marcar desde quando começou, mas não
+            sabia que seria um ano que duraria pelo menos uma década. Isso se deve muito ao fato dos álbuns desse ano
+            terem influenciado tudo que veio depois. Possivelmente, foram os últimos álbuns que realmente valem a pena
+            nesses últimos 10 anos.</p>
+
+          <p class="mb-12 text-lg">Com certeza isso transforma 2016 no último ano que tivemos tantos álbuns absurdamente
+            bons saindo de uma vez só. Precisamos de 10 anos mesmo pra saber o valor do que eles fizeram com uma década
+            que até então não existia, e agora temos o recorte exato pra ter noção. Eu ainda acho que 2016 entregou o
+            que existe de melhor na música até hoje.</p>
+
+          <!-- 10 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">10. PARTYNEXTDOOR - PARTYNEXTDOOR 3 (P3)</h2>
+          <img src="assets/10_PARTYNEXTDOOR_P3.webp" alt="P3 Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-12 text-lg">Você já ouviu falar em trapsoul, e provavelmente sabe que é o nome do álbum do Bryson
+            Tiller de 2015, o que não deixa de ser importante pro gênero. Mas se alguém considera trapsoul uma
+            sonoridade de fato, ela vem do P3. Aquele beat sombrio se arrastando, casando R&B com trap de forma bem
+            etérea pelo álbum com aquele hi-hat gostoso, sample revertido delícia... Tracks clássicas como Come and See
+            Me e Don't Run são o puro DNA de artistas como Summer Walker, 6lack e de várias fases do próprio Drake.</p>
+
+          <!-- 9 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">9. Isaiah Rashad - The Sun's Tirade</h2>
+          <img src="assets/9_Isaiah_Rashad_The_Suns_Tirade.webp" alt="The Sun's Tirade Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-12 text-lg">O próprio Kendrick Lamar, que tá nesse álbum, tem que admitir que nesse aqui o Isaiah
+            Rashad elevou o nível de jazz e bossa no rap. Aquela pegada que você já pega de J Dilla com Slum Village, de
+            Common em Be produzida inteira pelo Kanye. Toda essa energia gostosinha de jazz rap pra relaxar tá nesse
+            álbum. O Isaiah Rashad consegue colocar uma sequência inicial impecável de álbum clássico. Mantém aquela
+            vibe de filme bom de rever. E não dá pra deixar de citar o single principal mesmo, porque essa música é de
+            fato excelente: 4r Da Squaw.</p>
+
+          <!-- 8 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">8. Kanye West - The Life of Pablo</h2>
+          <img src="assets/8_Kanye_West_The_Life_of_Pablo.webp" alt="TLOP Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-4 text-lg">Vai ter fã de Kanye West me xingando aqui, mas devo te lembrar que ninguém melhor que
+            eu pra falar de Kanye West e afirmo: este álbum sequer estar aqui já mostra o impacto do cara. O impacto de
+            lançar um álbum nem tão redondinho assim, mas que ao mesmo tempo é importante e bom o suficiente pra não
+            ficar de fora desse top 10 com todos esses monstros. Fez sentido? Enfim... Ele faz com maestria a pegada de
+            continuar unindo estilos dentro de um álbum e deixar isso coeso, só que aqui ele passou a transformar isso
+            com peças realmente distintas. Músicas que ele pegou da época do Yeezus, músicas recentes, músicas do
+            projeto gospel que ele tava preparando.</p>
+          <p class="mb-12 text-lg">E ele orquestrou isso como um espetáculo. Aquele momento histórico do desfile da
+            Yeezy com a audição do álbum no Madison Square Garden. Aquele vídeo clássico do entusiasmo do Kanye e o Cudi
+            mostrando Father Stretch My Hands pela primeira vez ao público. Esse álbum realmente tá longe de ser meu
+            favorito dele, mas significou uma nova era pra uma galera. Significou a volta do Kanye West pra uma geração
+            nova que popularizou os Yeezys, fez parte daquela turnê absurdamente insana e marcou mais uma forma de
+            artistas construírem álbuns e fazerem shows, como todo projeto do Kanye West. Merece estar aqui.</p>
+
+          <!-- 7 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">7. Drake - Views</h2>
+          <img src="assets/7_Drake_Views.webp" alt="Views Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-4 text-lg">Se o Drake tem um álbum realmente bom, é esse aqui. Lembro como 2016 foi um ano
+            diferente. Foi o ano que eu comecei a realmente aproveitar melhor a Ilha. E nesse período foram muitos rolês
+            de carro com o Rafiki. Mas na época o carro dele tinha um player que só aceitava CD. Resolvi comprar de
+            natal o Views original pra ele. Todo rolê era esse álbum direto.</p>
+          <p class="mb-12 text-lg">Como a própria temática do disco propõe, tem música que serve pro dia, tem música que
+            serve pra de noite. Tem muitas camadas boas nos samples. Camadas que depois foram ficando mais genéricas na
+            carreira dele, mas que nesse álbum ainda eram muito naturais. Eu sou o primeiro a falar mal do Drake, mas
+            esse álbum aqui é bom. Mesmo.</p>
+
+          <!-- 6 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">6. Bon Iver - 22, A Million</h2>
+          <img src="assets/6_Bon_Iver_22_A_Million.webp" alt="22 A Million Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-4 text-lg">Depois de contribuir na sonoridade de 2 álbuns do Kanye West, o Justin Vernon decidiu
+            criar o álbum experimental, porém muito bem feito do Bon Iver... como se Bon Iver já não fosse assim o
+            suficiente. É clara a influência do som distorcido e glitch do Yeezus na estrutura desse álbum e isso é
+            maravilhoso. É basicamente o Bon Iver transformando folk — algo completamente voltado ao som acústico — em
+            elementos distorcidos, eletrônicos, samples. Algo digno de quem é extremamente talentoso musicalmente e
+            passou um tempo com o Kanye pra deixar tudo em outro nível.</p>
+          <p class="mb-12 text-lg">Gosto muito de várias músicas desse álbum e principalmente de como elas são
+            construídas. Cada música tem algum elemento de destaque que ele usa de forma bem específica. 33 "GOD" é uma
+            track muito bem construída e representa bem a capacidade do Justin. 715 - CR∑∑KS tem aquela pegada clássica
+            de auto-tune só que o instrumento é a própria voz dele que ele controla as notas pelo sintetizador. Sem
+            contar a influência evidente de outro amigo dele que é o responsável pelo próximo álbum da lista.</p>
+
+          <!-- 5 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">5. James Blake - The Colour in Anything</h2>
+          <img src="assets/5_James_Blake_The_Colour_in_Anything.webp" alt="The Colour In Anything Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-4 text-lg">Tecnicamente não seria o melhor álbum do James Blake, mas é o meu favorito por como
+            ele tem noção do que é capaz de fazer e usa isso da melhor forma. Parece que ele cansou de ser esse grande
+            bagunçador da matrix musical e tá tentando ser mais normal. Mas aqui foi o auge dele nisso. Tem tracks
+            incríveis como Timeless, Points, Radio Silence. O álbum inteiro carrega bem a vibe James Blake, no limite
+            pra não parecer que ele tá imitando a si mesmo no lugar de realmente criar.</p>
+          <p class="mb-12 text-lg">Talvez seja por isso que é o auge e por isso ele não fez mais esse som. Artistas como
+            Sevdaliza, Billie Eilish e outros dessa mesma lista são influenciados (inclusive eu) por essa sonoridade que
+            só o James Blake fez tão bem. E aqui ele bateu o auge disso em um álbum com uma quantidade considerável de
+            tracks pra aproveitar essa primeira grande fase dele.</p>
+
+          <!-- 4 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">4. Solange - A Seat at the Table</h2>
+          <img src="assets/4_Solange_A_Seat_at_the_Table.webp" alt="A Seat at the Table Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-4 text-lg">Agora a coisa tá começando a ficar muito pesada. Esse álbum é excelente. Tão excelente
+            que na época a Pitchfork colocou acima do meu primeiro colocado. Eu só não acho que ele tenha o mesmo peso
+            que os seguintes por gosto meu, mas é simplesmente impecável o que a Solange faz no instrumental, no
+            conceito, na sonoridade e no design inteiro desse álbum.</p>
+          <p class="mb-12 text-lg">O mundo sempre vai amar mais a Beyoncé e tá tudo bem, grande artista também. Mas acho
+            a Solange gênia, e nesse álbum ela trouxe muito fundamento musical, muita qualidade na gravação e muita
+            qualidade na identidade tanto na sonoridade quanto na narrativa entre as faixas. Nunca é uma hora ruim pra
+            apreciar esse álbum aqui.</p>
+
+          <!-- 3 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">3. Frank Ocean - Endless</h2>
+          <img src="assets/3_Frank_Ocean_Endless.webp" alt="Endless Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-4 text-lg">"Ah, mas 2 álbuns do Frank Ocean na lista?" Meu amigo, esses 2 álbuns foram um
+            acontecimento! 2 dias antes do evidente primeiro colocado, o cara lançou isso aqui em formato de filme. E é
+            um daqueles álbuns gostosos que te pegam de rasteira total. Primeiro você acha muito estranho, quando
+            percebe não consegue mais parar de ouvir e tudo começa a fazer muito sentido.</p>
+          <p class="mb-12 text-lg">A imperfeição desse álbum é perfeita. Pra você ver como esse ano foi foda, 3 álbuns
+            que mexeram tanto com essa transição de perfeição com imperfeição: Endless, 22 A Million, e The Colour in
+            Anything. E no Endless, pra mim, acaba sendo o mais marcante porque o Frank Ocean conseguiu mesmo unir essa
+            influência de Kid A e Yeezus para a versão "monge sábio" dele. Sim, às vezes eu enxergo a música do Frank
+            Ocean como a de um monge de uma montanha que você vai pra ouvir essas músicas, meditar e ter respostas ou
+            mais perguntas pra sua vida. E cara, de fato acaba sendo isso com várias tracks. U-N-I-T-Y extrai muito essa
+            vibe que tá em toda a carreira do Frank Ocean de uma das minhas formas favoritas. Esse álbum é uma viagem
+            que eu acompanhei bem durante esses 10 anos, não podia deixar de estar aqui em cima.</p>
+
+          <!-- 2 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">2. BK' - Castelos & Ruínas</h2>
+          <img src="assets/2_BK_Castelos_e_Ruinas.webp" alt="Castelos e Ruínas Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-4 text-lg">Fale qualquer álbum nacional mais relevante que esse nos últimos 20 anos ou mais e
+            falhe miseravelmente. Pensa aí, vou deixar tu pensar... vai... conseguiu? Pois é né, tá aí o tamanho do
+            impacto disso aqui.</p>
+          <p class="mb-4 text-lg">Como o próprio BK já disse: ele pode passar a carreira toda só cantando esse álbum e
+            tá tudo bem, tá feito como todo outro artista das antigas que faz isso. Podem ter álbuns excelentes e
+            realmente tem, mas não consigo imaginar nenhum álbum de rap ou não que tenha o mesmo peso e representou
+            tanto quanto o Castelos & Ruínas não só nos últimos 10 anos. Como bom fã de Jay-Z, BK conseguiu construir
+            uma história coesa entre ser fiel às origens cariocas e querer a vida boa que os artistas internacionais
+            têm.</p>
+          <p class="mb-12 text-lg">O Bloco 7 nessa época teve noção da importância da cena respirando e existindo no RJ
+            e no Brasil, podendo ser sexy ao público do mesmo jeito que a gente sempre teve que apenas ver nos clipes
+            americanos e não viver. Porque o Brasil sempre esteve nessa visão de terceiro mundo e de que o rap aqui só
+            serve pra reclamar. O BK veio pra mostrar que ele quer é botar o pé na porta do sistema e tomar o lugar
+            dele, e isso revolucionou toda uma geração que acordou pra viver o rap no Brasil.</p>
+
+          <!-- Menção -->
+          <p class="mb-12 text-lg text-white/50 italic">Menção Honrosa: [Espaço para o texto do álbum]</p>
+
+          <!-- 1 -->
+          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">1. Frank Ocean - Blonde</h2>
+          <img src="assets/1_Frank_Ocean_Blonde.webp" alt="Blonde Album Cover"
+            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
+          <p class="mb-4 text-lg">Esse aqui é absurdo, não tem jeito. Eu já sabia que esse álbum ia marcar uma geração
+            inteira no momento que saiu. A sonoridade avant-garde, essa vibe dream-like que ele trouxe nas tracks, essa
+            capacidade de falar de sentimentos que as pessoas escolhem não falar mas todos sabemos que sentimos.</p>
+          <p class="mb-12 text-lg">Formas de lidar com relacionamentos atuais, passados, confusos, formas de entender as
+            mudanças que o mundo estava começando a passar naquele momento, formas que a sociedade tava tentando se
+            entender e se perdendo. Tudo isso vem forte nesse álbum da melhor forma possível. Frank Ocean resolveu
+            elevar o nível das suas composições e realmente fez uma obra que já nasceu clássica e continua sendo o
+            melhor álbum lançado desde então. Meio difícil bater o que esse álbum conseguiu fazer dentro do que se
+            propõe e no que influenciou não só no som, mas até no design e assuntos abordados. Alguns assuntos que
+            parecem normais hoje, ele abordou de forma diferente nesse álbum enquanto abria sobre o que aprendeu da
+            vida.</p>
+
+          <!-- Menções Honrosas -->
+          <div class="mt-12 pt-6 border-t border-white/10">
+            <h3 class="text-sm font-mono font-bold mb-3 tracking-widest text-[#fffacd]/70 uppercase">Menções Honrosas</h3>
+            <p class="text-base text-white/50 font-sans italic leading-relaxed">Beyoncé — Lemonade · David Bowie — Blackstar · Radiohead — A Moon Shaped Pool · Danny Brown — Atrocity Exhibition</p>
+          </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- New Section: WWWAV -->
+    <section id="section-wwwav"
+      class="absolute inset-0 w-full h-[100dvh] flex flex-col justify-center items-center text-white transition-all duration-700 ease-in-out origin-center overflow-hidden"
+      x-bind:class="activeSection === 'wwwav' ? 'opacity-100 pointer-events-auto z-20' : 'opacity-0 pointer-events-none z-0'"
+      style="background-image: url('assets/wwwav_background.webp'); background-size: cover; background-position: center;">
+      <!-- Dark overlay to ensure text readability -->
+      <div class="absolute inset-0 bg-black/60 z-0 pointer-events-none"></div>
+
+      <!-- Centered content wrapper -->
+      <div class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
+        <!-- Logo Container -->
+        <div class="relative flex justify-center items-center w-full max-md:max-w-[340px] md:max-w-[400px] max-md:scale-[0.85] md:scale-[1.17] mb-4 md:mb-6 max-md:-mt-[13%] md:-mt-[4%]">
+          <!-- Base Layer Logo (behind) -->
+          <img src="assets/Logo_wwwav_final.webp" alt="WWWAV Logo" class="w-full h-auto drop-shadow-2xl relative z-10" />
+          <!-- New Logo in Front -->
+          <img src="assets/wwwav logo 2_nobg.png" alt="WWWAV Logo Layer" class="absolute w-[95%] h-auto z-30 drop-shadow-xl origin-center translate-y-[2%] opacity-90" />
+        </div>
+
+        <!-- Article Card -->
+        <div
+          class="relative flex flex-col w-[80vw] h-[80vw] max-w-[420px] max-h-[420px] md:max-w-[480px] md:max-h-[480px] border border-white/20 cursor-pointer hover:border-white/40 transition-all duration-300 shadow-2xl group overflow-hidden mt-[2%] md:mt-[5%] md:scale-[1.25]"
+          onclick="openWwwavModal()">
+          <!-- Background Image -->
+          <div
+            class="absolute inset-0 z-0 bg-cover bg-no-repeat bg-center transition-transform duration-700 group-hover:scale-105"
+            style="background-image: url('assets/album_cover_blend_final_1772312728454.webp');">
+            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-colors duration-300"></div>
+          </div>
+
+          <!-- Content -->
+          <div
+            class="relative z-10 flex flex-col justify-end items-start h-full mix-blend-difference pb-6 px-6 md:pb-8 md:px-8">
+            <h3 class="text-2xl md:text-4xl font-sans font-light tracking-widest text-left leading-tight text-[#fafafa]"
+              style="font-family: Arial, Helvetica, sans-serif;">
+              2016:<br>O ÚLTIMO AUGE<br>DA MÚSICA
+            </h3>
+            <p
+              class="mt-4 text-left text-white/80 font-mono text-[0.65rem] md:text-xs tracking-widest max-w-[250px] md:max-w-[300px]">
+              UM TOP 10 DOS ÁLBUNS QUE CONTINUAM SENDO INFLUÊNCIA NESSES ÚLTIMOS 10 ANOS
+            </p>
+
+            <div class="absolute bottom-6 md:bottom-8 right-6 md:right-8">
+              <p
+                class="font-sans font-normal text-white/40 text-[0.65rem] md:text-xs tracking-[0.3em] group-hover:text-white transition-colors">
+                READ</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Scanlines Effect for entire scroll length -->
+    <div class="scanlines pointer-events-none"
+      style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 100; background: repeating-linear-gradient(to bottom, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 3px); opacity: 0.2;">
+    </div>
+    <!-- BEGIN: Audio Player JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const audio = document.getElementById('bg-audio');
+        const playText = document.getElementById('play-text');
+        const playingIndicator = document.getElementById('playing-indicator');
+        const currentTimeDisplay = document.getElementById('current-time');
+        const durationDisplay = document.getElementById('duration');
+        const progressBarFill = document.getElementById('progress-bar-fill');
+        const playerContainer = document.getElementById('audio-player-container');
+        const trackTitleMarquee = document.getElementById('track-title-marquee');
+
+        let isPlaying = false;
+        let currentTrackIndex = 0;
+
+        const playlist = [
+          { src: 'assets/beats/YAHARD-BEAT0021_DANGER.mp3', title: 'YAHARD-BEAT0021_DANGER' },
+          { src: 'assets/beats/YAHARD-BEAT0089_WIND.mp3', title: 'YAHARD-BEAT0089_WIND' },
+          { src: 'assets/beats/YAHARD-BEAT0167_FEEL.mp3', title: 'YAHARD-BEAT0167_FEEL' },
+          { src: 'assets/beats/YAHARD-BEAT0176_FRI8PM.mp3', title: 'YAHARD-BEAT0176_FRI8PM' },
+          { src: 'assets/beats/YAHARD-BEAT0265_TUE11PM.mp3', title: 'YAHARD-BEAT0265_TUE11PM' },
+          { src: 'assets/beats/YAHARD-BEAT0345_VISIONS.mp3', title: 'YAHARD-BEAT0345_VISIONS' }
+        ];
+
+        // Format time helper
+        const formatTime = (timeInSeconds) => {
+          if (isNaN(timeInSeconds)) return "0:00";
+          const minutes = Math.floor(timeInSeconds / 60);
+          const seconds = Math.floor(timeInSeconds % 60);
+          return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        };
+
+        const loadTrack = (index) => {
+          const track = playlist[index];
+          audio.src = track.src;
+          if (trackTitleMarquee) {
+            trackTitleMarquee.textContent = `${track.title} \\ ${track.title} \\ ${track.title} \\ ${track.title} \\ `;
+          }
+        };
+
+        const togglePlay = () => {
+          if (isPlaying) {
+            audio.pause();
+            playText.innerHTML = '<i class="fas fa-play"></i>';
+            playingIndicator.style.opacity = '0';
+          } else {
+            audio.play().then(() => {
+              playText.innerHTML = '<i class="fas fa-pause"></i>';
+              playingIndicator.style.opacity = '1';
+            }).catch(e => console.error("Error playing audio:", e));
+          }
+          isPlaying = !isPlaying;
+        };
+
+        playerContainer.addEventListener('click', togglePlay);
+
+        window.playNextTrack = (e) => {
+          if (e) e.stopPropagation();
+          currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+          loadTrack(currentTrackIndex);
+
+          audio.play().then(() => {
+            isPlaying = true;
+            playText.innerHTML = '<i class="fas fa-pause"></i>';
+            playingIndicator.style.opacity = '1';
+          }).catch(err => {
+            console.log("Autoplay failed on next track.", err);
+            isPlaying = false;
+            playText.innerHTML = '<i class="fas fa-play"></i>';
+            playingIndicator.style.opacity = '0';
+          });
+        };
+
+        audio.addEventListener('loadedmetadata', () => {
+          durationDisplay.textContent = `-${formatTime(audio.duration)}`;
+        });
+
+        audio.addEventListener('timeupdate', () => {
+          const currentTime = audio.currentTime;
+          const duration = audio.duration;
+          if (duration) {
+            const progressPercent = (currentTime / duration) * 100;
+            progressBarFill.style.width = `${progressPercent}%`;
+            currentTimeDisplay.textContent = formatTime(currentTime);
+            durationDisplay.textContent = `-${formatTime(duration - currentTime)}`;
+          }
+        });
+
+        audio.addEventListener('ended', () => {
+          window.playNextTrack();
+        });
+
+        // Initialize first track
+        loadTrack(currentTrackIndex);
+
+        const attemptAutoplay = () => {
+          audio.play().then(() => {
+            isPlaying = true;
+            playText.innerHTML = '<i class="fas fa-pause"></i>';
+            playingIndicator.style.opacity = '1';
+          }).catch(e => {
+            // Autoplay blocked
+            isPlaying = false;
+            playText.innerHTML = '<i class="fas fa-play"></i>';
+            playingIndicator.style.opacity = '0';
+          });
+        };
+
+        attemptAutoplay();
+
+        // Used by other sections to load specific tracks
+        window.playBeat = (src, title) => {
+          audio.src = src;
+          if (trackTitleMarquee) {
+            trackTitleMarquee.textContent = `${title} \\ ${title} \\ ${title} \\ ${title} \\ `;
+          }
+
+          // Try to update currentTrackIndex if it matches playlist
+          const foundIdx = playlist.findIndex(t => t.src.includes(src));
+          if (foundIdx !== -1) currentTrackIndex = foundIdx;
+
+          audio.play().then(() => {
+            isPlaying = true;
+            playText.innerHTML = '<i class="fas fa-pause"></i>';
+            playingIndicator.style.opacity = '1';
+          }).catch(e => {
+            isPlaying = false;
+            playText.innerHTML = '<i class="fas fa-play"></i>';
+            playingIndicator.style.opacity = '0';
+          });
+        };
+      });
+    </script>
+
+    <!-- CSS for Track Title Marquee -->
+    <style>
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .animate-marquee {
+        animation: marquee 15s linear infinite;
+      }
+    </style>
+
+
+
+    <!-- Script for Projects Interactions & Graph Logic -->
+    <script data-purpose="projects-interaction-logic">
+      // 1. Modal Logic
+      const projectModal = document.getElementById('project-modal');
+      const projectModalTitle = document.getElementById('modal-title');
+      const modalInnerContent = document.getElementById('modal-inner-content');
+
+      const projectData = {
+        'BEATMATCH AI': {
+          tech: 'Python, LLMs, Data Analytics, Automation.',
+          links: '<a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_ai-cybersecurity-socialengineering-activity-7408952949789548544-QQ1j" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6">LinkedIn Post</a> <a href="#" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 text-white/50">GitHub Repository: [Insert Link Here]</a>',
+          desc: `
+            <p class="mb-4">BeatMatchAI is a SaaS platform that connects music producers with artists. The music industry has a lot of scattered data, making it hard for beatmakers to find the right artists to work with. To solve this, I built a system that analyzes musical styles and catalogs automatically.</p>
+            <p class="mb-4">It matches the producer's beats with the artist's vibe using Artificial Intelligence. I used Python for the backend and LLMs to understand the data. Instead of spending hours sending messages on Instagram, producers can use this tool to find their target audience. It is currently in the final development stages and will launch soon.</p>
+          `
+        },
+        'INTERNAL SUPPORT RAG AGENT': {
+          tech: 'Python, Google Gemini 2.5 Flash, LangChain (LCEL), CrewAI, ChromaDB, RAG, Streamlit.',
+          links: '<a href="https://lnkd.in/dmwby9Ac" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">GitHub Repository</a> <a href="https://lnkd.in/exQNEk9G" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">Live Demo</a><br/><a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_github-jraphaelbarbosaqualityops-ai-agent-activity-7406420616100339713-O3BL" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Project Launch)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_ai-langchain-gemini-activity-7408814013322657793-bU-5" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Engineering/LangChain)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_ai-cybersecurity-socialengineering-activity-7408952949789548544-QQ1j" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mb-2 inline-block">LinkedIn (Security Test)</a>',
+          desc: `
+            <p class="mb-4">QualityOps is an AI agent created to automate Quality Assurance (QA) in Call Centers. Usually, humans can only audit about 2% of support calls, which leaves big security risks. This project audits 100% of the chats in real-time to ensure agents follow the rules, like PIN validation and data protection (PII).</p>
+            <p>I started building it with CrewAI, but to make it faster, I rebuilt the backend using LangChain (LCEL) and Google Gemini 2.5 Flash. This reduced the response time to under 2 seconds. It also uses RAG with ChromaDB to read company rules and teach human agents how to correct their mistakes, acting like a digital supervisor.</p>
+          `
+        },
+        'ENTERPRISE ORCHESTRATION & ECOSYSTEMS': {
+          tech: 'ServiceNow SDK v4, Monday.com API (GraphQL), TypeScript, Python, GIS, OpenAI.',
+          links: '<a href="https://lnkd.in/dAJg7Dea" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">Monday.com GitHub Repo</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_python-mondaycom-ai-activity-7417706757235523584-TFXW" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Monday AI Phase 1)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_python-mondaycom-realestatetech-activity-7419363617059483648-hq42" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Monday GIS Phase 2)</a> <br/> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_servicenow-servicenowdeveloper-ai-activity-7423016023693389824-pNEz" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 inline-block">LinkedIn (ServiceNow SDK)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_servicenow-servicenowdeveloper-solutionarchitecture-activity-7424082137626271744-opr-" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 inline-block">LinkedIn (ServiceNow Showcase)</a>',
+          desc: `
+            <p class="mb-4">This section highlights two enterprise-level solutions built to fix slow manual work. The first is an AI Real Estate Underwriter for Monday.com. I built a Python backend that takes property data, finds the GPS coordinates (GIS), calculates the Return on Investment (ROI), and uses OpenAI to score the deal. It updates the Monday.com board automatically via GraphQL.</p>
+            <p>The second project is the EDX Academic System, a complex school management app built in ServiceNow. Instead of using basic point-and-click tools, I used the ServiceNow SDK v4 (Fluent) and AI to write the code outside the platform. This allowed me to create automated grade calculations and strict security rules much faster and with better control.</p>
+          `
+        },
+        'AI-DRIVEN WEB SCRAPER AUTOMATION': {
+          tech: 'Python, Playwright, Network Interception (JSON), Spotify/YouTube APIs, OpenAI.',
+          links: '<a href="https://lnkd.in/dr8KEhUR" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">ETL Pipeline GitHub</a> <a href="https://lnkd.in/dXmkHGET" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">Spotify Extractor GitHub</a> <br/> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_github-jraphaelbarbosamusic-data-pipeline-activity-7388358646402867200-iG3w" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (ETL Pipeline)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_github-jraphaelbarbosaspotify-artist-instagram-extractor-activity-7399319547910041600-uNny" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Spotify Extractor)</a> <br/> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_python-mondaycom-realestatetech-activity-7419363617059483648-hq42" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 inline-block">LinkedIn (Real Estate Scraper)</a>',
+          desc: `
+            <p class="mb-4">AI systems need good data to work. This project shows how I build automated pipelines to collect that data. For the music industry (BeatMatchAI), I made a Python ETL pipeline that uses Spotify and YouTube APIs to find rising artists. To get their contact info, I created a tool that intercepts network requests to capture hidden JSON data. This perfectly extracts official Instagram links without breaking or failing like traditional web scrapers do.</p>
+            <p>I applied this same logic to the Real Estate market. I built a scraper with Playwright that intercepts internal APIs on property websites to get prices and sales history. Then, OpenAI agents read the text descriptions to automatically find good deals, like houses that need renovation, feeding the data directly into Monday.com.</p>
+          `
+        },
+        'BEATS & CUSTOM MUSIC PROJECTS': {
+          tech: 'Ableton Live, FL Studio, Audio Engineering, Sound Design.',
+          links: '<a href="#" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 text-white/50">Portfolio / Audio Samples: [Insert Link Here]</a>',
+          desc: `
+            <p class="mb-4">I have years of experience working as a freelance music producer, and I offer a wide variety of audio services. My main focus is selling exclusive beats (Trap, Hip-Hop, Electronic), but I also work on complete musical projects. I handle recording instrumentals, creating custom soundtracks, and sound design for digital media.</p>
+            <p>To ensure everything sounds professional, I provide full mixing and mastering services using Ableton Live and FL Studio. Having this hands-on experience in the music industry is exactly what helps me build better software for musicians. Because I work in the audio field daily, I truly understand the real problems that producers and artists face, which makes my AI projects much more effective.</p>
+          `
+        }
+      };
+
+      window.openProjectModal = (title) => {
+        if (!projectModal) return;
+        projectModalTitle.textContent = title;
+
+        const data = projectData[title];
+        if (data) {
+          modalInnerContent.innerHTML = `
+            <div class="w-full flex flex-col h-full">
+              <!-- Fixed Project Header (Tech + Links) — always 20%, never scrolls -->
+              <div class="shrink-0 h-[20%] overflow-hidden pb-2 md:pb-3 mb-2 md:mb-3 border-b border-white/20 flex flex-col justify-center">
+                <!-- Tech Stack -->
+                <div class="mb-1 md:mb-2 w-full">
+                  <h4 class="text-white/60 font-mono text-[9px] md:text-xs tracking-widest uppercase mb-0.5 font-bold">Tech Stack</h4>
+                  <p class="text-[10px] md:text-sm font-sans font-bold text-white shadow-black drop-shadow-md leading-snug">${data.tech}</p>
+                </div>
+                ${data.links ? `
+                <div class="w-full">
+                  <h4 class="text-white/60 font-mono text-[9px] md:text-xs tracking-widest uppercase mb-1 font-bold">Links</h4>
+                  <div class="text-[10px] md:text-xs font-sans flex flex-row flex-wrap gap-x-3 gap-y-1 font-bold drop-shadow-md">${data.links}</div>
+                </div>
+                ` : ''}
+              </div>
+              <!-- Scrollable Description — always 80% -->
+              <div class="flex-1 h-[80%] overflow-y-auto pr-2 md:pr-4 pb-8">
+                <div class="w-full text-sm md:text-base lg:text-lg leading-relaxed font-sans text-white/90 font-medium drop-shadow-md">
+                  ${data.desc}
+                </div>
+              </div>
+            </div>
+          `;
+          // Remove the centered classes purely for content, keep it clean
+          modalInnerContent.classList.remove('items-center', 'justify-center');
+          modalInnerContent.classList.add('items-start', 'justify-start');
+        } else {
+          modalInnerContent.innerHTML = `
+            <div class="flex flex-col items-center justify-center h-full w-full">
+              <i class="fas fa-database text-4xl text-white/20 mb-4 animate-pulse"></i>
+              <p class="font-mono tracking-widest text-white/40 text-sm">AWAITING PROJECT DETAILS UPLINK...</p>
+            </div>
+          `;
+          modalInnerContent.classList.add('items-center', 'justify-center');
+          modalInnerContent.classList.remove('items-start', 'justify-start');
+        }
+
+        projectModal.classList.add('modal-open');
+        document.body.style.overflow = 'hidden'; // prevent background scrolling
+      };
+
+      window.closeProjectModal = () => {
+        if (!projectModal) return;
+        projectModal.classList.remove('modal-open');
+        document.body.style.overflow = '';
+      };
+
+
+
+
+      // WWWAV Modal Logic
+      const wwwavModal = document.getElementById('wwwav-modal');
+
+      window.openWwwavModal = () => {
+        if (!wwwavModal) return;
+        wwwavModal.classList.add('modal-open');
+        document.body.style.overflow = 'hidden'; // prevent background scrolling
+      };
+
+      window.closeWwwavModal = () => {
+        if (!wwwavModal) return;
+        wwwavModal.classList.remove('modal-open');
+        document.body.style.overflow = '';
+      };
+
+      // Add to existing Escape key listener for the project modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (projectModal && projectModal.classList.contains('modal-open')) {
+            closeProjectModal();
+          }
+          if (wwwavModal && wwwavModal.classList.contains('modal-open')) {
+            closeWwwavModal();
+          }
+        }
+      });
+
+      // 2. Hover Connections Graph Logic
+      document.addEventListener('DOMContentLoaded', () => {
+        // Directed graph mapping what each node highlights when hovered
+        const graph = {
+          // Categorias
+          'ai-automation': ['autonomous-agents', 'intelligent-etl', 'python', 'langchain', 'gemini', 'openai', 'monday-com', 'quality-ops-agent', 'scraper-automation'],
+          'data-engineering': ['autonomous-agents', 'intelligent-etl', 'sonic-ai', 'api-orchestration', 'python', 'playwright', 'aws', 'docker', 'enterprise-orchestration', 'beatmatch-ai', 'quality-ops-agent', 'scraper-automation'],
+          'web-app-development': ['full-stack-development', 'api-orchestration', 'beatmatch-ai'],
+          'audio-engineering-sound-design': ['ableton-live', 'beats-custom'],
+          'enterprise-architecture': ['python', 'intelligent-etl', 'api-orchestration', 'langchain', 'vector-db', 'aws', 'monday-com', 'servicenow'],
+
+          // Servicos
+          'autonomous-agents': ['ai-automation', 'data-engineering', 'api-orchestration', 'python', 'langchain', 'crewai', 'gemini', 'openai', 'vector-db', 'aws', 'quality-ops-agent'],
+          'intelligent-etl': ['ai-automation', 'data-engineering', 'api-orchestration', 'python', 'langchain', 'crewai', 'postgresql', 'mongodb', 'beatmatch-ai', 'enterprise-orchestration', 'scraper-automation'],
+          'full-stack-development': ['api-orchestration', 'web-app-development', 'react', 'python', 'aws', 'docker', 'postgresql', 'mongodb', 'beatmatch-ai', 'quality-ops-agent'],
+          'sonic-ai': ['python', 'audio-engineering-sound-design', 'beatmatch-ai', 'gemini', 'openai'],
+          'api-orchestration': ['python', 'enterprise-architecture', 'ai-automation', 'data-engineering', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration'],
+
+          // Tecnologias
+          'python': ['ai-automation', 'data-engineering', 'web-app-development', 'enterprise-architecture', 'autonomous-agents', 'intelligent-etl', 'full-stack-development', 'sonic-ai', 'api-orchestration', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration', 'scraper-automation'],
+          'crewai': ['ai-automation', 'data-engineering', 'enterprise-architecture', 'autonomous-agents', 'intelligent-etl', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration'],
+          'langchain': ['ai-automation', 'data-engineering', 'enterprise-architecture', 'autonomous-agents', 'intelligent-etl', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration'],
+          'gemini': ['ai-automation', 'data-engineering', 'enterprise-architecture', 'autonomous-agents', 'intelligent-etl', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration'],
+          'openai': ['ai-automation', 'data-engineering', 'enterprise-architecture', 'autonomous-agents', 'intelligent-etl', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration'],
+          'postgresql': ['data-engineering', 'web-app-development', 'autonomous-agents', 'intelligent-etl', 'full-stack-development', 'beatmatch-ai'],
+          'vector-db': ['autonomous-agents', 'quality-ops-agent'],
+          'react': ['full-stack-development', 'web-app-development', 'beatmatch-ai'],
+          'playwright': ['ai-automation', 'data-engineering', 'intelligent-etl', 'enterprise-orchestration', 'scraper-automation'],
+          'aws': ['data-engineering', 'full-stack-development', 'enterprise-architecture', 'web-app-development', 'quality-ops-agent', 'enterprise-orchestration'],
+          'docker': ['data-engineering', 'full-stack-development', 'enterprise-architecture', 'intelligent-etl', 'web-app-development', 'beatmatch-ai', 'enterprise-orchestration'],
+          'monday-com': ['enterprise-orchestration', 'scraper-automation', 'data-engineering', 'api-orchestration', 'enterprise-architecture'],
+          'servicenow': ['enterprise-orchestration', 'data-engineering', 'api-orchestration', 'enterprise-architecture'],
+          'ableton-live': ['audio-engineering-sound-design', 'beats-custom'],
+          'mongodb': ['intelligent-etl', 'full-stack-development', 'quality-ops-agent', 'scraper-automation'],
+
+          // Projetos
+          'beatmatch-ai': ['data-engineering', 'full-stack-development', 'sonic-ai', 'api-orchestration', 'python', 'crewai', 'langchain', 'gemini', 'web-app-development', 'autonomous-agents', 'postgresql', 'react', 'vector-db', 'docker'],
+          'quality-ops-agent': ['data-engineering', 'full-stack-development', 'enterprise-architecture', 'autonomous-agents', 'web-app-development', 'sonic-ai', 'api-orchestration', 'python', 'crewai', 'langchain', 'gemini', 'mongodb', 'vector-db'],
+          'enterprise-orchestration': ['monday-com', 'servicenow', 'aws', 'python', 'langchain', 'crewai', 'data-engineering', 'enterprise-architecture', 'api-orchestration'],
+          'scraper-automation': ['ai-automation', 'data-engineering', 'autonomous-agents', 'intelligent-etl', 'api-orchestration', 'python', 'crewai', 'langchain', 'gemini', 'openai', 'mongodb', 'vector-db', 'playwright'],
+          'beats-custom': ['ableton-live', 'audio-engineering-sound-design']
+        };
+
+        const nodes = document.querySelectorAll('.project-node');
+
+        nodes.forEach(node => {
+          let timeoutId = null;
+          let isClickedActive = false;
+
+          const handleEnter = () => {
+            if (isClickedActive) return;
+            const nodeId = node.dataset.node;
+            const connectedList = graph[nodeId] || [];
+            const connectedSet = new Set(connectedList);
+
+            nodes.forEach(other => {
+              const otherId = other.dataset.node;
+              if (otherId === nodeId || connectedSet.has(otherId)) {
+                // Node is active or linked
+                other.classList.remove('project-dimmed');
+                other.classList.add('glow-active');
+              } else {
+                // Not linked
+                other.classList.remove('glow-active');
+                other.classList.add('project-dimmed');
+              }
+            });
+          };
+
+          const handleLeave = () => {
+            if (isClickedActive) return;
+            // Reset all nodes
+            nodes.forEach(other => {
+              other.classList.remove('project-dimmed', 'glow-active');
+            });
+          };
+
+          const handleClick = (e) => {
+            isClickedActive = true;
+            if (timeoutId) clearTimeout(timeoutId);
+            handleEnter(); // Force highlight
+            
+            timeoutId = setTimeout(() => {
+              isClickedActive = false;
+              handleLeave();
+            }, 3000);
+          };
+
+          node.addEventListener('mouseenter', (e) => {
+            if (window.matchMedia('(hover: hover)').matches) handleEnter();
+          });
+          node.addEventListener('touchstart', (e) => { if (!isClickedActive) handleEnter(); }, { passive: true });
+
+          node.addEventListener('mouseleave', (e) => {
+            if (window.matchMedia('(hover: hover)').matches) handleLeave();
+          });
+          node.addEventListener('touchend', (e) => { if (!isClickedActive) handleLeave(); });
+          node.addEventListener('touchcancel', (e) => { if (!isClickedActive) handleLeave(); });
+          node.addEventListener('click', handleClick);
+        });
+      });
+    </script>
+</body>
+
+</html>

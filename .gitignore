@@ -1,0 +1,26 @@
+# System folders
+.gemini/
+.playwright-mcp/
+tmp/
+
+# Processing scripts
+scripts/
+
+# Large unused assets
+assets/download*.png
+assets/disc1.png
+assets/wwwav_background_original.webp
+assets/*.jpg
+!assets/project_cover_*.jpg
+
+# Redundant logos
+assets/Logo_wwwav_*
+!assets/Logo_wwwav_final.webp
+assets/vwvwwvv_logo_upscaled.webp
+assets/logo_rembg*
+assets/logo_upscaled.webp
+
+# IDE files
+.vscode/
+.idea/
+*.swp
