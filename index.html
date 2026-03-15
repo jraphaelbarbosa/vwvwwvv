@@ -16,200 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
   <!-- Font Awesome for Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <!-- Alpine i18n Store -->
-  <script>
-    document.addEventListener('alpine:init', () => {
-      Alpine.store('i18n', {
-        lang: 'en',
-        t: {
-          en: {
-            nav_projects: 'PROJECTS',
-            nav_wwwav: 'WWWAV',
-            hero_name: 'JOÃO<br />RAPHAEL<br />CUNHA',
-            bio_p1: '17+ years of experience engineering systems—from core technology to sound design. I see no boundary between routing audio signals and architecting data pipelines; both require the same mastery of logic and flow.',
-            bio_p2: 'Operating as a Software Engineer and Sound Designer with a focus on creative product thinking, I bridge the gap between AI Engineering and Solutions Architecture. This hybrid expertise defines my approach to Context Engineering: translating abstract domain nuances into scalable, efficient infrastructure.',
-            ai_engineer: 'AI ENGINEER',
-            python_developer: 'PYTHON DEVELOPER',
-            creative_context: 'CREATIVE CONTEXT ENGINEER',
-            software_engineer: 'SOFTWARE ENGINEER',
-            solutions_architect: 'SOLUTIONS ARCHITECT',
-            sound_designer: 'SOUND DESIGNER',
-            music_producer: 'MUSIC PRODUCER',
-            audio_engineer: 'AUDIO ENGINEER',
-            beatmaker: 'BEATMAKER',
-            multi_instrumentist: 'MULTI-INSTRUMENTIST',
-            audio_current_track: 'CURRENT_TRACK',
-            proj_ai_automation: 'AI AUTOMATION',
-            proj_data_eng: 'DATA ENGINEERING',
-            proj_fullstack: 'FULL-STACK DEVELOPMENT',
-            proj_ent_arch: 'ENTERPRISE ARCHITECTURE',
-            proj_audio_sound: 'AUDIO ENGINEERING & SOUND DESIGN',
-            proj_agents_rag: 'AUTONOMOUS AGENTS & RAG SYSTEMS',
-            proj_name_rag: 'INTERNAL<br />SUPPORT<br />RAG<br />AGENT',
-            proj_name_ent: 'ENTERPRISE<br />ORCHESTRATION<br />&<br />ECOSYSTEMS',
-            proj_name_scraper: 'AI-DRIVEN<br />WEB<br />SCRAPER<br />AUTOMATION',
-            proj_name_beats: 'BEATS<br />&<br />CUSTOM<br />MUSIC PROJECTS',
-            modal_loading: 'AWAITING PROJECT DETAILS UPLINK...',
-            modal_tech: 'Tech Stack',
-            modal_links: 'Links',
-            link_linkedin_post: 'LinkedIn Post',
-            link_github_repo: 'GitHub Repository',
-            link_live_demo: 'Live Demo',
-            link_project_launch: 'LinkedIn (Project Launch)',
-            link_engineering: 'LinkedIn (Engineering/LangChain)',
-            link_security: 'LinkedIn (Security Test)',
-            link_monday_repo: 'Monday.com GitHub Repo',
-            link_monday_ai_1: 'LinkedIn (Monday AI Phase 1)',
-            link_monday_gis_2: 'LinkedIn (Monday GIS Phase 2)',
-            link_servicenow_sdk: 'LinkedIn (ServiceNow SDK)',
-            link_servicenow_showcase: 'LinkedIn (ServiceNow Showcase)',
-            link_etl_repo: 'ETL Pipeline GitHub',
-            link_spotify_repo: 'Spotify Extractor GitHub',
-            link_etl_linkedin: 'LinkedIn (ETL Pipeline)',
-            link_spotify_linkedin: 'LinkedIn (Spotify Extractor)',
-            link_real_estate_linkedin: 'LinkedIn (Real Estate Scraper)',
-            link_audio_samples: 'Portfolio / Audio Samples',
-            wwwav_title: 'WWWAV ARTICLE',
-            wwwav_post_title: '2016: THE LAST PEAK OF MUSIC',
-            wwwav_post_summary: 'A TOP 10 OF THE ALBUMS THAT CONTINUE TO BE AN INFLUENCE IN THESE LAST 10 YEARS',
-            wwwav_honorable: 'Honorable Mentions',
-            wwwav_read: 'READ',
-            wwwav_p1: '2016 was a year I always knew would be a milestone from the moment it began, but I didn\'t know it would be a year that would last at least a decade. This is largely due to the fact that the albums from that year influenced everything that came after. Possibly, they were the last albums truly worth it in these last 10 years.',
-            wwwav_p2: 'Surely this transforms 2016 into the last year we had so many absurdly good albums coming out all at once. We really needed 10 years to know the value of what they did with a decade that until then didn\'t exist, and now we have the exact frame to have a sense of it. I still think 2016 delivered the best of music to this day.',
-            wwwav_p_p3: 'You\'ve heard of trapsoul, and you probably know it\'s the title of Bryson Tiller\'s 2015 album, which is important for the genre. But if anyone considers trapsoul a standalone sound, it comes from P3. That dark beat dragging, matching R&B with trap in an ethereal way throughout the album with that tasty hi-hat, delicious reversed samples... Classic tracks like Come and See Me and Don\'t Run are the pure DNA of artists like Summer Walker, 6lack, and many phases of Drake himself.',
-            wwwav_p_p4: 'Even Kendrick Lamar, who is on this album, has to admit that in this one Isaiah Rashad raised the bar for jazz and bossa in rap. That vibe you already get from J Dilla with Slum Village, Common on Be produced entirely by Kanye. All that nice jazz rap energy to relax is in this album. Isaiah Rashad manages to put together an impeccable opening sequence of a classic album. It maintains that "good movie to rewatch" vibe. And you can\'t miss the lead single, as this song is indeed excellent: 4r Da Squaw.',
-            wwwav_p_p5: 'Kanye West fans might yell at me here, but I must remind you that no one is better than me to talk about Kanye West and I assert: this album even being here already shows his impact. The impact of releasing an album not so rounded, but at the same time important and good enough not to be left out of this top 10 with all these monsters. Made sense? Anyway... He masterfully continues joining styles within an album and keeping it cohesive, only here he started transforming that with truly distinct pieces. Songs he took from the Yeezus era, recent songs, songs from the gospel project he was preparing.',
-            wwwav_p_p6: 'And he orchestrated this like a spectacle. That historical moment of the Yeezy show with the album listening at Madison Square Garden. That classic video of Kanye and Cudi\'s enthusiasm showing Father Stretch My Hands for the first time to the public. This album is really far from my favorite of his, but it meant a new era for many. It meant the return of Kanye West for a new generation that popularized Yeezys, was part of that absurdly insane tour, and marked another way for artists to build albums and shows, like every Kanye West project. It deserves to be here.',
-            wwwav_p_p7: 'If Drake has a truly good album, it\'s this one. I remember how 2016 was a different year. It was the year I started really enjoying the Island more. And in that period there were many car rides with Rafiki. But at the time his car had a player that only accepted CDs. I decided to buy the original Views for him for Christmas. Every ride was this album non-stop.',
-            wwwav_p_p8: 'As the theme of the record suggests, there\'s music for the day, music for the night. There are many good layers in the samples. Layers that later became more generic in his career, but in this album were still very natural. I\'m the first to speak ill of Drake, but this album here is good. Really.',
-            wwwav_p_p9: 'After contributing to the sound of 2 Kanye West albums, Justin Vernon decided to create the experimental but very well-done Bon Iver album... as if Bon Iver wasn\'t enough like that already. The influence of Yeezus\' distorted sound and glitch in the structure of this album is clear and wonderful. It\'s basically Bon Iver turning folk — something completely acoustic — into distorted elements, electronics, samples. Something worthy of someone who is extremely musically talented and spent some time with Kanye to leave everything at another level.',
-            wwwav_p_p10: 'I really like several songs on this album and especially how they are built. Each song has a highlight element that he uses in a very specific way. 33 "GOD" is a very well-built track and well represents Justin\'s ability. 715 - CR∑∑KS has that classic auto-tune vibe except the instrument is his own voice that he controls the notes through the synthesizer. Not to mention the obvious influence of another friend of his who is responsible for the next album on the list.',
-            wwwav_p_p11: 'Technically it wouldn\'t be James Blake\'s best album, but it\'s my favorite for how he knows what he\'s capable of doing and uses it the best way. It seems he got tired of being this great messer-up of the musical matrix and is trying to be more normal. But here was his peak in that. It has amazing tracks like Timeless, Points, Radio Silence. The entire album carries the James Blake vibe well, just on the limit so it doesn\'t look like he\'s imitating himself instead of truly creating.',
-            wwwav_p_p12: 'Maybe that\'s why it\'s the peak and why he didn\'t make this sound anymore. Artists like Sevdaliza, Billie Eilish, and others on this same list are influenced (including myself) by this sound that only James Blake made so well. And here he hit the peak of it in an album with a considerable amount of tracks to enjoy this first great phase of his.',
-            wwwav_p_p13: 'Now things are starting to get very heavy. This album is excellent. So excellent that at the time Pitchfork placed it above my first place. I just don\'t think it has the same weight as the following ones for my taste, but it\'s simply impeccable what Solange does in the instrumentation, in the concept, in the sound, and in the entire design of this album.',
-            wwwav_p_p14: 'The world will always love Beyoncé more and that\'s fine, great artist too. But I think Solange is a genius, and in this album she brought a lot of musical foundation, a lot of quality in the recording, and a lot of quality in the identity in both sound and narrative between tracks. It\'s never a bad time to appreciate this album here.',
-            wwwav_p_p15: '"Ah, but 2 Frank Ocean albums on the list?" My friend, these 2 albums were an event! 2 days before the obvious first place, the guy released this in film format. And it\'s one of those tasty albums that catch you completely by surprise. First you find it very strange, then you realize you can\'t stop listening and everything starts to make sense.',
-            wwwav_p_p16: 'The imperfection of this album is perfect. To see how this year was awesome, 3 albums that moved so much with this transition of perfection and imperfection: Endless, 22 A Million, and The Colour in Anything. And in Endless, to me, it ends up being the most striking because Frank Ocean really managed to unite this Kid A and Yeezus influence for his "wise monk" version. Yes, sometimes I see Frank Ocean\'s music as that of a monk on a mountain that you go to hear these songs, meditate and have answers or more questions for your life. And man, in fact it ends up being that with several tracks. U-N-I-T-Y extracts that vibe that is in all of Frank Ocean\'s career in one of my favorite forms. This album is a journey I\'ve followed well during these 10 years, it couldn\'t not be here up top.',
-            wwwav_p_p17: 'Name any national album more relevant than this in the last 20 years or more and fail miserably. Think about it, I\'ll let you think... go... did you? Yeah, right, there\'s the size of the impact of this here.',
-            wwwav_p_p18: 'As BK himself has said: he can spend his whole career just singing this album and that\'s fine, it\'s done like every other old-school artist who does that. There might be excellent albums and there really are, but I can\'t imagine any rap album or otherwise that has the same weight and represented as much as Castelos & Ruínas not only in the last 10 years. Like any good Jay-Z fan, BK managed to build a cohesive story between being true to his Rio origins and wanting the good life that international artists have.',
-            wwwav_p_p19: 'Bloco 7 at that time realized the importance of the scene breathing and existing in RJ and Brazil, being able to be sexy to the audience just like we always had to only see in American videos and not live. Because Brazil has always been in this third-world view where rap here only serves to complain. BK came to show that he wants to kick the door of the system and take his place, and this revolutionized a whole generation that woke up to live rap in Brazil.',
-            wwwav_p_p20: 'This one is absurd, there\'s no way. I already knew this album was going to mark an entire generation the moment it came out. The avant-garde sound, this dream-like vibe he brought on the tracks, this ability to talk about feelings people choose not to speak about but we all know we feel.',
-            wwwav_p_p21: 'Ways of dealing with current, past, confused relationships, ways of understanding the changes the world was starting to go through at that time, ways that society was trying to understand itself and getting lost. All this comes strong in this album the best way possible. Frank Ocean decided to raise the bar of his compositions and really made a work that was born a classic and continues to be the best album released since then. Kind of hard to beat what this album achieved within what it proposes and in what it influenced not just in sound, but even in design and covered topics. Some topics that seem normal today, he approached differently in this album while opening up about what he learned of life.',
-            wwwav_honorable_list: 'Beyoncé — Lemonade · David Bowie — Blackstar · Radiohead — A Moon Shaped Pool · Danny Brown — Atrocity Exhibition',
-            desc_beatmatch_tech: 'Python, LLMs, Data Analytics, Automation.',
-            desc_beatmatch_p1: 'BeatMatchAI is a SaaS platform that connects music producers with artists. The music industry has a lot of scattered data, making it hard for beatmakers to find the right artists to work with. To solve this, I built a system that analyzes musical styles and catalogs automatically.',
-            desc_beatmatch_p2: 'It matches the producer\'s beats with the artist\'s vibe using Artificial Intelligence. I used Python for the backend and LLMs to understand the data. Instead of spending hours sending messages on Instagram, producers can use this tool to find their target audience. It is currently in the final development stages and will launch soon.',
-            desc_rag_tech: 'Python, Google Gemini 2.5 Flash, LangChain (LCEL), CrewAI, ChromaDB, RAG, Streamlit.',
-            desc_rag_p1: 'QualityOps is an AI agent created to automate Quality Assurance (QA) in Call Centers. Usually, humans can only audit about 2% of support calls, which leaves big security risks. This project audits 100% of the chats in real-time to ensure agents follow the rules, like PIN validation and data protection (PII).',
-            desc_rag_p2: 'I started building it with CrewAI, but to make it faster, I rebuilt the backend using LangChain (LCEL) and Google Gemini 2.5 Flash. This reduced the response time to under 2 seconds. It also uses RAG with ChromaDB to read company rules and teach human agents how to correct their mistakes, acting like a digital supervisor.',
-            desc_ent_tech: 'ServiceNow SDK v4, Monday.com API (GraphQL), TypeScript, Python, GIS, OpenAI.',
-            desc_ent_p1: 'This section highlights two enterprise-level solutions built to fix slow manual work. The first is an AI Real Estate Underwriter for Monday.com. I built a Python backend that takes property data, finds the GPS coordinates (GIS), calculates the Return on Investment (ROI), and uses OpenAI to score the deal. It updates the Monday.com board automatically via GraphQL.',
-            desc_ent_p2: 'The second project is the EDX Academic System, a complex school management app built in ServiceNow. Instead of using basic point-and-click tools, I used the ServiceNow SDK v4 (Fluent) and AI to write the code outside the platform. This allowed me to create automated grade calculations and strict security rules much faster and with better control.',
-            desc_scraper_tech: 'Python, Playwright, Network Interception (JSON), Spotify/YouTube APIs, OpenAI.',
-            desc_scraper_p1: 'AI systems need good data to work. This project shows how I build automated pipelines to collect that data. For the music industry (BeatMatchAI), I made a Python ETL pipeline that uses Spotify and YouTube APIs to find rising artists. To get their contact info, I created a tool that intercepts network requests to capture hidden JSON data. This perfectly extracts official Instagram links without breaking or failing like traditional web scrapers do.',
-            desc_scraper_p2: 'I applied this same logic to the Real Estate market. I built a scraper with Playwright that intercepts internal APIs on property websites to get prices and sales history. Then, OpenAI agents read the text descriptions to automatically find good deals, like houses that need renovation, feeding the data directly into Monday.com.',
-            desc_beats_tech: 'Ableton Live, FL Studio, Audio Engineering, Sound Design.',
-            desc_beats_p1: 'I have years of experience working as a freelance music producer, and I offer a wide variety of audio services. My main focus is selling exclusive beats (Trap, Hip-Hop, Electronic), but I also work on complete musical projects. I handle recording instrumentals, creating custom soundtracks, and sound design for digital media.',
-            desc_beats_p2: 'To ensure everything sounds professional, I provide full mixing and mastering services using Ableton Live and FL Studio. Having this hands-on experience in the music industry is exactly what helps me build better software for musicians. Because I work in the audio field daily, I truly understand the real problems that producers and artists face, which makes my AI projects much more effective.'
-          },
-          pt: {
-            nav_projects: 'PROJETOS',
-            nav_wwwav: 'WWWAV',
-            hero_name: 'JOÃO<br />RAPHAEL<br />CUNHA',
-            bio_p1: '17+ anos de experiência na engenharia de sistemas — da tecnologia principal ao sound design. Não vejo fronteiras entre o roteamento de sinais de áudio e a arquitetura de pipelines de dados; ambos exigem a mesma maestria de lógica e fluxo.',
-            bio_p2: 'Atuando como Engenheiro de Software e Sound Designer com foco em pensamento criativo de produto, conecto a lacuna entre Engenharia de IA e Arquitetura de Soluções. Essa expertise híbrida define minha abordagem à Engenharia de Contexto: traduzindo nuances abstratas de domínio em infraestrutura escalável e eficiente.',
-            ai_engineer: 'ENGENHEIRO DE IA',
-            python_developer: 'DESENVOLVEDOR PYTHON',
-            creative_context: 'ENGENHEIRO DE CONTEXTO CRIATIVO',
-            software_engineer: 'ENGENHEIRO DE SOFTWARE',
-            solutions_architect: 'ARQUITETO DE SOLUÇÕES',
-            sound_designer: 'SOUND DESIGNER',
-            music_producer: 'PRODUTOR MUSICAL',
-            audio_engineer: 'ENGENHEIRO DE ÁUDIO',
-            beatmaker: 'BEATMAKER',
-            multi_instrumentist: 'MULTI-INSTRUMENTISTA',
-            audio_current_track: 'FAIXA_ATUAL',
-            proj_ai_automation: 'AUTOMAÇÃO DE IA',
-            proj_data_eng: 'ENGENHARIA DE DADOS',
-            proj_fullstack: 'DESENVOLVIMENTO FULL-STACK',
-            proj_ent_arch: 'ARQUITETURA CORPORATIVA',
-            proj_audio_sound: 'ENGENHARIA DE ÁUDIO & SOUND DESIGN',
-            proj_agents_rag: 'AGENTES AUTÔNOMOS & SISTEMAS RAG',
-            proj_name_rag: 'AGENTE RAG<br />DE SUPORTE<br />INTERNO',
-            proj_name_ent: 'ORQUESTRAÇÃO<br />CORPORATIVA &<br />ECOSSISTEMAS',
-            proj_name_scraper: 'AUTOMAÇÃO<br />DE WEB SCRAPING<br />VIA IA',
-            proj_name_beats: 'BEATS &<br />PROJETOS MÚSICAIS<br />CUSTOMIZADOS',
-            modal_loading: 'AGUARDANDO UPLINK DE DETALHES DO PROJETO...',
-            modal_tech: 'Tecnologias',
-            modal_links: 'Links',
-            link_linkedin_post: 'Post no LinkedIn',
-            link_github_repo: 'Repositório GitHub',
-            link_live_demo: 'Demonstração ao Vivo',
-            link_project_launch: 'LinkedIn (Lançamento do Projeto)',
-            link_engineering: 'LinkedIn (Engenharia/LangChain)',
-            link_security: 'LinkedIn (Teste de Segurança)',
-            link_monday_repo: 'Repositório GitHub Monday.com',
-            link_monday_ai_1: 'LinkedIn (Monday AI Fase 1)',
-            link_monday_gis_2: 'LinkedIn (Monday GIS Fase 2)',
-            link_servicenow_sdk: 'LinkedIn (ServiceNow SDK)',
-            link_servicenow_showcase: 'LinkedIn (ServiceNow Showcase)',
-            link_etl_repo: 'GitHub Pipeline ETL',
-            link_spotify_repo: 'GitHub Extrator Spotify',
-            link_etl_linkedin: 'LinkedIn (Pipeline ETL)',
-            link_spotify_linkedin: 'LinkedIn (Extrator Spotify)',
-            link_real_estate_linkedin: 'LinkedIn (Scraper Imobiliário)',
-            link_audio_samples: 'Portfólio / Amostras de Áudio',
-            wwwav_title: 'WWWAV ARTIGO',
-            wwwav_post_title: '2016: O ÚLTIMO AUGE DA MÚSICA',
-            wwwav_post_summary: 'UM TOP 10 DOS ÁLBUNS QUE CONTINUAM SENDO INFLUÊNCIA NESSES ÚLTIMOS 10 ANOS',
-            wwwav_honorable: 'Menções Honrosas',
-            wwwav_read: 'LER',
-            wwwav_p1: '2016 foi um ano que eu sempre soube que iria marcar desde quando começou, mas não sabia que seria um ano que duraria pelo menos uma década. Isso se deve muito ao fato dos álbuns desse ano terem influenciado tudo que veio depois. Possivelmente, foram os últimos álbuns que realmente valem a pena nesses últimos 10 anos.',
-            wwwav_p2: 'Com certeza isso transforma 2016 no último ano que tivemos tantos álbuns absurdamente bons saindo de uma vez só. Precisamos de 10 anos mesmo pra saber o valor do que eles fizeram com uma década que até então não existia, e agora temos o recorte exato pra ter noção. Eu ainda acho que 2016 entregou o que existe de melhor na música até hoje.',
-            wwwav_p_p3: 'Você já ouviu falar em trapsoul, e provavelmente sabe que é o nome do álbum do Bryson Tiller de 2015, o que não deixa de ser importante pro gênero. Mas se alguém considera trapsoul uma sonoridade de fato, ela vem do P3. Aquele beat sombrio se arrastando, casando R&B com trap de forma bem etérea pelo álbum com aquele hi-hat gostoso, sample revertido delícia... Tracks clássicas como Come and See Me e Don\'t Run são o puro DNA de artistas como Summer Walker, 6lack e de várias fases do próprio Drake.',
-            wwwav_p_p4: 'O próprio Kendrick Lamar, que tá nesse álbum, tem que admitir que nesse aqui o Isaiah Rashad elevou o nível de jazz e bossa no rap. Aquela pegada que você já pega de J Dilla com Slum Village, de Common em Be produzida inteira pelo Kanye. Toda essa energia gostosinha de jazz rap pra relaxar tá nesse álbum. O Isaiah Rashad consegue colocar uma sequência inicial impecável de álbum clássico. Mantém aquela vibe de filme bom de rever. E não dá pra deixar de citar o single principal mesmo, porque essa música é de fato excelente: 4r Da Squaw.',
-            wwwav_p_p5: 'Vai ter fã de Kanye West me xingando aqui, mas devo te lembrar que ninguém melhor que eu pra falar de Kanye West e afirmo: este álbum sequer estar aqui já mostra o impacto do cara. O impacto de lançar um álbum nem tão redondinho assim, mas que ao mesmo tempo é importante e bom o suficiente pra não ficar de fora desse top 10 com todos esses monstros. Fez sentido? Enfim... Ele faz com maestria a pegada de continuar unindo estilos dentro de um álbum e deixar isso coeso, só que aqui ele passou a transformar isso com peças realmente distintas. Músicas que ele pegou da época do Yeezus, músicas recentes, músicas do projeto gospel que ele tava preparando.',
-            wwwav_p_p6: 'E ele orquestrou isso como um espetáculo. Aquele momento histórico do desfile da Yeezy com a audição do álbum no Madison Square Garden. Aquele vídeo clássico do entusiasmo do Kanye e o Cudi mostrando Father Stretch My Hands pela primeira vez ao público. Esse álbum realmente tá longe de ser meu favorito dele, mas significou uma nova era pra uma galera. Significou a volta do Kanye West pra uma geração nova que popularizou os Yeezys, fez parte daquela turnê absurdamente insana e marcou mais uma forma de artistas construírem álbuns e fazerem shows, como todo projeto do Kanye West. Merece estar aqui.',
-            wwwav_p_p7: 'Se o Drake tem um álbum realmente bom, é esse aqui. Lembro como 2016 foi um ano diferente. Foi o ano que eu comecei a realmente aproveitar melhor a Ilha. E nesse período foram muitos rolês de carro com o Rafiki. Mas na época o carro dele tinha um player que só aceitava CD. Resolvi comprar de natal o Views original pra ele. Todo rolê era esse álbum direto.',
-            wwwav_p_p8: 'Como a própria temática do disco propõe, tem música que serve pro dia, tem música que serve pra de noite. Tem muitas camadas boas nos samples. Camadas que depois foram ficando mais genéricas na carreira dele, mas que nesse álbum ainda eram muito naturais. Eu sou o primeiro a falar mal do Drake, mas esse álbum aqui é bom. Mesmo.',
-            wwwav_p_p9: 'Depois de contribuir na sonoridade de 2 álbuns do Kanye West, o Justin Vernon decidiu criar o álbum experimental, porém muito bem feito do Bon Iver... como se Bon Iver já não fosse assim o suficiente. É clara a influência do som distorcido e glitch do Yeezus na estrutura desse álbum e isso é maravilhoso. É basicamente o Bon Iver transformando folk — algo completamente voltado ao som acústico — em elementos distorcidos, eletrônicos, samples. Algo digno de quem é extremamente talentoso musicalmente e passou um tempo com o Kanye pra deixar tudo em outro nível.',
-            wwwav_p_p10: 'Gosto muito de várias músicas desse álbum e principalmente de como elas são construídas. Cada música tem algum elemento de destaque que ele usa de forma bem específica. 33 "GOD" é uma track muito bem construída e representa bem a capacidade do Justin. 715 - CR∑∑KS tem aquela pegada clássica de auto-tune só que o instrumento é a própria voz dele que ele controla as notas pelo sintetizador. Sem contar a influência evidente de outro amigo dele que é o responsável pelo próximo álbum da lista.',
-            wwwav_p_p11: 'Tecnicamente não seria o melhor álbum do James Blake, mas é o meu favorito por como ele tem noção do que é capaz de fazer e usa isso da melhor forma. Parece que ele cansou de ser esse grande bagunçador da matrix musical e tá tentando ser mais normal. Mas aqui foi o auge dele nisso. Tem tracks incríveis como Timeless, Points, Radio Silence. O álbum inteiro carrega bem a vibe James Blake, no limite pra não parecer que ele tá imitando a si mesmo no lugar de realmente criar.',
-            wwwav_p_p12: 'Talvez seja por isso que é o auge e por isso ele não fez mais esse som. Artistas como Sevdaliza, Billie Eilish e outros dessa mesma lista são influenciados (inclusive eu) por essa sonoridade que só o James Blake fez tão bem. E aqui ele bateu o auge disso em um álbum com uma quantidade considerável de tracks pra aproveitar essa primeira grande fase dele.',
-            wwwav_p_p13: 'Agora a coisa tá começando a ficar muito pesada. Esse álbum é excelente. Tão excelente que na época a Pitchfork colocou acima do meu primeiro colocado. Eu só não acho que ele tenha o mesmo peso que os seguintes por gosto meu, mas é simplesmente impecável o que a Solange faz no instrumental, no conceito, na sonoridade e no design inteiro desse álbum.',
-            wwwav_p_p14: 'O mundo sempre vai amar mais a Beyoncé e tá tudo bem, grande artista também. Mas acho a Solange gênia, e nesse álbum ela trouxe muito fundamento musical, muita qualidade na gravação e muita qualidade na identidade tanto na sonoridade quanto na narrativa entre as faixas. Nunca é uma hora ruim pra apreciar esse álbum aqui.',
-            wwwav_p_p15: '"Ah, mas 2 álbuns do Frank Ocean na lista?" Meu amigo, esses 2 álbuns foram um acontecimento! 2 dias antes do evidente primeiro colocado, o cara lançou isso aqui em formato de filme. E é um daqueles álbuns gostosos que te pegam de rasteira total. Primeiro você acha muito estranho, quando percebe não consegue mais parar de ouvir e tudo começa a fazer muito sentido.',
-            wwwav_p_p16: 'A imperfeição desse álbum é perfeita. Pra você ver como esse ano foi foda, 3 álbuns que mexeram tanto com essa transição de perfeição com imperfeição: Endless, 22 A Million, e The Colour in Anything. E no Endless, pra mim, acaba sendo o mais marcante porque o Frank Ocean conseguiu mesmo unir essa influência de Kid A e Yeezus para a versão "monge sábio" dele. Sim, às vezes eu enxergo a música do Frank Ocean como a de um monge de uma montanha que você vai pra ouvir essas músicas, meditar e ter respostas ou mais perguntas pra sua vida. E cara, de fato acaba sendo isso com várias tracks. U-N-I-T-Y extrai muito essa vibe que tá em toda a carreira do Frank Ocean de uma das minhas formas favoritas. Esse álbum é uma viagem que eu acompanhei bem durante esses 10 anos, não podia deixar de estar aqui em cima.',
-            wwwav_p_p17: 'Fale qualquer álbum nacional mais relevante que esse nos últimos 20 anos ou mais e falhe miseravelmente. Pensa aí, vou deixar tu pensar... vai... conseguiu? Pois é né, tá aí o tamanho do impacto disso aqui.',
-            wwwav_p_p18: 'Como o próprio BK já disse: ele pode passar a carreira toda só cantando esse álbum e tá tudo bem, tá feito como todo outro artista das antigas que faz isso. Podem ter álbuns excelentes e realmente tem, mas não consigo imaginar nenhum álbum de rap ou não que tenha o mesmo peso e representou tanto quanto o Castelos & Ruínas não só nos últimos 10 anos. Como bom fã de Jay-Z, BK conseguiu construir uma história coesa entre ser fiel às origens cariocas e querer a vida boa que os artistas internacionais têm.',
-            wwwav_p_p19: 'O Bloco 7 nessa época teve noção da importância da cena respirando e existindo no RJ e no Brasil, podendo ser sexy ao público do mesmo jeito que a gente sempre teve que apenas ver nos clipes americanos e não viver. Porque o Brasil sempre esteve nessa visão de terceiro mundo e de que o rap aqui só serve pra reclamar. O BK veio pra mostrar que ele quer é botar o pé na porta do sistema e tomar o lugar dele, e isso revolucionou toda uma geração que acordou pra viver o rap no Brasil.',
-            wwwav_p_p20: 'Esse aqui é absurdo, não tem jeito. Eu já sabia que esse álbum ia marcar uma geração inteira no momento que saiu. A sonoridade avant-garde, essa vibe dream-like que ele trouxe nas tracks, essa capacidade de falar de sentimentos que as pessoas escolhem não falar mas todos sabemos que sentimos.',
-            wwwav_p_p21: 'Formas de lidar com relacionamentos atuais, passados, confusos, formas de entender as mudanças que o mundo estava começando a passar naquele momento, formas que a sociedade tava tentando se entender e se perdendo. Tudo isso vem forte nesse álbum da melhor forma possível. Frank Ocean resolveu elevar o nível das suas composições e realmente fez uma obra que já nasceu clássica e continua sendo o melhor álbum lançado desde então. Meio difícil bater o que esse álbum conseguiu fazer dentro do que se propõe e no que influenciou não só no som, mas até no design e assuntos abordados. Alguns assuntos que parecem normais hoje, ele abordou de forma diferente nesse álbum enquanto abria sobre o que aprendeu da vida.',
-            wwwav_honorable_list: 'Beyoncé — Lemonade · David Bowie — Blackstar · Radiohead — A Moon Shaped Pool · Danny Brown — Atrocity Exhibition',
-            desc_beatmatch_tech: 'Python, LLMs, Ciência de Dados, Automação.',
-            desc_beatmatch_p1: 'BeatMatchAI é uma plataforma SaaS que conecta produtores musicais com artistas. A indústria musical possui muitos dados dispersos, dificultando que beatmakers encontrem os artistas certos. Para resolver isso, construí um sistema que analisa estilos musicais e catálogos automaticamente.',
-            desc_beatmatch_p2: 'Ele combina os beats do produtor com a "vibe" do artista usando Inteligência Artificial. Utilizei Python para o backend e LLMs para processar os dados. Em vez de gastar horas enviando mensagens no Instagram, produtores usam esta ferramenta para encontrar seu público-alvo. O projeto está em fase final de desenvolvimento e será lançado em breve.',
-            desc_rag_tech: 'Python, Google Gemini 2.5 Flash, LangChain (LCEL), CrewAI, ChromaDB, RAG, Streamlit.',
-            desc_rag_p1: 'QualityOps é um agente de IA criado para automatizar o Controle de Qualidade (QA) em Call Centers. Geralmente, humanos conseguem auditar apenas cerca de 2% das chamadas, o que deixa grandes riscos de segurança. Este projeto audita 100% dos chats em tempo real para garantir que os agentes sigam as regras, como validação de PIN e proteção de dados (PII).',
-            desc_rag_p2: 'Comecei a construí-lo com CrewAI, mas para torná-lo mais rápido, reconstruí o backend usando LangChain (LCEL) e Google Gemini 2.5 Flash. Isso reduziu o tempo de resposta para menos de 2 segundos. Também utiliza RAG com ChromaDB para ler as regras da empresa e instruir agentes humanos sobre como corrigir falhas, atuando como um supervisor digital.',
-            desc_ent_tech: 'ServiceNow SDK v4, Monday.com API (GraphQL), TypeScript, Python, GIS, OpenAI.',
-            desc_ent_p1: 'Esta seção destaca duas soluções corporativas criadas para corrigir processos manuais lentos. A primeira é um "AI Real Estate Underwriter" para a Monday.com. Desenvolvi um backend em Python que recebe dados de propriedades, encontra coordenadas GPS (GIS), calcula o Retorno sobre o Investimento (ROI) e usa OpenAI para pontuar o negócio. Ele atualiza o quadro da Monday.com automaticamente via GraphQL.',
-            desc_ent_p2: 'O segundo projeto é o Sistema Acadêmico EDX, um app complexo de gestão escolar criado no ServiceNow. Em vez de usar ferramentas básicas de apontar e clicar, utilizei o SDK v4 (Fluent) do ServiceNow e IA para escrever o código fora da plataforma. Isso permitiu criar cálculos de notas automatizados e regras de segurança rígidas de forma muito mais rápida e controlada.',
-            desc_scraper_tech: 'Python, Playwright, Interceptação de Rede (JSON), APIs de Spotify/YouTube, OpenAI.',
-            desc_scraper_p1: 'Sistemas de IA precisam de bons dados para funcionar. Este projeto mostra como construo pipelines automatizados para coletar esses dados. Para a indústria musical (BeatMatchAI), criei um pipeline ETL em Python que usa as APIs do Spotify e YouTube para encontrar artistas em ascensão. Para obter informações de contato, desenvolvi uma ferramenta que intercepta requisições de rede para capturar dados JSON ocultos, extraindo links oficiais de Instagram sem falhas típicas de scrapers tradicionais.',
-            desc_scraper_p2: 'Apliquei a mesma lógica ao mercado mobiliário. Construí um scraper com Playwright que intercepta APIs internas de sites de imóveis para obter preços e histórico de vendas. Então, agentes da OpenAI leem as descrições em texto para encontrar automaticamente boas oportunidades, como casas que precisam de reforma, alimentando os dados diretamente na Monday.com.',
-            desc_beats_tech: 'Ableton Live, FL Studio, Engenharia de Áudio, Sound Design.',
-            desc_beats_p1: 'Tenho anos de experiência como produtor musical freelancer e ofereço uma ampla variedade de serviços de áudio. Meu foco principal é a venda de beats exclusivos (Trap, Hip-Hop, Eletrônica), mas também trabalho em projetos musicais completos. Cuido da gravação de instrumentais, criação de trilhas sonoras personalizadas e sound design para mídia digital.',
-            desc_beats_p2: 'Para garantir que tudo soe profissional, forneço serviços completos de mixagem e masterização usando Ableton Live e FL Studio. Ter essa experiência prática na indústria musical é exatamente o que me ajuda a construir softwares melhores para músicos. Como trabalho no campo do áudio diariamente, entendo os problemas reais que produtores e artistas enfrentam, tornando meus projetos de IA muito mais eficazes.'
-          }
-        },
-        toggle() {
-          this.lang = this.lang === 'en' ? 'pt' : 'en';
-        }
-      });
-    });
-  </script>
-
   <!-- Tailwind Configuration -->
   <script>
     tailwind.config = {
@@ -399,7 +205,7 @@
         <!-- Header Row -->
         <div class="flex justify-between items-end border-b border-[#fffacd]/50 pb-1 mb-1 relative">
           <span
-            class="font-sans font-extrabold tracking-tight text-[#fffacd] uppercase text-sm md:text-base leading-none" x-text="$store.i18n.t[$store.i18n.lang].audio_current_track">CURRENT_TRACK</span>
+            class="font-sans font-extrabold tracking-tight text-[#fffacd] uppercase text-sm md:text-base leading-none">CURRENT_TRACK</span>
           <div class="flex items-center gap-2 md:gap-4">
             <span
               class="font-mono text-[#fffacd]/70 font-bold uppercase tracking-widest flex items-center gap-1 md:gap-2 text-[0.6rem] md:text-[0.85rem]">
@@ -458,8 +264,7 @@
         <h2 id="nav-item-projects"
           class="w-full text-right font-modern font-bold cursor-pointer transition-all duration-500 leading-none text-base md:text-3xl tracking-widest"
           :class="[activeSection === 'projects' ? 'opacity-100 scale-110 md:scale-125' : 'opacity-40 hover:opacity-80', activeSection === 'vwvwwvv' ? 'text-white' : 'text-[#fffacd]']"
-          style="transform-origin: right;"
-          x-text="$store.i18n.t[$store.i18n.lang].nav_projects">
+          style="transform-origin: right;">
           PROJECTS
         </h2>
       </div>
@@ -470,8 +275,7 @@
         <span id="nav-item-wwwav"
           class="font-modern font-bold uppercase transition-all duration-500 leading-none text-sm md:text-xl tracking-wider"
           :class="[activeSection === 'wwwav' ? 'opacity-100 scale-110 md:scale-125' : 'opacity-40 hover:opacity-80', activeSection === 'vwvwwvv' ? 'text-white' : 'text-[#fffacd]']"
-          style="transform-origin: right;"
-          x-text="$store.i18n.t[$store.i18n.lang].nav_wwwav">WWWAV</span>
+          style="transform-origin: right;">WWWAV</span>
       </div>
 
     </div>
@@ -486,22 +290,6 @@
     <div class="fixed tech-line-vertical z-[1]" style="left: 7%; top: 40%; height: 30%;"></div>
     <!-- Vertical line right of name -->
     <div class="fixed tech-line-vertical z-[1]" style="right: 7%; top: 40%; height: 30%;"></div>
-    <!-- BEGIN: Language Switcher -->
-    <div class="fixed z-[100] flex items-center transition-all duration-300 pointer-events-auto select-none
-                max-md:top-[28.5dvh] max-md:left-4
-                md:left-[44px] md:top-1/2 md:-translate-y-1/2 md:-mt-[2%]"
-         x-data>
-      <button @click="$store.i18n.toggle()" 
-              class="font-mono text-[0.65rem] md:text-sm font-bold tracking-[0.2em] transition-all duration-300 flex items-center gap-1 group">
-         <span class="transition-colors duration-300"
-               :class="$store.i18n.lang === 'en' ? 'text-[#fffacd]' : 'text-white/30 group-hover:text-white/60'">EN</span>
-         <span class="opacity-20 text-white">/</span>
-         <span class="transition-colors duration-300"
-               :class="$store.i18n.lang === 'pt' ? 'text-[#fffacd]' : 'text-white/30 group-hover:text-white/60'">PT</span>
-      </button>
-    </div>
-    <!-- END: Language Switcher -->
-
     <!-- BEGIN: Social Icons -->
     <div
       class="fixed max-md:right-[1%] md:right-[44px] top-1/2 flex flex-col gap-6 z-[100] pointer-events-auto hud-element max-md:scale-[0.8] max-md:origin-right max-md:-mt-[2%] md:-mt-[2%]"
@@ -567,8 +355,7 @@
             <span
               class="block font-sans text-[#fffacd] font-bold relative z-10 transition-transform duration-500"
               :class="isHovered ? 'scale-105' : ''"
-              style="left: 0.05%; font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase; -webkit-text-stroke: 0.5px rgba(255,255,255,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.3);"
-              x-text="$store.i18n.t[$store.i18n.lang].ai_engineer">AI
+              style="left: 0.05%; font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase; -webkit-text-stroke: 0.5px rgba(255,255,255,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.3);">AI
               ENGINEER</span>
             <!-- Ghost terms -->
             <!-- Ghost terms Above -->
@@ -578,13 +365,11 @@
               <span
                 class="font-sans font-bold text-[#fafafa] opacity-90 whitespace-nowrap transition-all duration-700 translate-y-3"
                 :class="isHovered ? '!translate-y-0' : ''"
-                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;"
-                x-text="$store.i18n.t[$store.i18n.lang].python_developer">PYTHON DEVELOPER</span>
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">PYTHON DEVELOPER</span>
               <span
                 class="font-sans font-bold text-[#fafafa] opacity-60 whitespace-nowrap transition-all duration-700 translate-y-1.5"
                 :class="isHovered ? '!translate-y-0' : ''"
-                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;"
-                x-text="$store.i18n.t[$store.i18n.lang].creative_context">CREATIVE CONTEXT
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">CREATIVE CONTEXT
                 ENGINEER</span>
             </div>
             <!-- Ghost terms Right -->
@@ -594,13 +379,11 @@
               <span
                 class="font-sans font-bold text-[#fafafa] opacity-80 whitespace-nowrap transition-all duration-700 -translate-x-2"
                 :class="isHovered ? '!translate-x-0' : ''"
-                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;"
-                x-text="$store.i18n.t[$store.i18n.lang].software_engineer">SOFTWARE ENGINEER</span>
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">SOFTWARE ENGINEER</span>
               <span
                 class="font-sans font-bold text-[#fafafa] opacity-70 whitespace-nowrap transition-all duration-700 -translate-x-4"
                 :class="isHovered ? '!translate-x-0' : ''"
-                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;"
-                x-text="$store.i18n.t[$store.i18n.lang].solutions_architect">SOLUTIONS ARCHITECT</span>
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">SOLUTIONS ARCHITECT</span>
             </div>
           </div>
           <!-- Interactive Text Block: JOÃO RAPHAEL CUNHA -->
@@ -613,18 +396,18 @@
               class="text-white max-md:self-start md:self-center transition-all duration-700 ease-in-out group-hover/main:scale-105 text-[14vw] sm:text-7xl md:text-[5.5rem]"
               x-bind:class="showDetail ? 'opacity-0 pointer-events-none blur-sm scale-95' : 'opacity-100 scale-100'"
               style="grid-area: 1 / 1; letter-spacing: -2px; font-weight: 800; line-height: 0.85; text-align: left; text-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
-              <span class="hover:text-[#fafafa] transition-colors duration-300" x-html="$store.i18n.t[$store.i18n.lang].hero_name">JOÃO<br />RAPHAEL<br />CUNHA</span>
+              <span class="hover:text-[#fafafa] transition-colors duration-300">JOÃO<br />RAPHAEL<br />CUNHA</span>
             </h1>
             <!-- Detailed State (Bio) -->
             <div
               class="text-[#fafafa] font-sans leading-relaxed text-left transition-all duration-700 ease-in-out flex flex-col justify-start opacity-0 pointer-events-none blur-sm scale-105 max-md:self-start md:self-center overflow-y-auto hide-scrollbar max-md:max-h-[22vh] md:max-h-[40vh] max-md:-translate-y-8"
               x-bind:class="showDetail ? '!opacity-100 !pointer-events-auto !blur-none !scale-100' : ''"
               style="grid-area: 1 / 1;">
-              <p class="mb-5 text-[0.95rem] font-medium text-white/90" x-text="$store.i18n.t[$store.i18n.lang].bio_p1">17+ years of experience engineering systems—from
+              <p class="mb-5 text-[0.95rem] font-medium text-white/90">17+ years of experience engineering systems—from
                 core technology to sound design. I see
                 no boundary between routing audio signals and architecting data pipelines; both require the same mastery
                 of logic and flow.</p>
-              <p class="text-[0.95rem] font-medium text-white/90" x-text="$store.i18n.t[$store.i18n.lang].bio_p2">Operating as a Software Engineer and Sound Designer
+              <p class="text-[0.95rem] font-medium text-white/90">Operating as a Software Engineer and Sound Designer
                 with a focus on creative product
                 thinking, I bridge the gap between AI Engineering and Solutions Architecture. This hybrid expertise
                 defines my approach to Context Engineering: translating abstract domain nuances into scalable, efficient
@@ -649,8 +432,7 @@
             <span
               class="block font-sans text-[#fffacd] font-bold relative z-10 transition-transform duration-500"
               :class="isHovered ? 'scale-105' : ''"
-              style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase; -webkit-text-stroke: 0.5px rgba(255,255,255,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.3);"
-              x-text="$store.i18n.t[$store.i18n.lang].sound_designer">SOUND
+              style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase; -webkit-text-stroke: 0.5px rgba(255,255,255,0.3); text-shadow: 0 1px 2px rgba(0,0,0,0.3);">SOUND
               DESIGNER</span>
             <!-- Ghost terms -->
             <!-- Ghost terms Above -->
@@ -660,13 +442,11 @@
               <span
                 class="font-sans font-bold text-[#fafafa] opacity-80 whitespace-nowrap transition-all duration-700 translate-y-3"
                 :class="isHovered ? '!translate-y-0' : ''"
-                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;"
-                x-text="$store.i18n.t[$store.i18n.lang].music_producer">MUSIC PRODUCER</span>
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">MUSIC PRODUCER</span>
               <span
                 class="font-sans font-bold text-[#fafafa] opacity-60 whitespace-nowrap transition-all duration-700 translate-y-1.5"
                 :class="isHovered ? '!translate-y-0' : ''"
-                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;"
-                x-text="$store.i18n.t[$store.i18n.lang].audio_engineer">AUDIO ENGINEER</span>
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">AUDIO ENGINEER</span>
             </div>
             <!-- Ghost terms Left (Now naturally to the left without negative margins) -->
             <div
@@ -675,13 +455,11 @@
               <span
                 class="font-sans font-bold text-[#fafafa] opacity-90 whitespace-nowrap transition-all duration-700 translate-x-2"
                 :class="isHovered ? '!translate-x-0' : ''"
-                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;"
-                x-text="$store.i18n.t[$store.i18n.lang].beatmaker">BEATMAKER</span>
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">BEATMAKER</span>
               <span
                 class="font-sans font-bold text-[#fafafa] opacity-70 whitespace-nowrap transition-all duration-700 translate-x-4"
                 :class="isHovered ? '!translate-x-0' : ''"
-                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;"
-                x-text="$store.i18n.t[$store.i18n.lang].multi_instrumentist">MULTI-INSTRUMENTIST</span>
+                style="font-size: 1.107rem; letter-spacing: 0px; text-transform: uppercase;">MULTI-INSTRUMENTIST</span>
             </div>
           </div>
           <!-- Interactive Text Block: YAHARD / Y42_BEATS -->
@@ -798,26 +576,26 @@
 
         <!-- Nível 1: Services & Skills (Top Third) -->
         <div
-          class="max-md:row-start-1 md:row-start-1 flex flex-col items-center max-md:justify-center md:justify-end w-full px-2 max-md:scale-[0.88] md:scale-[1.18] lg:scale-[1.18] transition-all duration-300 max-md:pt-[12dvh] md:mt-[4%] select-none">
+          class="max-md:row-start-1 md:row-start-1 flex flex-col items-center max-md:justify-center md:justify-end w-full px-2 max-md:scale-[0.88] md:scale-[1.18] lg:scale-[1.18] transition-all duration-300 max-md:pt-[8dvh] select-none">
             <div class="flex flex-wrap justify-center gap-x-4 md:gap-x-6 max-md:gap-y-3 md:gap-y-2" style="-webkit-user-select: none; user-select: none;">
               <span
                 class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
-                data-node="ai-automation" x-text="$store.i18n.t[$store.i18n.lang].proj_ai_automation">AI AUTOMATION</span>
+                data-node="ai-automation">AI AUTOMATION</span>
               <span
                 class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
-                data-node="data-engineering" x-text="$store.i18n.t[$store.i18n.lang].proj_data_eng">DATA ENGINEERING</span>
+                data-node="data-engineering">DATA ENGINEERING</span>
               <span
                 class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
-                data-node="full-stack-development" x-text="$store.i18n.t[$store.i18n.lang].proj_fullstack">FULL-STACK DEVELOPMENT</span>
+                data-node="full-stack-development">FULL-STACK DEVELOPMENT</span>
               <span
                 class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
-                data-node="enterprise-architecture" x-text="$store.i18n.t[$store.i18n.lang].proj_ent_arch">ENTERPRISE ARCHITECTURE</span>
+                data-node="enterprise-architecture">ENTERPRISE ARCHITECTURE</span>
               <span
                 class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
-                data-node="audio-engineering-sound-design" x-text="$store.i18n.t[$store.i18n.lang].proj_audio_sound">AUDIO ENGINEERING & SOUND DESIGN</span>
+                data-node="audio-engineering-sound-design">AUDIO ENGINEERING & SOUND DESIGN</span>
               <span
                 class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
-                data-node="autonomous-agents" x-text="$store.i18n.t[$store.i18n.lang].proj_agents_rag">AUTONOMOUS AGENTS & RAG SYSTEMS</span>
+                data-node="autonomous-agents">AUTONOMOUS AGENTS & RAG SYSTEMS</span>
             </div>
         </div>
         <!-- Nível 2: Tech Stack (Middle Third) -->
@@ -909,7 +687,7 @@
 
         <!-- Nível 3: Project Squares (Bottom on Mobile) -->
         <div
-          class="max-md:row-start-4 md:row-start-3 flex flex-col justify-start items-center w-full pb-6 md:pb-0 max-md:scale-[0.94] md:scale-[1.18] transition-transform max-md:-mt-[4%] md:-mt-[4%]">
+          class="max-md:row-start-4 md:row-start-3 flex flex-col justify-start items-center w-full pb-6 md:pb-0 max-md:scale-[0.94] md:scale-[1.18] transition-transform">
           <!-- Zone Azul -->
           <div class="flex flex-wrap justify-center gap-2 md:gap-8 w-full content-center px-1 md:scale-[1.14] max-md:scale-[1.07] origin-center transition-transform">
             <!-- Beatmatch AI -->
@@ -930,7 +708,7 @@
               <div class="absolute inset-[15%] md:inset-[20%] z-20 cursor-pointer rounded-lg" onclick="openProjectModal('INTERNAL SUPPORT RAG AGENT')"></div>
               <img src="assets/project_cover_2.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span
-                class="relative z-10 font-sans font-black text-[9px] sm:text-[11px] md:text-[13px] lg:text-[14px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;" x-html="$store.i18n.t[$store.i18n.lang].proj_name_rag">INTERNAL<br />SUPPORT<br />RAG
+                class="relative z-10 font-sans font-black text-[9px] sm:text-[11px] md:text-[13px] lg:text-[14px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;">INTERNAL<br />SUPPORT<br />RAG
                 AGENT</span>
             </div>
             <!-- Enterprise Orchestration -->
@@ -941,7 +719,7 @@
               <div class="absolute inset-[15%] md:inset-[20%] z-20 cursor-pointer rounded-lg" onclick="openProjectModal('ENTERPRISE ORCHESTRATION & ECOSYSTEMS')"></div>
               <img src="assets/project_cover_3.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span
-                class="relative z-10 font-sans font-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[13px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;" x-html="$store.i18n.t[$store.i18n.lang].proj_name_ent">ENTERPRISE<br />ORCHESTRATION<br />&
+                class="relative z-10 font-sans font-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[13px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;">ENTERPRISE<br />ORCHESTRATION<br />&
                 ECOSYSTEMS</span>
             </div>
             <!-- Scraper Automation -->
@@ -952,7 +730,7 @@
               <div class="absolute inset-[15%] md:inset-[20%] z-20 cursor-pointer rounded-lg" onclick="openProjectModal('AI-DRIVEN WEB SCRAPER AUTOMATION')"></div>
               <img src="assets/project_cover_4.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span
-                class="relative z-10 font-sans font-black text-[9px] sm:text-[10px] md:text-[12px] lg:text-[13px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 break-words hyphens-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;" x-html="$store.i18n.t[$store.i18n.lang].proj_name_scraper">AI-DRIVEN<br />WEB
+                class="relative z-10 font-sans font-black text-[9px] sm:text-[10px] md:text-[12px] lg:text-[13px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 break-words hyphens-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;">AI-DRIVEN<br />WEB
                 SCRAPER<br />AUTOMATION</span>
             </div>
             <!-- Beats & Custom -->
@@ -963,7 +741,7 @@
               <div class="absolute inset-[15%] md:inset-[20%] z-20 cursor-pointer rounded-lg" onclick="openProjectModal('BEATS & CUSTOM MUSIC PROJECTS')"></div>
               <img src="assets/project_cover_5.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span
-                class="relative z-10 font-sans font-black text-[10px] sm:text-[11px] md:text-[13px] lg:text-[14px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;" x-html="$store.i18n.t[$store.i18n.lang].proj_name_beats">BEATS
+                class="relative z-10 font-sans font-black text-[10px] sm:text-[11px] md:text-[13px] lg:text-[14px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;">BEATS
                 &<br />CUSTOM<br />MUSIC PROJECTS</span>
             </div>
           </div>
@@ -1008,7 +786,7 @@
         id="wwwav-modal-content">
         <!-- Header -->
         <div class="flex justify-between items-center p-6 border-b border-white/10 shrink-0">
-          <h3 class="text-2xl font-sans font-black tracking-widest uppercase text-[#fffacd]" x-text="$store.i18n.t[$store.i18n.lang].wwwav_title">WWWAV ARTICLE
+          <h3 class="text-2xl font-sans font-black tracking-widest uppercase text-[#fffacd]">WWWAV ARTICLE
           </h3>
           <button onclick="closeWwwavModal()" class="text-white/50 hover:text-white transition-colors cursor-pointer">
             <i class="fas fa-times text-2xl"></i>
@@ -1024,94 +802,92 @@
           <div class="relative z-10 shrink-0 p-6 md:p-12 pb-4 md:pb-6 border-b border-white/10 bg-black/60 backdrop-blur-sm">
             <h1
               class="text-4xl md:text-6xl font-sans font-black mb-2 tracking-tighter text-[#fffacd] uppercase leading-none"
-              style="font-family: Arial, Helvetica, sans-serif;" x-text="$store.i18n.t[$store.i18n.lang].wwwav_post_title">2016: O ÚLTIMO AUGE DA MÚSICA</h1>
-            <p class="text-white/60 font-mono text-sm tracking-widest uppercase" x-text="$store.i18n.t[$store.i18n.lang].wwwav_post_summary">Um top 10 dos álbuns que continuam
-              sendo influência nesses últimos 10 anos</p>
+              style="font-family: Arial, Helvetica, sans-serif;">2016: the last peak in music history</h1>
+            <p class="text-white/60 font-mono text-sm tracking-widest uppercase">A top 10 of the albums that continue to influence the last decade</p>
           </div>
           <!-- Scrollable Article Body -->
           <div class="relative z-10 flex-1 overflow-y-auto p-6 md:p-12 pt-6 md:pt-8">
 
-          <p class="mb-6 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p1"></p>
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p2"></p>
+          <p class="mb-6 text-lg">2016 was a year I always knew would be a milestone from the moment it began, but I didn't know it would be a year that would last at least a decade. This is largely because the albums from this year influenced everything that came after. Possibly, they were the last albums that truly mattered in these last 10 years.</p>
+
+          <p class="mb-12 text-lg">This certainly turns 2016 into the last year we had so many absurdly good albums coming out all at once. We needed 10 years to truly understand the value of what they did to a decade that, until then, didn't exist, and now we have the exact frame to grasp it. I still believe that 2016 delivered the best that music has to offer to this day.</p>
 
           <!-- 10 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">10. PARTYNEXTDOOR - PARTYNEXTDOOR 3 (P3)</h2>
           <img src="assets/10_PARTYNEXTDOOR_P3.webp" alt="P3 Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <!-- 10 -->
-          <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">10. PartyNextDoor - P3</h2>
-          <img src="assets/10_PND_P3.webp" alt="P3 Album Cover"
-            class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p3"></p>
+          <p class="mb-12 text-lg">You've heard of trapsoul, and you probably know it's the name of Bryson Tiller's 2015 album, which is undeniably important for the genre. But if anyone considers trapsoul an actual sound, it comes from P3. That dark, dragging beat, marrying R&B with trap in a very ethereal way throughout the album with that sweet hi-hat, delicious reversed sample... Classic tracks like "Come and See Me" and "Don't Run" are the pure DNA of artists like Summer Walker, 6lack, and various phases of Drake himself.</p>
 
           <!-- 9 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">9. Isaiah Rashad - The Sun's Tirade</h2>
           <img src="assets/9_Isaiah_Rashad_The_Suns_Tirade.webp" alt="The Sun's Tirade Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p4"></p>
+          <p class="mb-12 text-lg">Kendrick Lamar himself, who is on this album, has to admit that here Isaiah Rashad elevated the level of jazz and bossa in rap. That vibe you already get from J Dilla with Slum Village, or Common in "Be" produced entirely by Kanye. All that nice jazz rap energy for relaxing is in this album. Isaiah Rashad manages to put together an impeccable opening sequence for a classic album. It keeps that vibe of a good movie worth rewatching. And you can't fail to mention the lead single, because this song is indeed excellent: "4r Da Squaw".</p>
 
           <!-- 8 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">8. Kanye West - The Life of Pablo</h2>
           <img src="assets/8_Kanye_West_The_Life_of_Pablo.webp" alt="TLOP Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-4 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p5"></p>
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p6"></p>
+          <p class="mb-4 text-lg">Kanye West fans might coming for me here, but let me remind you: no one is better equipped to talk about Kanye than me, and I say: this album even being here shows the man's impact. The impact of releasing an album that's not quite perfectly rounded, but at the same time is important and good enough to not be left out of this top 10 among all these monsters. Does that make sense? Anyway... He masterfully continues uniting styles within an album and keeping it cohesive, but here he began transforming that with truly distinct pieces. Songs he took from the "Yeezus" era, recent songs, songs from the gospel project he was preparing.</p>
+          <p class="mb-12 text-lg">And he orchestrated it like a spectacle. That historic moment of the Yeezy show with the album listening at Madison Square Garden. That classic video of Kanye and Cudi's enthusiasm showing "Father Stretch My Hands" to the audience for the first time. This album is really far from being my favorite of his, but it signaled a new era for a lot of people. It meant the return of Kanye West for a new generation that popularized Yeezys, participated in that absolutely insane tour, and marked yet another way for artists to build albums and put on shows, like every Kanye West project. It deserves to be here.</p>
 
           <!-- 7 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">7. Drake - Views</h2>
           <img src="assets/7_Drake_Views.webp" alt="Views Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-4 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p7"></p>
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p8"></p>
+          <p class="mb-4 text-lg">If Drake has one truly good album, it's this one. I remember how 2016 was a different year. It was the year I really started to enjoy "The Island" better. And in that period, there were many car rides with Rafiki. But at the time, his car had a player that only accepted CDs. I decided to buy the original Views for him for Christmas. Every ride was this album non-stop.</p>
+          <p class="mb-12 text-lg">As the record's theme suggests, there are songs for the day, and songs for the night. There are many good layers in the samples. Layers that later became more generic in his career, but on this album were still very natural. I'm the first to talk bad about Drake, but this album right here is good. Truly.</p>
 
           <!-- 6 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">6. Bon Iver - 22, A Million</h2>
           <img src="assets/6_Bon_Iver_22_A_Million.webp" alt="22 A Million Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-4 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p9"></p>
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p10"></p>
+          <p class="mb-4 text-lg">After contributing to the sound of 2 Kanye West albums, Justin Vernon decided to create Bon Iver's experimental but very well-crafted album... as if Bon Iver wasn't already enough like that. The influence of "Yeezus"' distorted and glitchy sound on the structure of this album is clear and wonderful. It's basically Bon Iver transforming folk—something completely centered on acoustic sound—into distorted elements, electronics, samples. Something worthy of someone who is extremely talented musically and spent time with Kanye to take everything to another level.</p>
+          <p class="mb-12 text-lg">I really like several songs on this album and especially how they are built. Each song has some stand-out element that he uses in a very specific way. 33 "GOD" is a very well-structured track and well-represents Justin's capability. 715 - CR∑∑KS has that classic auto-tune vibe, but the instrument is his own voice, controlling the notes through the synthesizer. Not to mention the evident influence of another friend of his, who is responsible for the next album on the list.</p>
 
           <!-- 5 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">5. James Blake - The Colour in Anything</h2>
           <img src="assets/5_James_Blake_The_Colour_in_Anything.webp" alt="The Colour In Anything Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-4 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p11"></p>
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p12"></p>
+          <p class="mb-4 text-lg">Technically it might not be James Blake's best album, but it's my favorite because of how he knows what he's capable of and uses it in the best way. It feels like he grew tired of being this great disruptor of the musical matrix and is trying to be more normal. But this was his peak in that. It has incredible tracks like "Timeless", "Points", "Radio Silence". The whole album carries the James Blake vibe well, just on the edge of not seeming like he's imitating himself instead of truly creating.</p>
+          <p class="mb-12 text-lg">Maybe that's why it's the peak and why he didn't make this sound anymore. Artists like Sevdaliza, Billie Eilish, and others on this list are influenced (including me) by this sound that only James Blake did so well. And here he hit that peak in an album with a considerable number of tracks to enjoy this first great phase of his.</p>
 
           <!-- 4 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">4. Solange - A Seat at the Table</h2>
           <img src="assets/4_Solange_A_Seat_at_the_Table.webp" alt="A Seat at the Table Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-4 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p13"></p>
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p14"></p>
+          <p class="mb-4 text-lg">Now things are starting to get heavy. This album is excellent. So excellent that at the time Pitchfork placed it above my choice for first. I just don't think it has the same weight as the following ones for my taste, but what Solange does in instrumental, concept, sound, and the entire design of this album is simply impeccable.</p>
+          <p class="mb-12 text-lg">The world will always love Beyoncé more, and that's fine—she's a great artist too. But I think Solange is a genius, and on this album, she brought so much musical foundation, so much recording quality, and high identity both in sound and narrative across the tracks. It's never a bad time to appreciate this album.</p>
 
           <!-- 3 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">3. Frank Ocean - Endless</h2>
           <img src="assets/3_Frank_Ocean_Endless.webp" alt="Endless Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-4 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p15"></p>
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p16"></p>
+          <p class="mb-4 text-lg">"Oh, but 2 Frank Ocean albums on the list?" My friend, these 2 albums were an event! Two days before the obvious top spot, the man released this in movie format. And it's one of those beautiful albums that catches you completely off guard. At first you think it's very strange, then you realize you can't stop listening and everything starts to make perfect sense.</p>
+          <p class="mb-12 text-lg">The imperfection of this album is perfect. To see how crazy this year was, 3 albums played so much with this transition of perfection and imperfection: "Endless", "22 A Million", and "The Colour in Anything". And on "Endless", for me, it ends up being the most striking because Frank Ocean truly managed to unite that influence of "Kid A" and "Yeezus" for his "wise monk" version. Yes, sometimes I see Frank Ocean's music as that of a monk on a mountain that you visit to hear these songs, meditate, and find answers or more questions for your life. And indeed, that's what it ends up being with several tracks. "U-N-I-T-Y" extracts that vibe that's throughout Frank Ocean's career in one of my favorite ways. This album is a journey that I've followed closely over these 10 years; it couldn't fail to be up here.</p>
 
           <!-- 2 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">2. BK' - Castelos & Ruínas</h2>
           <img src="assets/2_BK_Castelos_e_Ruinas.webp" alt="Castelos e Ruínas Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-4 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p17"></p>
-          <p class="mb-4 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p18"></p>
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p19"></p>
+          <p class="mb-4 text-lg">Name any national album more relevant than this one in the last 20 years or more and miserable fail. Think about it, I'll let you think... go on... got it? Yeah, right? There's the scale of the impact here.</p>
+          <p class="mb-4 text-lg">As BK himself already said: he could spend his whole career just performing this album and it's all good, he's set just like any other old-school artist who does that. There might be other excellent albums, and there truly are, but I can't imagine any rap album or otherwise that has the same weight and represented as much as "Castelos & Ruínas" not only in the last 10 years. Like a true Jay-Z fan, BK managed to build a cohesive story between being faithful to his Rio origins and wanting the good life that international artists have.</p>
+          <p class="mb-12 text-lg">Bloco 7 at the time realized the importance of the scene breathing and existing in RJ and Brazil, being able to be as sexy to the public as we always had to only see in American music videos and not live. Because Brazil has always been in this third-world vision where rap here only serves to complain. BK came to show that he wants to kick the system's door in and take his place, and this revolutionized an entire generation that woke up to live rap in Brazil.</p>
 
-          <!-- Menções Honrosas -->
-          <div class="mb-6 pt-4 border-b border-white/10 pb-4">
-            <h3 class="text-sm font-mono font-bold mb-2 tracking-widest text-[#fffacd]/70 uppercase" x-text="$store.i18n.t[$store.i18n.lang].wwwav_honorable">Menções Honrosas</h3>
-            <p class="text-base text-white/50 font-sans italic leading-relaxed" x-text="$store.i18n.t[$store.i18n.lang].wwwav_honorable_list"></p>
+          <!-- Honorable Mentions Section moved before No. 1 -->
+          <div class="mb-12 pt-6 border-t border-white/10">
+            <h3 class="text-sm font-mono font-bold mb-3 tracking-widest text-[#fffacd]/70 uppercase">Honorable Mentions</h3>
+            <p class="text-base text-white/50 font-sans italic leading-relaxed">Beyoncé — Lemonade · David Bowie — Blackstar · Radiohead — A Moon Shaped Pool · Danny Brown — Atrocity Exhibition · Kendrick Lamar — Untitled Unmastered · Anderson .Paak — Malibu · Childish Gambino — "Awaken, My Love!" · ScHoolboy Q — Blank Face LP · Travis Scott — Birds in the Trap Sing McKnight · Skepta — Konnichiwa</p>
           </div>
 
           <!-- 1 -->
           <h2 class="text-2xl font-bold mb-4 font-serif italic text-white">1. Frank Ocean - Blonde</h2>
           <img src="assets/1_Frank_Ocean_Blonde.webp" alt="Blonde Album Cover"
             class="w-full max-w-md my-6 border border-white/10 shadow-lg">
-          <p class="mb-4 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p20"></p>
-          <p class="mb-12 text-lg" x-text="$store.i18n.t[$store.i18n.lang].wwwav_p_p21"></p>
+          <p class="mb-4 text-lg">This one is absurd, there's no way around it. I already knew this album would mark an entire generation the moment it came out. The avant-garde sound, this dream-like vibe he brought to the tracks, the ability to talk about feelings that people choose not to talk about but we all know we feel.</p>
+          <p class="mb-12 text-lg">Ways of dealing with current, past, confusing relationships; ways of understanding the changes the world was beginning to go through at that moment; ways that society was trying to understand itself and getting lost. All this comes strong in this album in the best possible way. Frank Ocean decided to elevate the level of his compositions and truly made a work that was born a classic and continues to be the best album released since then. It's quite hard to beat what this album achieved within its scope and how it influenced not only sound, but even design and addressed subjects. Some subjects that seem normal today, he addressed differently on this album while opening up about what he learned from life.</p>
+
+          <!-- Honorable Mentions -->
           </div>
         </div>
         </div>
@@ -1139,7 +915,7 @@
 
         <!-- Article Card -->
         <div
-          class="relative flex flex-col w-[80vw] h-[80vw] max-w-[420px] max-h-[420px] md:max-w-[480px] md:max-h-[480px] border border-white/20 cursor-pointer hover:border-white/40 transition-all duration-300 shadow-2xl group overflow-hidden max-md:-mt-[2%] md:mt-[1%] md:scale-[1.25]"
+          class="relative flex flex-col w-[80vw] h-[80vw] max-w-[420px] max-h-[420px] md:max-w-[480px] md:max-h-[480px] border border-white/20 cursor-pointer hover:border-white/40 transition-all duration-300 shadow-2xl group overflow-hidden mt-[2%] md:mt-[5%] md:scale-[1.25]"
           onclick="openWwwavModal()">
           <!-- Background Image -->
           <div
@@ -1152,17 +928,17 @@
           <div
             class="relative z-10 flex flex-col justify-end items-start h-full mix-blend-difference pb-6 px-6 md:pb-8 md:px-8">
             <h3 class="text-2xl md:text-4xl font-sans font-light tracking-widest text-left leading-tight text-[#fafafa]"
-              style="font-family: Arial, Helvetica, sans-serif;" x-html="$store.i18n.t[$store.i18n.lang].wwwav_post_title">
-              2016:<br>O ÚLTIMO AUGE<br>DA MÚSICA
+              style="font-family: Arial, Helvetica, sans-serif;">
+              2016:<br>THE LAST PEAK<br>IN MUSIC HISTORY
             </h3>
             <p
-              class="mt-4 text-left text-white/80 font-mono text-[0.65rem] md:text-xs tracking-widest max-w-[250px] md:max-w-[300px]" x-text="$store.i18n.t[$store.i18n.lang].wwwav_post_summary">
-              UM TOP 10 DOS ÁLBUNS QUE CONTINUAM SENDO INFLUÊNCIA NESSES ÚLTIMOS 10 ANOS
+              class="mt-4 text-left text-white/80 font-mono text-[0.65rem] md:text-xs tracking-widest max-w-[250px] md:max-w-[300px]">
+              A TOP 10 OF THE ALBUMS THAT CONTINUE TO INFLUENCE THE LAST DECADE
             </p>
 
             <div class="absolute bottom-6 md:bottom-8 right-6 md:right-8">
               <p
-                class="font-sans font-normal text-white/40 text-[0.65rem] md:text-xs tracking-[0.3em] group-hover:text-white transition-colors" x-text="$store.i18n.t[$store.i18n.lang].wwwav_read">
+                class="font-sans font-normal text-white/40 text-[0.65rem] md:text-xs tracking-[0.3em] group-hover:text-white transition-colors">
                 READ</p>
             </div>
           </div>
@@ -1336,101 +1112,70 @@
 
       const projectData = {
         'BEATMATCH AI': {
-          links: [
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_ai-cybersecurity-socialengineering-activity-7408952949789548544-QQ1j', labelKey: 'link_linkedin_post' }
-          ]
+          tech: 'Python, LLMs, Data Analytics, Automation.',
+          links: '<a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_ai-cybersecurity-socialengineering-activity-7408952949789548544-QQ1j" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6">LinkedIn Post</a> <a href="#" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 text-white/50">GitHub Repository: [Insert Link Here]</a>',
+          desc: `
+            <p class="mb-4">BeatMatchAI is a SaaS platform that connects music producers with artists. The music industry has a lot of scattered data, making it hard for beatmakers to find the right artists to work with. To solve this, I built a system that analyzes musical styles and catalogs automatically.</p>
+            <p class="mb-4">It matches the producer's beats with the artist's vibe using Artificial Intelligence. I used Python for the backend and LLMs to understand the data. Instead of spending hours sending messages on Instagram, producers can use this tool to find their target audience. It is currently in the final development stages and will launch soon.</p>
+          `
         },
         'INTERNAL SUPPORT RAG AGENT': {
-          links: [
-            { href: 'https://lnkd.in/dmwby9Ac', labelKey: 'link_github_repo' },
-            { href: 'https://lnkd.in/exQNEk9G', labelKey: 'link_live_demo' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_github-jraphaelbarbosaqualityops-ai-agent-activity-7406420616100339713-O3BL', labelKey: 'link_project_launch' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_ai-langchain-gemini-activity-7408814013322657793-bU-5', labelKey: 'link_engineering' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_ai-cybersecurity-socialengineering-activity-7408952949789548544-QQ1j', labelKey: 'link_security' }
-          ]
+          tech: 'Python, Google Gemini 2.5 Flash, LangChain (LCEL), CrewAI, ChromaDB, RAG, Streamlit.',
+          links: '<a href="https://lnkd.in/dmwby9Ac" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">GitHub Repository</a> <a href="https://lnkd.in/exQNEk9G" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">Live Demo</a><br/><a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_github-jraphaelbarbosaqualityops-ai-agent-activity-7406420616100339713-O3BL" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Project Launch)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_ai-langchain-gemini-activity-7408814013322657793-bU-5" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Engineering/LangChain)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_ai-cybersecurity-socialengineering-activity-7408952949789548544-QQ1j" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mb-2 inline-block">LinkedIn (Security Test)</a>',
+          desc: `
+            <p class="mb-4">QualityOps is an AI agent created to automate Quality Assurance (QA) in Call Centers. Usually, humans can only audit about 2% of support calls, which leaves big security risks. This project audits 100% of the chats in real-time to ensure agents follow the rules, like PIN validation and data protection (PII).</p>
+            <p>I started building it with CrewAI, but to make it faster, I rebuilt the backend using LangChain (LCEL) and Google Gemini 2.5 Flash. This reduced the response time to under 2 seconds. It also uses RAG with ChromaDB to read company rules and teach human agents how to correct their mistakes, acting like a digital supervisor.</p>
+          `
         },
         'ENTERPRISE ORCHESTRATION & ECOSYSTEMS': {
-          links: [
-            { href: 'https://lnkd.in/dAJg7Dea', labelKey: 'link_monday_repo' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_python-mondaycom-ai-activity-7417706757235523584-TFXW', labelKey: 'link_monday_ai_1' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_python-mondaycom-realestatetech-activity-7419363617059483648-hq42', labelKey: 'link_monday_gis_2' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_servicenow-servicenowdeveloper-ai-activity-7423016023693389824-pNEz', labelKey: 'link_servicenow_sdk' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_servicenow-servicenowdeveloper-solutionarchitecture-activity-7424082137626271744-opr-', labelKey: 'link_servicenow_showcase' }
-          ]
+          tech: 'ServiceNow SDK v4, Monday.com API (GraphQL), TypeScript, Python, GIS, OpenAI.',
+          links: '<a href="https://lnkd.in/dAJg7Dea" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">Monday.com GitHub Repo</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_python-mondaycom-ai-activity-7417706757235523584-TFXW" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Monday AI Phase 1)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_python-mondaycom-realestatetech-activity-7419363617059483648-hq42" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Monday GIS Phase 2)</a> <br/> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_servicenow-servicenowdeveloper-ai-activity-7423016023693389824-pNEz" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 inline-block">LinkedIn (ServiceNow SDK)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_servicenow-servicenowdeveloper-solutionarchitecture-activity-7424082137626271744-opr-" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 inline-block">LinkedIn (ServiceNow Showcase)</a>',
+          desc: `
+            <p class="mb-4">This section highlights two enterprise-level solutions built to fix slow manual work. The first is an AI Real Estate Underwriter for Monday.com. I built a Python backend that takes property data, finds the GPS coordinates (GIS), calculates the Return on Investment (ROI), and uses OpenAI to score the deal. It updates the Monday.com board automatically via GraphQL.</p>
+            <p>The second project is the EDX Academic System, a complex school management app built in ServiceNow. Instead of using basic point-and-click tools, I used the ServiceNow SDK v4 (Fluent) and AI to write the code outside the platform. This allowed me to create automated grade calculations and strict security rules much faster and with better control.</p>
+          `
         },
         'AI-DRIVEN WEB SCRAPER AUTOMATION': {
-          links: [
-            { href: 'https://lnkd.in/dr8KEhUR', labelKey: 'link_etl_repo' },
-            { href: 'https://lnkd.in/dXmkHGET', labelKey: 'link_spotify_repo' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_github-jraphaelbarbosamusic-data-pipeline-activity-7388358646402867200-iG3w', labelKey: 'link_etl_linkedin' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_github-jraphaelbarbosaspotify-artist-instagram-extractor-activity-7399319547910041600-uNny', labelKey: 'link_spotify_linkedin' },
-            { href: 'https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_python-mondaycom-realestateteat-activity-7419363617059483648-hq42', labelKey: 'link_real_estate_linkedin' }
-          ]
+          tech: 'Python, Playwright, Network Interception (JSON), Spotify/YouTube APIs, OpenAI.',
+          links: '<a href="https://lnkd.in/dr8KEhUR" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">ETL Pipeline GitHub</a> <a href="https://lnkd.in/dXmkHGET" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">Spotify Extractor GitHub</a> <br/> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_github-jraphaelbarbosamusic-data-pipeline-activity-7388358646402867200-iG3w" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (ETL Pipeline)</a> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_github-jraphaelbarbosaspotify-artist-instagram-extractor-activity-7399319547910041600-uNny" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">LinkedIn (Spotify Extractor)</a> <br/> <a href="https://www.linkedin.com/posts/jo%C3%A3o-raphael-cunha_python-mondaycom-realestatetech-activity-7419363617059483648-hq42" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 inline-block">LinkedIn (Real Estate Scraper)</a>',
+          desc: `
+            <p class="mb-4">AI systems need good data to work. This project shows how I build automated pipelines to collect that data. For the music industry (BeatMatchAI), I made a Python ETL pipeline that uses Spotify and YouTube APIs to find rising artists. To get their contact info, I created a tool that intercepts network requests to capture hidden JSON data. This perfectly extracts official Instagram links without breaking or failing like traditional web scrapers do.</p>
+            <p>I applied this same logic to the Real Estate market. I built a scraper with Playwright that intercepts internal APIs on property websites to get prices and sales history. Then, OpenAI agents read the text descriptions to automatically find good deals, like houses that need renovation, feeding the data directly into Monday.com.</p>
+          `
         },
         'BEATS & CUSTOM MUSIC PROJECTS': {
-          links: [
-            { href: 'https://www.behance.net/jraphaelcunha', labelKey: 'link_audio_samples' }
-          ]
+          tech: 'Ableton Live, FL Studio, Audio Engineering, Sound Design.',
+          links: '<a href="#" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 text-white/50">Portfolio / Audio Samples: [Insert Link Here]</a>',
+          desc: `
+            <p class="mb-4">I have years of experience working as a freelance music producer, and I offer a wide variety of audio services. My main focus is selling exclusive beats (Trap, Hip-Hop, Electronic), but I also work on complete musical projects. I handle recording instrumentals, creating custom soundtracks, and sound design for digital media.</p>
+            <p>To ensure everything sounds professional, I provide full mixing and mastering services using Ableton Live and FL Studio. Having this hands-on experience in the music industry is exactly what helps me build better software for musicians. Because I work in the audio field daily, I truly understand the real problems that producers and artists face, which makes my AI projects much more effective.</p>
+          `
         }
       };
 
-      window.openProjectModal = (titleKey) => {
+      window.openProjectModal = (title) => {
         if (!projectModal) return;
+        projectModalTitle.textContent = title;
 
-        const keyMap = {
-          'BEATMATCH AI': 'beatmatch',
-          'INTERNAL SUPPORT RAG AGENT': 'rag',
-          'ENTERPRISE ORCHESTRATION & ECOSYSTEMS': 'ent',
-          'AI-DRIVEN WEB SCRAPER AUTOMATION': 'scraper',
-          'BEATS & CUSTOM MUSIC PROJECTS': 'beats'
-        };
-
-        const shortKey = keyMap[titleKey] || titleKey.toLowerCase();
-        const i18nStore = Alpine.store('i18n');
-        const lang = i18nStore.lang;
-        const t = i18nStore.t[lang];
-
-        // Set Title
-        const titleMapping = {
-          'beatmatch': 'BEATMATCH AI',
-          'rag': t.proj_name_rag.replace(/<br\s*\/?>/gi, ' '),
-          'ent': t.proj_name_ent.replace(/<br\s*\/?>/gi, ' '),
-          'scraper': t.proj_name_scraper.replace(/<br\s*\/?>/gi, ' '),
-          'beats': t.proj_name_beats.replace(/<br\s*\/?>/gi, ' ')
-        };
-        projectModalTitle.textContent = titleMapping[shortKey] || titleKey;
-
-        // Generate Links HTML
-        let linksHTML = '';
-        if (projectData[titleKey] && projectData[titleKey].links) {
-          linksHTML = projectData[titleKey].links.map(link => {
-            const label = t[link.labelKey] || link.labelKey;
-            return `<a href="${link.href}" target="_blank" class="text-white hover:text-white/70 underline underline-offset-4 decoration-white/30 mr-6 mb-2 inline-block">${label}</a>`;
-          }).join('');
-        }
-
-        // Fetch Data from Store
-        const data = {
-          tech: t[`desc_${shortKey}_tech`],
-          desc: `<p class="mb-4">${t[`desc_${shortKey}_p1`]}</p><p>${t[`desc_${shortKey}_p2`]}</p>`,
-          links: linksHTML
-        };
-
-        if (data.tech) {
+        const data = projectData[title];
+        if (data) {
           modalInnerContent.innerHTML = `
             <div class="w-full flex flex-col h-full">
+              <!-- Fixed Project Header (Tech + Links) — always 20%, never scrolls -->
               <div class="shrink-0 h-[20%] overflow-hidden pb-2 md:pb-3 mb-2 md:mb-3 border-b border-white/20 flex flex-col justify-center">
+                <!-- Tech Stack -->
                 <div class="mb-1 md:mb-2 w-full">
-                  <h4 class="text-white/60 font-mono text-[9px] md:text-xs tracking-widest uppercase mb-0.5 font-bold">${t.modal_tech}</h4>
+                  <h4 class="text-white/60 font-mono text-[9px] md:text-xs tracking-widest uppercase mb-0.5 font-bold">Tech Stack</h4>
                   <p class="text-[10px] md:text-sm font-sans font-bold text-white shadow-black drop-shadow-md leading-snug">${data.tech}</p>
                 </div>
                 ${data.links ? `
                 <div class="w-full">
-                  <h4 class="text-white/60 font-mono text-[9px] md:text-xs tracking-widest uppercase mb-1 font-bold">${t.modal_links}</h4>
+                  <h4 class="text-white/60 font-mono text-[9px] md:text-xs tracking-widest uppercase mb-1 font-bold">Links</h4>
                   <div class="text-[10px] md:text-xs font-sans flex flex-row flex-wrap gap-x-3 gap-y-1 font-bold drop-shadow-md">${data.links}</div>
                 </div>
                 ` : ''}
               </div>
+              <!-- Scrollable Description — always 80% -->
               <div class="flex-1 h-[80%] overflow-y-auto pr-2 md:pr-4 pb-8">
                 <div class="w-full text-sm md:text-base lg:text-lg leading-relaxed font-sans text-white/90 font-medium drop-shadow-md">
                   ${data.desc}
@@ -1438,13 +1183,14 @@
               </div>
             </div>
           `;
+          // Remove the centered classes purely for content, keep it clean
           modalInnerContent.classList.remove('items-center', 'justify-center');
           modalInnerContent.classList.add('items-start', 'justify-start');
         } else {
           modalInnerContent.innerHTML = `
             <div class="flex flex-col items-center justify-center h-full w-full">
               <i class="fas fa-database text-4xl text-white/20 mb-4 animate-pulse"></i>
-              <p class="font-mono tracking-widest text-white/40 text-sm">${t.modal_loading}</p>
+              <p class="font-mono tracking-widest text-white/40 text-sm">AWAITING PROJECT DETAILS UPLINK...</p>
             </div>
           `;
           modalInnerContent.classList.add('items-center', 'justify-center');
@@ -1452,7 +1198,7 @@
         }
 
         projectModal.classList.add('modal-open');
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; // prevent background scrolling
       };
 
       window.closeProjectModal = () => {
@@ -1495,21 +1241,21 @@
       document.addEventListener('DOMContentLoaded', () => {
         // Directed graph mapping what each node highlights when hovered
         const graph = {
-          // Categorias
+          // Categories
           'ai-automation': ['autonomous-agents', 'intelligent-etl', 'python', 'langchain', 'gemini', 'openai', 'monday-com', 'quality-ops-agent', 'scraper-automation'],
           'data-engineering': ['autonomous-agents', 'intelligent-etl', 'sonic-ai', 'api-orchestration', 'python', 'playwright', 'aws', 'docker', 'enterprise-orchestration', 'beatmatch-ai', 'quality-ops-agent', 'scraper-automation'],
           'web-app-development': ['full-stack-development', 'api-orchestration', 'beatmatch-ai'],
           'audio-engineering-sound-design': ['ableton-live', 'beats-custom'],
           'enterprise-architecture': ['python', 'intelligent-etl', 'api-orchestration', 'langchain', 'vector-db', 'aws', 'monday-com', 'servicenow'],
 
-          // Servicos
+          // Services
           'autonomous-agents': ['ai-automation', 'data-engineering', 'api-orchestration', 'python', 'langchain', 'crewai', 'gemini', 'openai', 'vector-db', 'aws', 'quality-ops-agent'],
           'intelligent-etl': ['ai-automation', 'data-engineering', 'api-orchestration', 'python', 'langchain', 'crewai', 'postgresql', 'mongodb', 'beatmatch-ai', 'enterprise-orchestration', 'scraper-automation'],
           'full-stack-development': ['api-orchestration', 'web-app-development', 'react', 'python', 'aws', 'docker', 'postgresql', 'mongodb', 'beatmatch-ai', 'quality-ops-agent'],
           'sonic-ai': ['python', 'audio-engineering-sound-design', 'beatmatch-ai', 'gemini', 'openai'],
           'api-orchestration': ['python', 'enterprise-architecture', 'ai-automation', 'data-engineering', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration'],
 
-          // Tecnologias
+          // Technologies
           'python': ['ai-automation', 'data-engineering', 'web-app-development', 'enterprise-architecture', 'autonomous-agents', 'intelligent-etl', 'full-stack-development', 'sonic-ai', 'api-orchestration', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration', 'scraper-automation'],
           'crewai': ['ai-automation', 'data-engineering', 'enterprise-architecture', 'autonomous-agents', 'intelligent-etl', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration'],
           'langchain': ['ai-automation', 'data-engineering', 'enterprise-architecture', 'autonomous-agents', 'intelligent-etl', 'beatmatch-ai', 'quality-ops-agent', 'enterprise-orchestration'],
@@ -1526,7 +1272,7 @@
           'ableton-live': ['audio-engineering-sound-design', 'beats-custom'],
           'mongodb': ['intelligent-etl', 'full-stack-development', 'quality-ops-agent', 'scraper-automation'],
 
-          // Projetos
+          // Projects
           'beatmatch-ai': ['data-engineering', 'full-stack-development', 'sonic-ai', 'api-orchestration', 'python', 'crewai', 'langchain', 'gemini', 'web-app-development', 'autonomous-agents', 'postgresql', 'react', 'vector-db', 'docker'],
           'quality-ops-agent': ['data-engineering', 'full-stack-development', 'enterprise-architecture', 'autonomous-agents', 'web-app-development', 'sonic-ai', 'api-orchestration', 'python', 'crewai', 'langchain', 'gemini', 'mongodb', 'vector-db'],
           'enterprise-orchestration': ['monday-com', 'servicenow', 'aws', 'python', 'langchain', 'crewai', 'data-engineering', 'enterprise-architecture', 'api-orchestration'],
