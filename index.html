@@ -375,11 +375,11 @@
           </div>
         </div>
 
-        <!-- Layer 2: Character -->
-        <div class="absolute pointer-events-none" data-purpose="character-container"
-          style="bottom: 0; left: 50%; transform: translateX(-50%); z-index: 3; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-end;">
+        <!-- Layer 3: Character (Front) -->
+        <div class="absolute pointer-events-none select-none max-md:scale-[1.10]"
+          style="bottom: 0; left: 43%; transform: translateX(-50%); z-index: 3; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-end;">
           <img alt="João Raphael"
-            class="h-[85vh] max-md:scale-[0.8] md:scale-100 max-w-none w-auto object-contain origin-bottom transition-transform duration-300"
+            class="h-[85vh] max-md:scale-[0.90] md:scale-[1.13] max-w-none w-auto object-contain origin-bottom transition-transform duration-300"
             src="assets/character_solo.webp" />
         </div>
 
@@ -642,13 +642,18 @@
         </div>
         <!-- Nível 2: Tech Stack (Middle Third) -->
         <div class="max-md:row-start-3 md:row-start-2 flex items-center justify-center w-full md:scale-[1.18] lg:scale-[1.18] select-none max-md:translate-y-[1%]" style="-webkit-user-select: none; user-select: none;">
-          <div class="flex flex-col items-center gap-2 md:gap-3 max-w-4xl mx-auto w-full px-1 transition-transform max-md:scale-[0.77] md:scale-[0.83] origin-center md:origin-top">
+          <div class="flex flex-col items-center gap-2 md:gap-3 max-w-4xl mx-auto w-full px-1 transition-transform max-md:scale-[0.65] md:scale-[0.83] origin-center md:origin-top">
             
+            <!-- Row 1: Python -->
             <div class="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
               <div
                 class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
                 data-node="python"><i class="fab fa-python text-sm md:text-lg"></i><span
                   class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">PYTHON</span></div>
+            </div>
+
+            <!-- Row 2: AI & DB -->
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
               <div
                 class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
                 data-node="crewai"><i class="fas fa-robot text-sm md:text-lg"></i><span
@@ -673,9 +678,6 @@
                     d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.073zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0985 4.2104l-5.8617-3.3827 2.0152-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.3784-.6718zM8.5209 4.3312a4.4992 4.4992 0 0 1 6.1313-1.6464l-.142.0852-4.783 2.7582a.7712.7712 0 0 0-.7806 0L3.1037 8.8967V6.5643a.0804.0804 0 0 1 .0332-.0615l4.384-2.1716zm9.8456-1.1542a4.4755 4.4755 0 0 1 2.8764 1.0408l-.1419.0804-4.7783 2.7582a.7948.7948 0 0 0-.3927.6813v6.7369l-2.02-1.1686a.071.071 0 0 1-.038-.052V7.6713a4.504 4.504 0 0 1 4.4945-4.4944zM10.74 12.0135l2.42-1.4 2.4247 1.4v2.8188l-2.4248 1.4-2.42-1.4z" />
                 </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">OPENAI</span>
               </div>
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
               <div
                 class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
                 data-node="postgresql"><i class="fas fa-database text-sm md:text-lg"></i><span
@@ -684,6 +686,10 @@
                 class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
                 data-node="mongodb"><i class="fas fa-leaf text-sm md:text-lg"></i><span
                   class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">MONGODB</span></div>
+            </div>
+
+            <!-- Row 3: Frontend & DevOps -->
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
               <div
                 class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
                 data-node="react"><i class="fab fa-react text-sm md:text-lg"></i><span
@@ -706,6 +712,7 @@
                   class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">DOCKER</span></div>
             </div>
 
+            <!-- Row 4: Enterprise & Audio -->
             <div class="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
               <div
                 class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
