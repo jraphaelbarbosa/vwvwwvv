@@ -50,6 +50,7 @@
     body {
       background-color: #bfbfae;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      overscroll-behavior: none;
     }
   </style>
   <style data-purpose="typography-and-effects">
@@ -281,7 +282,7 @@
       </div>
     </div>
     <div
-      class="fixed z-[60] flex flex-col items-end w-fit pointer-events-none max-md:top-[27dvh] top-[24%] md:top-[8%] max-md:right-[1%] right-4 md:right-[20px] origin-right max-md:scale-[0.655] md:scale-[0.63] transition-all duration-300">
+      class="fixed z-[60] flex flex-col items-end w-fit pointer-events-none max-md:top-[27svh] top-[24%] md:top-[8%] max-md:right-[1%] right-4 md:right-[20px] origin-right max-md:scale-[0.655] md:scale-[0.63] transition-all duration-300">
 
       <!-- Top Wave -->
       <div class="flex items-center gap-3 mb-1 w-full justify-end cursor-pointer group pointer-events-auto"
@@ -347,7 +348,7 @@
     <!-- END: Social Icons -->
     <!-- BEGIN: Central Visuals -->
     <section id="section-vwvwwvv"
-      class="absolute inset-0 w-full h-[100dvh] overflow-hidden flex items-center justify-center transition-all duration-700 ease-in-out origin-center"
+      class="absolute inset-0 w-full h-[100svh] overflow-hidden flex items-center justify-center transition-all duration-700 ease-in-out origin-center"
       x-bind:class="activeSection === 'vwvwwvv' ? 'opacity-100 pointer-events-auto z-20' : 'opacity-0 pointer-events-none z-0'"
       style="background-image: url('assets/ai_engineer_&_sound_designer_portfolio_home.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
       <div class="relative w-full max-w-7xl h-full flex items-center justify-center">
@@ -377,9 +378,9 @@
 
         <!-- Layer 3: Character (Front) -->
         <div class="absolute pointer-events-none select-none max-md:scale-[1.10]"
-          style="bottom: 0; left: 43%; transform: translateX(-50%); z-index: 3; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-end;">
+          style="bottom: 0; left: 48%; transform: translateX(-50%); z-index: 3; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-end;">
           <img alt="João Raphael"
-            class="h-[85vh] max-md:scale-[0.90] md:scale-[1.13] max-w-none w-auto object-contain origin-bottom transition-transform duration-300"
+            class="h-[85vh] max-md:scale-[0.81] md:scale-[1.02] max-w-none w-auto object-contain origin-bottom transition-transform duration-300"
             src="assets/character_solo.webp" />
         </div>
 
@@ -604,7 +605,7 @@
 
     <!-- New Section: PROJECTS -->
     <section id="section-projects"
-      class="absolute inset-0 w-full h-[100dvh] flex flex-col justify-between items-center text-white transition-all duration-700 ease-in-out origin-center overflow-hidden"
+      class="absolute inset-0 w-full h-[100svh] flex flex-col justify-between items-center text-white transition-all duration-700 ease-in-out origin-center overflow-hidden"
       x-bind:class="activeSection === 'projects' ? 'opacity-100 pointer-events-auto z-20' : 'opacity-0 pointer-events-none z-0'"
       style="background-image: url('assets/download.png'); background-size: cover; background-position: center;">
       <!-- Dark overlay -->
@@ -613,7 +614,7 @@
 
       <!-- Content Container -->
       <div
-        class="relative z-30 w-full h-[100dvh] max-w-[95rem] px-2 max-md:px-[4%] md:px-8 grid max-md:grid-rows-[26dvh_6dvh_28dvh_1fr] md:grid-rows-[auto_auto_auto] md:place-content-center items-center md:py-0 md:gap-y-14 overflow-hidden translate-y-[3%] pointer-events-auto"
+        class="relative z-30 w-full h-[100svh] max-w-[95rem] px-2 max-md:px-[4%] md:px-8 grid max-md:grid-rows-[26svh_6svh_28svh_1fr] md:grid-rows-[auto_auto_auto] md:place-content-center items-center md:py-0 md:gap-y-14 overflow-hidden translate-y-[3%] pointer-events-auto"
         id="projects-content">
 
         <!-- Nível 1: Services & Skills (Top Third) -->
@@ -1017,7 +1018,7 @@
 
     <!-- New Section: WWWAV -->
     <section id="section-wwwav"
-      class="absolute inset-0 w-full h-[100dvh] flex flex-col justify-center items-center text-white transition-all duration-700 ease-in-out origin-center overflow-hidden"
+      class="absolute inset-0 w-full h-[100svh] flex flex-col justify-center items-center text-white transition-all duration-700 ease-in-out origin-center overflow-hidden"
       x-bind:class="activeSection === 'wwwav' ? 'opacity-100 pointer-events-auto z-20' : 'opacity-0 pointer-events-none z-0'"
       style="background-image: url('assets/wwwav_background.webp'); background-size: cover; background-position: center;">
       <!-- Dark overlay to ensure text readability -->
