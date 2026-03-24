@@ -8,6 +8,7 @@ scripts/
 
 # Large unused assets
 assets/download*.png
+!assets/download.png
 assets/disc1.png
 assets/wwwav_background_original.webp
 assets/*.jpg
@@ -16,7 +17,6 @@ assets/*.jpg
 # Redundant logos
 assets/Logo_wwwav_*
 !assets/Logo_wwwav_final.webp
-assets/vwvwwvv_logo_upscaled.webp
 assets/logo_rembg*
 assets/logo_upscaled.webp
 
