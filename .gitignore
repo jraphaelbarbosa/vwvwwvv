@@ -12,7 +12,15 @@ assets/download*.png
 assets/disc1.png
 assets/wwwav_background_original.webp
 assets/*.jpg
+# Large unused assets
+assets/download*.png
+!assets/download.png
+assets/disc1.png
+assets/wwwav_background_original.webp
+assets/*.jpg
 !assets/project_cover_*.jpg
+!assets/39863a28c07047563e4e8ba9672d1bad.jpg
+!assets/b012d85961bf24e3af7b2ba2c7b474fe.jpg
 
 # Redundant logos
 assets/Logo_wwwav_*
