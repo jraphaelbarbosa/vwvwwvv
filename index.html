@@ -281,7 +281,7 @@
       </div>
     </div>
     <div
-      class="fixed z-[60] flex flex-col items-end w-fit pointer-events-none max-md:top-[28dvh] top-[24%] md:top-[8%] max-md:right-[1%] right-4 md:right-[20px] origin-right max-md:scale-[0.69] md:scale-[0.63] transition-all duration-300">
+      class="fixed z-[60] flex flex-col items-end w-fit pointer-events-none max-md:top-[27dvh] top-[24%] md:top-[8%] max-md:right-[1%] right-4 md:right-[20px] origin-right max-md:scale-[0.655] md:scale-[0.63] transition-all duration-300">
 
       <!-- Top Wave -->
       <div class="flex items-center gap-3 mb-1 w-full justify-end cursor-pointer group pointer-events-auto"
@@ -315,8 +315,7 @@
     <!-- END: Top Bar Area -->
 
     <!-- Language Switcher (EN / PT) - Centered in gap -->
-    <div id="lang-switcher" class="fixed z-[60] flex items-center gap-1.5 pointer-events-auto select-none max-md:right-[1%] right-4 md:right-[20px] w-fit h-fit"
-      style="top: 29.5%; transform: translateY(-50%) scale(0.65); transform-origin: right center;">
+    <div id="lang-switcher" class="fixed z-[60] flex items-center gap-1.5 pointer-events-auto select-none max-md:right-[1%] right-4 md:right-[20px] w-fit h-fit max-md:top-[28.5%] md:top-[29.5%] max-md:-translate-y-[50%] md:-translate-y-[50%] max-md:scale-[0.6175] md:scale-[0.65] origin-right transition-transform">
       <span @click="lang = 'en'" class="font-modern font-bold uppercase transition-colors duration-200 cursor-pointer text-sm md:text-xl tracking-wider"
         :class="lang === 'en' ? 'text-[#fffacd] drop-shadow-[0_0_6px_rgba(255,250,205,0.4)]' : 'text-white/50 hover:text-[#fffacd]'">EN</span>
       <span class="text-[0.6rem] text-white/30 font-modern">/</span>
@@ -355,7 +354,7 @@
 
         <!-- Layer 1: Logo -->
         <div
-          class="absolute pointer-events-none max-md:-translate-x-[47%] md:-translate-x-[46%] max-md:top-[4%] md:top-[8%] max-md:w-[98vw] md:w-full md:max-w-[900px] max-md:scale-[0.92] md:scale-[1.47] origin-top transition-all duration-700"
+          class="absolute pointer-events-none max-md:-translate-x-[47%] md:-translate-x-[46%] max-md:top-[5%] md:top-[8%] max-md:w-[98vw] md:w-full md:max-w-[900px] max-md:scale-[0.99] md:scale-[1.47] origin-top transition-all duration-700"
           data-purpose="logo-container"
           style="left: 50%; z-index: 2; display: flex; justify-content: center; align-items: flex-start; opacity: 0.95;"
           x-data="{ isHovered: false }"
@@ -1020,11 +1019,21 @@
       <!-- Centered content wrapper -->
       <div class="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
         <!-- Logo Container -->
-        <div class="relative flex justify-center items-center w-full max-md:max-w-[340px] md:max-w-[400px] max-md:scale-[0.85] md:scale-[1.17] mb-4 md:mb-6 max-md:-mt-[13%] md:-mt-[4%]">
-          <!-- Base Layer Logo (behind) -->
-          <img src="assets/Logo_wwwav_final.webp" alt="WWWAV Logo" class="w-full h-auto drop-shadow-2xl relative z-10" />
-          <!-- New Logo in Front -->
-          <img src="assets/wwwav logo 2_nobg.png" alt="WWWAV Logo Layer" class="absolute w-[95%] h-auto z-30 drop-shadow-xl origin-center translate-y-[2%] opacity-90" />
+        <div class="relative flex flex-col justify-center items-center w-full max-md:max-w-[340px] md:max-w-[400px] max-md:scale-[0.85] md:scale-[1.17] mb-4 md:mb-6 max-md:-mt-[16%] md:-mt-[4%]">
+          <div class="relative w-full">
+            <!-- Base Layer Logo (behind) -->
+            <img src="assets/Logo_wwwav_final.webp" alt="WWWAV Logo" class="w-full h-auto drop-shadow-2xl relative z-10" />
+            <!-- New Logo in Front -->
+            <img src="assets/wwwav logo 2_nobg.png" alt="WWWAV Logo Layer" class="absolute inset-0 w-[95%] h-auto z-30 drop-shadow-xl origin-center translate-y-[2%] mx-auto opacity-90" />
+          </div>
+          <!-- Desktop Stylized Phrase -->
+          <div class="hidden md:flex flex-col items-center mt-6 w-full pointer-events-none">
+            <p class="font-sans font-normal tracking-[0.3em] text-[10px] text-[#fffacd]/50 uppercase leading-relaxed text-left">
+              Versatility Wins Vultures<br>
+              <span class="ml-16">When We</span><br>
+              <span class="ml-12">Vibe Virtoulsy</span>
+            </p>
+          </div>
         </div>
 
         <!-- Article Card -->
@@ -1057,9 +1066,9 @@
             </div>
           </div>
         </div>
-        <!-- New Stylized Phrase -->
-        <div class="absolute bottom-[4%] md:bottom-[6%] w-full pointer-events-none flex justify-center mt-auto">
-          <p class="font-sans font-normal tracking-[0.2em] md:tracking-[0.3em] text-[8px] md:text-[10px] text-[#fffacd]/50 uppercase leading-relaxed text-left">
+        <!-- Mobile Stylized Phrase (Hidden on desktop) -->
+        <div class="absolute bottom-[4%] w-full pointer-events-none flex md:hidden justify-center mt-auto">
+          <p class="font-sans font-normal tracking-[0.2em] text-[8px] text-[#fffacd]/50 uppercase leading-relaxed text-left">
             Versatility Wins Vultures<br>
             <span class="ml-12 md:ml-16">When We</span><br>
             <span class="ml-8 md:ml-12">Vibe Virtoulsy</span>
