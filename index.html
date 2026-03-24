@@ -355,7 +355,7 @@
 
         <!-- Layer 1: Logo -->
         <div
-          class="absolute pointer-events-none max-md:-translate-x-[47%] md:-translate-x-[46%] max-md:top-[6%] md:top-[8%] max-md:w-[98vw] md:w-full md:max-w-[900px] max-md:scale-[1.15] md:scale-[1.47] origin-top transition-all duration-700"
+          class="absolute pointer-events-none max-md:-translate-x-[47%] md:-translate-x-[46%] max-md:top-[4%] md:top-[8%] max-md:w-[98vw] md:w-full md:max-w-[900px] max-md:scale-[0.92] md:scale-[1.47] origin-top transition-all duration-700"
           data-purpose="logo-container"
           style="left: 50%; z-index: 2; display: flex; justify-content: center; align-items: flex-start; opacity: 0.95;"
           x-data="{ isHovered: false }"
@@ -643,88 +643,98 @@
         </div>
         <!-- Nível 2: Tech Stack (Middle Third) -->
         <div class="max-md:row-start-3 md:row-start-2 flex items-center justify-center w-full md:scale-[1.18] lg:scale-[1.18] select-none max-md:translate-y-[1%]" style="-webkit-user-select: none; user-select: none;">
-          <div class="flex flex-wrap justify-center gap-2 md:gap-3 max-w-4xl mx-auto w-full px-1 transition-transform scale-[0.83] md:scale-[0.83] origin-center md:origin-top">
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="python"><i class="fab fa-python text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">PYTHON</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="crewai"><i class="fas fa-robot text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">CREWAI</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="langchain"><i class="fas fa-link text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">LANGCHAIN</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="gemini"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
-                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M24 12c-6.627 0-12-5.373-12-12 0 6.627-5.373 12-12 12 6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12z" />
-              </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">GEMINI</span>
+          <div class="flex flex-col items-center gap-2 md:gap-3 max-w-4xl mx-auto w-full px-1 transition-transform max-md:scale-[0.77] md:scale-[0.83] origin-center md:origin-top">
+            
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="python"><i class="fab fa-python text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">PYTHON</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="crewai"><i class="fas fa-robot text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">CREWAI</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="langchain"><i class="fas fa-link text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">LANGCHAIN</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="gemini"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M24 12c-6.627 0-12-5.373-12-12 0 6.627-5.373 12-12 12 6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12z" />
+                </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">GEMINI</span>
+              </div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="openai"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.073zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0985 4.2104l-5.8617-3.3827 2.0152-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.3784-.6718zM8.5209 4.3312a4.4992 4.4992 0 0 1 6.1313-1.6464l-.142.0852-4.783 2.7582a.7712.7712 0 0 0-.7806 0L3.1037 8.8967V6.5643a.0804.0804 0 0 1 .0332-.0615l4.384-2.1716zm9.8456-1.1542a4.4755 4.4755 0 0 1 2.8764 1.0408l-.1419.0804-4.7783 2.7582a.7948.7948 0 0 0-.3927.6813v6.7369l-2.02-1.1686a.071.071 0 0 1-.038-.052V7.6713a4.504 4.504 0 0 1 4.4945-4.4944zM10.74 12.0135l2.42-1.4 2.4247 1.4v2.8188l-2.4248 1.4-2.42-1.4z" />
+                </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">OPENAI</span>
+              </div>
             </div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="openai"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
-                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.073zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0985 4.2104l-5.8617-3.3827 2.0152-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.3784-.6718zM8.5209 4.3312a4.4992 4.4992 0 0 1 6.1313-1.6464l-.142.0852-4.783 2.7582a.7712.7712 0 0 0-.7806 0L3.1037 8.8967V6.5643a.0804.0804 0 0 1 .0332-.0615l4.384-2.1716zm9.8456-1.1542a4.4755 4.4755 0 0 1 2.8764 1.0408l-.1419.0804-4.7783 2.7582a.7948.7948 0 0 0-.3927.6813v6.7369l-2.02-1.1686a.071.071 0 0 1-.038-.052V7.6713a4.504 4.504 0 0 1 4.4945-4.4944zM10.74 12.0135l2.42-1.4 2.4247 1.4v2.8188l-2.4248 1.4-2.42-1.4z" />
-              </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">OPENAI</span>
+
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="postgresql"><i class="fas fa-database text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">POSTGRESQL</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="mongodb"><i class="fas fa-leaf text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">MONGODB</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="react"><i class="fab fa-react text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">REACT</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="vector-db"><i class="fas fa-vector-square text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">VECTOR DB</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="playwright"><i class="fas fa-theater-masks text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">PLAYWRIGHT</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="aws"><i class="fab fa-aws text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">AWS</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="docker"><i class="fab fa-docker text-sm md:text-lg"></i><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">DOCKER</span></div>
             </div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="postgresql"><i class="fas fa-database text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">POSTGRESQL</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="mongodb"><i class="fas fa-leaf text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">MONGODB</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="react"><i class="fab fa-react text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">REACT</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="vector-db"><i class="fas fa-vector-square text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">VECTOR DB</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="playwright"><i class="fas fa-theater-masks text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">PLAYWRIGHT</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="aws"><i class="fab fa-aws text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">AWS</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="docker"><i class="fab fa-docker text-sm md:text-lg"></i><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">DOCKER</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="monday-com"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
-                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M11.666 4.603C11.666 2.059 13.725 0 16.273 0c2.544 0 4.604 2.059 4.604 4.603v15.253a.92.92 0 0 1-.922.922h-2.76A.92.92 0 0 1 16.274 19.855V8.286c0-1.02-.821-1.841-1.841-1.841h-.002c-1.018 0-1.84.821-1.84 1.841v11.569a.92.92 0 0 1-.921.922H8.911a.92.92 0 0 1-.922-.922V8.286c0-1.02-.822-1.841-1.842-1.841s-1.84.821-1.84 1.841v11.569a.92.92 0 0 1-.923.922H.921A.92.92 0 0 1 0 19.855V4.604C0 2.06 2.06 0 4.604 0s4.603 2.06 4.603 4.604v4.463c.48-2.618 2.378-4.463 4.921-4.463 1.579 0 2.91.802 3.81 2.057a4.568 4.568 0 0 0 3.73-2.058Z"
-                  fill-rule="evenodd" clip-rule="evenodd" />
-              </svg><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">MONDAY.COM</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="servicenow"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
-                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M12.28 0a11.96 11.96 0 00-6.102 1.63L9.623 7.641a4.956 4.956 0 012.394-.61H12.28a4.958 4.958 0 014.288 2.45h7.025a11.972 11.972 0 00-11.312-9.48zm-8.86 3.018a11.942 11.942 0 00-3.376 9.424 11.996 11.996 0 006.772 9.07l3.6-5.835A4.975 4.975 0 018.3 12.378a4.953 4.953 0 011.666-3.743L6.463 2.872a11.895 11.895 0 00-3.044.146zm17.47.469l-3.535 5.86a4.95 4.95 0 011.9 3.031c.228 1.488-.2 3.035-1.288 4.1l3.52 5.952a11.95 11.95 0 00-.598-18.943zm-10.468 15.65h-.008a4.966 4.966 0 01-4.218-2.327l-6.91 1.096a11.963 11.963 0 0011.085 6.094l.215-.008a11.972 11.972 0 006.012-1.571l-3.328-6.1a4.956 4.956 0 01-2.848.816z" />
-              </svg><span
-                class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">SERVICENOW</span></div>
-            <div
-              class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
-              data-node="ableton-live"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
-                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M0 6.4v1.6h1.6V6.4H0zm0 4v1.6h1.6v-1.6H0zm0 4v1.6h1.6v-1.6H0zm3.2-8v1.6h1.6V6.4H3.2zm0 4v1.6h1.6v-1.6H3.2zm0 4v1.6h1.6v-1.6H3.2zm3.2-8v1.6h1.6V6.4H6.4zm0 4v1.6h1.6v-1.6H6.4zm0 4v1.6h1.6v-1.6H6.4zm3.2-8v1.6h1.6V6.4H9.6zm0 4v1.6h1.6v-1.6H9.6zm0 4v1.6h1.6v-1.6H9.6zM14.4 6.4v8h1.6V8h1.6v6.4h1.6V8h1.6v6.4h1.6V8h1.6v6.4C24 16.16 22.56 16 22.56 16H14.4V6.4z" />
-              </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">ABLETON
-                LIVE</span></div>
+
+            <div class="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="monday-com"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M11.666 4.603C11.666 2.059 13.725 0 16.273 0c2.544 0 4.604 2.059 4.604 4.603v15.253a.92.92 0 0 1-.922.922h-2.76A.92.92 0 0 1 16.274 19.855V8.286c0-1.02-.821-1.841-1.841-1.841h-.002c-1.018 0-1.84.821-1.84 1.841v11.569a.92.92 0 0 1-.921.922H8.911a.92.92 0 0 1-.922-.922V8.286c0-1.02-.822-1.841-1.842-1.841s-1.84.821-1.84 1.841v11.569a.92.92 0 0 1-.923.922H.921A.92.92 0 0 1 0 19.855V4.604C0 2.06 2.06 0 4.604 0s4.603 2.06 4.603 4.604v4.463c.48-2.618 2.378-4.463 4.921-4.463 1.579 0 2.91.802 3.81 2.057a4.568 4.568 0 0 0 3.73-2.058Z"
+                    fill-rule="evenodd" clip-rule="evenodd" />
+                </svg><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">MONDAY.COM</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="servicenow"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M12.28 0a11.96 11.96 0 00-6.102 1.63L9.623 7.641a4.956 4.956 0 012.394-.61H12.28a4.958 4.958 0 014.288 2.45h7.025a11.972 11.972 0 00-11.312-9.48zm-8.86 3.018a11.942 11.942 0 00-3.376 9.424 11.996 11.996 0 006.772 9.07l3.6-5.835A4.975 4.975 0 018.3 12.378a4.953 4.953 0 011.666-3.743L6.463 2.872a11.895 11.895 0 00-3.044.146zm17.47.469l-3.535 5.86a4.95 4.95 0 011.9 3.031c.228 1.488-.2 3.035-1.288 4.1l3.52 5.952a11.95 11.95 0 00-.598-18.943zm-10.468 15.65h-.008a4.966 4.966 0 01-4.218-2.327l-6.91 1.096a11.963 11.963 0 0011.085 6.094l.215-.008a11.972 11.972 0 006.012-1.571l-3.328-6.1a4.956 4.956 0 01-2.848.816z" />
+                </svg><span
+                  class="text-[10px] md:text-xs font-mono font-bold tracking-widest leading-none">SERVICENOW</span></div>
+              <div
+                class="project-node flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 border border-[#fffacd]/30 hover:border-[#fffacd]/60 bg-[#fffacd]/10 backdrop-blur-sm rounded-full text-white/80 cursor-default"
+                data-node="ableton-live"><svg class="w-[14px] h-[14px] md:w-[18px] md:h-[18px]" fill="currentColor"
+                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M0 6.4v1.6h1.6V6.4H0zm0 4v1.6h1.6v-1.6H0zm0 4v1.6h1.6v-1.6H0zm3.2-8v1.6h1.6V6.4H3.2zm0 4v1.6h1.6v-1.6H3.2zm0 4v1.6h1.6v-1.6H3.2zm3.2-8v1.6h1.6V6.4H6.4zm0 4v1.6h1.6v-1.6H6.4zm0 4v1.6h1.6v-1.6H6.4zm3.2-8v1.6h1.6V6.4H9.6zm0 4v1.6h1.6v-1.6H9.6zm0 4v1.6h1.6v-1.6H9.6zM14.4 6.4v8h1.6V8h1.6v6.4h1.6V8h1.6v6.4h1.6V8h1.6v6.4C24 16.16 22.56 16 22.56 16H14.4V6.4z" />
+                </svg><span class="text-[9px] md:text-xs font-mono font-bold tracking-widest leading-none">ABLETON
+                  LIVE</span></div>
+            </div>
+
           </div>
         </div>
 
