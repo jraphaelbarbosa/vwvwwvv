@@ -47,10 +47,15 @@
   </script>
   <!-- BEGIN: Custom Styles -->
   <style data-purpose="background-texture">
-    body {
+    html, body {
       background-color: #bfbfae;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       overscroll-behavior: none;
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100svh;
+      overflow: hidden;
     }
   </style>
   <style data-purpose="typography-and-effects">
@@ -234,7 +239,7 @@
         data-purpose="media-player">
 
         <!-- Hidden Audio Element -->
-        <audio id="bg-audio" src="assets/beats/YAHARD-BEAT0021_DANGER.mp3"></audio>
+        <audio id="bg-audio" src="assets/beats/YAHARD-BEAT0021_DANGER.mp3" autoplay preload="auto" playsinline></audio>
 
         <!-- Header Row -->
         <div class="flex justify-between items-end border-b border-[#fffacd]/50 pb-1 mb-1 relative">
@@ -355,7 +360,7 @@
 
         <!-- Layer 1: Logo -->
         <div
-          class="absolute pointer-events-none max-md:-translate-x-[47%] md:-translate-x-[46%] max-md:top-[5%] md:top-[8%] max-md:w-[98vw] md:w-full md:max-w-[900px] max-md:scale-[0.99] md:scale-[1.47] origin-top transition-all duration-700"
+          class="absolute pointer-events-none max-md:-translate-x-[47%] md:-translate-x-[46%] max-md:top-[5%] md:top-[8%] max-md:w-[98vw] md:w-full md:max-w-[900px] max-md:scale-[0.8178] md:scale-[1.38] origin-top transition-all duration-700"
           data-purpose="logo-container"
           style="left: 50%; z-index: 2; display: flex; justify-content: center; align-items: flex-start; opacity: 0.95;"
           x-data="{ isHovered: false }"
@@ -377,10 +382,10 @@
         </div>
 
         <!-- Layer 3: Character (Front) -->
-        <div class="absolute pointer-events-none select-none max-md:scale-[1.10]"
-          style="bottom: 0; left: 48%; transform: translateX(-50%); z-index: 3; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-end;">
+        <div class="absolute pointer-events-none select-none max-md:scale-[1.034] max-md:!left-[45%]"
+          style="bottom: 0; left: 45%; transform: translateX(-50%); z-index: 3; width: 100%; height: 100%; display: flex; justify-content: center; align-items: flex-end;">
           <img alt="João Raphael"
-            class="h-[85vh] max-md:scale-[0.81] md:scale-[1.02] max-w-none w-auto object-contain origin-bottom transition-transform duration-300"
+            class="h-[85vh] max-md:scale-[0.66] md:scale-[0.92] max-w-none w-auto object-contain origin-bottom transition-transform duration-300"
             src="assets/character_solo.webp" />
         </div>
 
@@ -619,7 +624,7 @@
 
         <!-- Nível 1: Services & Skills (Top Third) -->
         <div
-          class="max-md:row-start-1 md:row-start-1 flex flex-col items-center max-md:justify-center md:justify-end w-full px-2 max-md:scale-[0.88] md:scale-[1.0] lg:scale-[1.0] transition-all duration-300 max-md:pt-[8dvh] select-none">
+          class="max-md:row-start-1 md:row-start-1 flex flex-col items-center max-md:justify-center md:justify-end w-full px-2 max-md:scale-[0.84] md:scale-[1.0] lg:scale-[1.0] transition-all duration-300 max-md:pt-[8svh] select-none">
             <div class="flex flex-wrap justify-center gap-x-4 md:gap-x-5 max-md:gap-y-3 md:gap-y-2" style="-webkit-user-select: none; user-select: none;">
               <span
                 class="project-node text-[14px] md:text-lg lg:text-xl font-black font-sans tracking-widest text-[#fafafa]/70 cursor-default text-center leading-[1.1]"
@@ -643,7 +648,7 @@
         </div>
         <!-- Nível 2: Tech Stack (Middle Third) -->
         <div class="max-md:row-start-3 md:row-start-2 flex items-center justify-center w-full md:scale-[1.18] lg:scale-[1.18] select-none max-md:translate-y-[1%]" style="-webkit-user-select: none; user-select: none;">
-          <div class="flex flex-col items-center gap-2 md:gap-3 max-w-4xl mx-auto w-full px-1 transition-transform max-md:scale-[0.65] md:scale-[0.83] origin-center md:origin-top">
+          <div class="flex flex-col items-center gap-2 md:gap-3 max-w-4xl mx-auto w-full px-1 transition-transform max-md:scale-[0.70] md:scale-[0.83] origin-center md:origin-top max-md:-translate-y-[2svh]">
             
             <!-- Row 1: Python -->
             <div class="flex flex-wrap justify-center gap-2 md:gap-3 w-full">
@@ -1037,11 +1042,9 @@
         </div>
 
         <!-- Desktop Stylized Phrase -->
-        <div class="hidden md:flex flex-col items-center justify-center w-full pointer-events-none my-[3.5dvh]">
-          <p class="font-sans font-normal tracking-[0.3em] text-[10px] text-[#fffacd]/50 uppercase leading-relaxed text-left">
-            Versatility Wins Vultures<br>
-            <span class="ml-16">When We</span><br>
-            <span class="ml-12">Vibe Virtoulsy</span>
+        <div class="hidden md:flex flex-col items-center justify-center w-full pointer-events-none my-[4.5dvh] md:scale-[1.1] lg:scale-[1.25]">
+          <p class="font-sans font-medium tracking-[0.3em] text-[10px] sm:text-xs md:text-sm text-[#fffacd]/50 uppercase text-center whitespace-nowrap">
+            Versatility Wins Vultures When We Vibe Virtuously
           </p>
         </div>
 
@@ -1077,10 +1080,10 @@
         </div>
         <!-- Mobile Stylized Phrase (Hidden on desktop) -->
         <div class="absolute bottom-[4%] w-full pointer-events-none flex md:hidden justify-center mt-auto">
-          <p class="font-sans font-normal tracking-[0.2em] text-[8px] text-[#fffacd]/50 uppercase leading-relaxed text-left">
+          <p class="font-sans font-normal tracking-[0.2em] text-[8px] text-[#fffacd]/50 uppercase leading-relaxed text-left origin-bottom max-md:scale-[1.03]">
             Versatility Wins Vultures<br>
             <span class="ml-12 md:ml-16">When We</span><br>
-            <span class="ml-8 md:ml-12">Vibe Virtoulsy</span>
+            <span class="ml-8 md:ml-12">Vibe Virtuously</span>
           </p>
         </div>
 
@@ -1283,6 +1286,27 @@
         };
 
         attemptAutoplay();
+
+        // Fallback: forcefully attempt play until valid or user interacts
+        const forcePlayOnInteraction = () => {
+          if (!isPlaying) {
+            audio.play().then(() => {
+              isPlaying = true;
+              playText.innerHTML = '<i class="fas fa-pause"></i>';
+              playingIndicator.style.opacity = '1';
+              document.removeEventListener('click', forcePlayOnInteraction);
+              document.removeEventListener('touchstart', forcePlayOnInteraction);
+              document.removeEventListener('keydown', forcePlayOnInteraction);
+              document.removeEventListener('mousemove', forcePlayOnInteraction);
+              document.removeEventListener('scroll', forcePlayOnInteraction);
+            }).catch(e => console.log('Fallback play pending interaction.'));
+          }
+        };
+        document.addEventListener('click', forcePlayOnInteraction);
+        document.addEventListener('touchstart', forcePlayOnInteraction);
+        document.addEventListener('keydown', forcePlayOnInteraction);
+        document.addEventListener('mousemove', forcePlayOnInteraction);
+        document.addEventListener('scroll', forcePlayOnInteraction);
 
         // Used by other sections to load specific tracks
         window.playBeat = (src, title) => {
