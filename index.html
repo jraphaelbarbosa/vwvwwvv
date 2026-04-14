@@ -216,12 +216,61 @@
     }
   </style>
 
+  <style data-purpose="entry-animation">
+    body.intro-active #intro-black-layer {
+      opacity: 0.90;
+      visibility: visible;
+    }
+    body:not(.intro-active) #intro-black-layer {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1.2s ease-in-out, visibility 0s 1.2s;
+    }
 
+    body.intro-active [data-purpose="logo-container"] {
+      z-index: 1001 !important;
+    }
 
+    .logo-reveal-wrapper {
+      position: relative;
+      clip-path: inset(0 100% 0 0);
+      animation: logo-wipe 1.8s cubic-bezier(0.65, 0, 0.1, 1) 0.8s forwards;
+    }
+
+    @keyframes logo-wipe {
+      0% { clip-path: inset(0 100% 0 0); }
+      100% { clip-path: inset(0 0% 0 0); }
+    }
+
+    .light-trace {
+      position: absolute;
+      top: -10%;
+      bottom: -10%;
+      width: 4px;
+      background: #fff;
+      box-shadow: 0 0 10px 4px rgba(255, 255, 255, 1), 
+                  0 0 30px 10px rgba(100, 200, 255, 0.8),
+                  0 0 50px 20px rgba(150, 220, 255, 0.4);
+      left: 0;
+      transform: translateX(-50%) rotate(3deg);
+      opacity: 0;
+      z-index: 10;
+      animation: trace-move 1.8s cubic-bezier(0.65, 0, 0.1, 1) 0.8s forwards;
+      mix-blend-mode: screen;
+    }
+
+    @keyframes trace-move {
+      0% { left: 0%; opacity: 0; transform: translateX(-50%) rotate(5deg) scaleY(0.7); }
+      10% { opacity: 1; transform: translateX(-50%) rotate(3deg) scaleY(1.1); }
+      90% { opacity: 1; transform: translateX(-50%) rotate(3deg) scaleY(1.1); }
+      100% { left: 100%; opacity: 0; transform: translateX(-50%) rotate(1deg) scaleY(0.7); }
+    }
+  </style>
 </head>
 
 <body x-data="{ activeSection: 'vwvwwvv', lang: 'en' }"
-  class="h-[100dvh] w-full text-text-dark overflow-hidden relative selection:bg-black selection:text-white" x-init="$watch('lang', l => { document.documentElement.lang = l; if(typeof window.updateProjectData === 'function') window.updateProjectData() })" x-cloak>
+  class="h-[100dvh] w-full text-text-dark overflow-hidden relative selection:bg-black selection:text-white intro-active" 
+  x-init="setTimeout(() => { document.body.classList.remove('intro-active'); }, 2800); $watch('lang', l => { document.documentElement.lang = l; if(typeof window.updateProjectData === 'function') window.updateProjectData() })" x-cloak>
   <!-- Landscape Block Overlay -->
   <div class="landscape-block">
     <i class="fas fa-mobile-alt"></i>
@@ -230,6 +279,7 @@
   <!-- BEGIN: Main Container -->
   <!-- Using relative positioning to stack elements absolutely -->
   <main class="relative w-full h-full z-10 block">
+    <div id="intro-black-layer" class="fixed inset-0 bg-black z-[1000] pointer-events-none transition-opacity duration-1000"></div>
     <!-- BEGIN: Top Bar Area -->
     <!-- Top Left: Media Player Widget -->
     <div
@@ -369,15 +419,18 @@
           @touchstart="isHovered = true"
           @touchend="isHovered = false"
           @touchcancel="isHovered = false">
-          <div class="relative w-full overflow-hidden pointer-events-auto cursor-pointer select-none"
-            style="-webkit-mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
-            <img alt="Y42 Logo" style="width: 100%; height: auto; object-fit: contain; pointer-events: none;"
-              src="assets/vwvwwvv_logo_upscaled.webp" />
-            <!-- The Shine -->
-            <div
-              class="absolute top-0 left-[-50%] w-[50%] h-full pointer-events-none bg-gradient-to-r from-transparent via-white to-transparent opacity-80"
-              :class="isHovered ? 'animate-blade-shine' : ''"
-              style="transform: skewX(-20deg) translateX(-150%);"></div>
+          <div class="relative w-full logo-reveal-wrapper">
+            <div class="light-trace"></div>
+            <div class="relative w-full overflow-hidden pointer-events-auto cursor-pointer select-none"
+              style="-webkit-mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
+              <img alt="Y42 Logo" style="width: 100%; height: auto; object-fit: contain; pointer-events: none;"
+                src="assets/vwvwwvv_logo_upscaled.webp" />
+              <!-- The Shine -->
+              <div
+                class="absolute top-0 left-[-50%] w-[50%] h-full pointer-events-none bg-gradient-to-r from-transparent via-white to-transparent opacity-80"
+                :class="isHovered ? 'animate-blade-shine' : ''"
+                style="transform: skewX(-20deg) translateX(-150%);"></div>
+            </div>
           </div>
         </div>
 
