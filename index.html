@@ -463,7 +463,7 @@
               setTimeout(() => { this.shining = false; }, 1600); 
             } 
           }"
-          x-init="setTimeout(() => { triggerShine(); setInterval(() => { triggerShine() }, 14000); }, 1600);"
+          x-init="setTimeout(() => { triggerShine(); setInterval(() => { triggerShine() }, 16000); }, 1600);"
           @mouseenter="if(window.matchMedia('(hover: hover)').matches) triggerShine()"
           @touchstart.passive="triggerShine()">
           <div class="relative w-full logo-reveal-wrapper">
