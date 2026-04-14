@@ -233,6 +233,26 @@
       100% { clip-path: inset(0 0% 0 0); }
     }
 
+    @keyframes skeleton-disappear {
+      0% { opacity: 0.2; }
+      92% { opacity: 0.2; }
+      94% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .logo-skeleton-bg {
+      animation: skeleton-disappear 3s both;
+    }
+    
+    .anim-logo-morph {
+      animation: logo-morph 3s both;
+    }
+    @keyframes logo-morph {
+      0% { opacity: 0; }
+      92% { opacity: 0; transform: scale(1.05); filter: brightness(5) blur(4px); }
+      93.3% { opacity: 1; transform: scale(1.02); filter: brightness(4) blur(0px); }
+      100% { opacity: 1; transform: scale(1); filter: brightness(1) blur(0px); }
+    }
+
     .run-shine {
       animation: intro-blade-shine 1.6s ease-in-out forwards !important;
     }
@@ -444,14 +464,18 @@
               setTimeout(() => { this.shining = false; }, 1600); 
             } 
           }"
-          x-init="setTimeout(() => { triggerShine(); setInterval(() => { triggerShine() }, 21000); }, 2100);"
+          x-init="setTimeout(() => { triggerShine(); setInterval(() => { triggerShine() }, 21000); }, 4500);"
           @mouseenter="if(window.matchMedia('(hover: hover)').matches) triggerShine()"
           @touchstart.passive="triggerShine()">
           <div class="relative w-full logo-reveal-wrapper">
             <div class="relative w-full overflow-hidden pointer-events-auto cursor-pointer select-none"
               style="-webkit-mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
+              
+              <!-- Glowy skeleton background -->
+              <div class="absolute inset-0 bg-white opacity-20 logo-skeleton-bg"></div>
+
               <img alt="Y42 Logo" style="width: 100%; height: auto; object-fit: contain; pointer-events: none;"
-                src="assets/vwvwwvv_logo_upscaled.webp" />
+                src="assets/vwvwwvv_logo_upscaled.webp" class="relative anim-logo-morph z-[2]" />
               <!-- The Shine -->
               <div
                 class="absolute top-0 left-[-50%] w-[50%] h-full pointer-events-none bg-gradient-to-r from-transparent via-white to-transparent opacity-0"
