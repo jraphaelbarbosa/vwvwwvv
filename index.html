@@ -225,7 +225,7 @@
     .logo-reveal-wrapper {
       position: relative;
       clip-path: inset(0 100% 0 0);
-      animation: logo-wipe 1.6s ease-in-out 0.5s both;
+      animation: logo-wipe 1.0s ease-in-out 0.5s both;
     }
 
     @keyframes logo-wipe {
@@ -239,12 +239,12 @@
     }
     .logo-skeleton-bg {
       opacity: 0.2;
-      animation: skeleton-disappear 0.2s ease-out 2.1s forwards;
+      animation: skeleton-disappear 0.2s ease-out 1.5s forwards;
     }
     
     .anim-logo-morph {
       opacity: 0;
-      animation: logo-morph-flash 0.3s ease-out 2.1s forwards;
+      animation: logo-morph-flash 0.3s ease-out 1.5s forwards;
     }
     @keyframes logo-morph-flash {
       0% { opacity: 0; transform: scale(1.05); filter: brightness(5) blur(4px); }
@@ -264,7 +264,7 @@
     }
 
     .anim-teleport-in {
-      animation: teleport-in 0.7s cubic-bezier(0.2, 1, 0.8, 1) 2.4s both;
+      animation: teleport-in 0.7s cubic-bezier(0.2, 1, 0.8, 1) 2.5s both;
     }
 
     @keyframes teleport-in {
@@ -284,19 +284,19 @@
       100% { transform: scaleY(1) scaleX(1); filter: blur(0px) brightness(1); opacity: 1; }
     }
 
-    .anim-slide-left { animation: slide-in-left 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 3.1s both; }
+    .anim-slide-left { animation: slide-in-left 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 3.2s both; }
     @keyframes slide-in-left {
       0% { transform: translateX(-150vw); opacity: 0; }
       100% { transform: translateX(0); opacity: 1; }
     }
 
-    .anim-slide-right { animation: slide-in-right 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 3.1s both; }
+    .anim-slide-right { animation: slide-in-right 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 3.2s both; }
     @keyframes slide-in-right {
       0% { transform: translateX(150vw); opacity: 0; }
       100% { transform: translateX(0); opacity: 1; }
     }
 
-    .anim-slide-top { animation: slide-in-top 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 3.1s both; }
+    .anim-slide-top { animation: slide-in-top 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 3.2s both; }
     @keyframes slide-in-top {
       0% { transform: translateY(-150vh); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
@@ -446,7 +446,7 @@
       style="background-image: url('assets/ai_engineer_&_sound_designer_portfolio_home.webp'); background-size: cover; background-position: center; background-attachment: fixed;">
       
       <!-- New Intro Black Layer (Z-index 1, below logo and char) -->
-      <div id="intro-black-layer" class="absolute inset-0 bg-black z-[1] pointer-events-none" style="animation: fade-out-black 0.6s ease-in-out 2.2s both;"></div>
+      <div id="intro-black-layer" class="absolute inset-0 bg-black z-[1] pointer-events-none" style="animation: fade-out-black 0.6s ease-in-out 2.3s both;"></div>
 
       <div class="relative w-full max-w-7xl h-full flex items-center justify-center">
 
@@ -463,7 +463,7 @@
               setTimeout(() => { this.shining = false; }, 1600); 
             } 
           }"
-          x-init="setTimeout(() => { triggerShine(); setInterval(() => { triggerShine() }, 21000); }, 4800);"
+          x-init="setTimeout(() => { triggerShine(); setInterval(() => { triggerShine() }, 21000); }, 4900);"
           @mouseenter="if(window.matchMedia('(hover: hover)').matches) triggerShine()"
           @touchstart.passive="triggerShine()">
           <div class="relative w-full logo-reveal-wrapper">
