@@ -233,30 +233,6 @@
       100% { clip-path: inset(0 0% 0 0); }
     }
 
-    .intro-light-beam {
-      position: absolute;
-      top: -10%;
-      bottom: -10%;
-      width: 4px;
-      background: #fff;
-      box-shadow: 0 0 10px 4px rgba(255, 255, 255, 1), 
-                  0 0 30px 10px rgba(100, 200, 255, 0.8),
-                  0 0 50px 20px rgba(150, 220, 255, 0.4);
-      left: 0;
-      transform: translateX(-50%) rotate(3deg);
-      opacity: 0;
-      z-index: 10;
-      animation: intro-trace-move 1.6s ease-in-out 0.5s both;
-      mix-blend-mode: screen;
-    }
-
-    @keyframes intro-trace-move {
-      0% { left: 0%; opacity: 0; transform: translateX(-50%) rotate(5deg) scaleY(0.7); }
-      10% { opacity: 1; transform: translateX(-50%) rotate(3deg) scaleY(1.1); }
-      90% { opacity: 1; transform: translateX(-50%) rotate(3deg) scaleY(1.1); }
-      100% { left: 100%; opacity: 0; transform: translateX(-50%) rotate(1deg) scaleY(0.7); }
-    }
-
     .intro-shine-anim {
       animation: intro-blade-shine 1.6s ease-in-out 0.5s both;
       opacity: 1 !important;
@@ -275,29 +251,34 @@
 
     @keyframes teleport-in {
       0% { transform: scaleY(20) scaleX(0.01) translateY(-30%); filter: blur(30px) brightness(3); opacity: 0; }
-      20% { transform: scaleY(15) scaleX(0.1) translateY(-20%) translateX(20px) skewX(30deg); filter: blur(20px) brightness(4); opacity: 0.3; }
-      25% { transform: scaleY(10) scaleX(0.4) translateY(-10%) translateX(-20px) skewX(-20deg); filter: blur(15px) brightness(3); opacity: 0.7; }
-      30% { transform: scaleY(8) scaleX(0.2) translateY(-5%) translateX(10px) skewX(10deg); filter: blur(10px) brightness(2.5); opacity: 0.4; }
-      40% { transform: scaleY(5) scaleX(0.6) translateY(-2%) translateX(-10px) skewX(-15deg); filter: blur(8px) brightness(2); opacity: 0.8; }
-      50% { transform: scaleY(3) scaleX(0.9) translateY(0) translateX(5px) skewX(5deg); filter: blur(4px) brightness(1.5); opacity: 0.9; }
-      70% { transform: scaleY(1.2) scaleX(1) translateX(-2px) skewX(-2deg); filter: blur(2px) brightness(1.2); opacity: 0.95; }
-      85% { transform: scaleY(1) scaleX(1) translateX(1px) skewX(1deg); filter: blur(0px) brightness(1.1); opacity: 1; }
-      100% { transform: scaleY(1) scaleX(1) translateX(0) skewX(0deg); filter: blur(0px) brightness(1); opacity: 1; }
+      12% { opacity: 0.8; }
+      15% { opacity: 0; }
+      20% { transform: scaleY(10) scaleX(0.4) translateY(-10%); filter: blur(15px) brightness(3); opacity: 0.9; }
+      25% { opacity: 0.1; }
+      30% { transform: scaleY(6) scaleX(0.7) translateY(-5%); filter: blur(10px) brightness(2.5); opacity: 1; }
+      35% { opacity: 0; }
+      40% { opacity: 0.8; }
+      45% { opacity: 0.2; }
+      50% { transform: scaleY(2) scaleX(0.9) translateY(0); filter: blur(4px) brightness(1.5); opacity: 1; }
+      55% { opacity: 0.5; }
+      60% { opacity: 1; }
+      70% { transform: scaleY(1.2) scaleX(1); filter: blur(2px) brightness(1.2); opacity: 0.95; }
+      100% { transform: scaleY(1) scaleX(1); filter: blur(0px) brightness(1); opacity: 1; }
     }
 
-    .anim-slide-left { animation: slide-in-left 1.2s cubic-bezier(0.25, 1, 0.4, 1) 2.8s both; }
+    .anim-slide-left { animation: slide-in-left 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 2.8s both; }
     @keyframes slide-in-left {
       0% { transform: translateX(-150vw); opacity: 0; }
       100% { transform: translateX(0); opacity: 1; }
     }
 
-    .anim-slide-right { animation: slide-in-right 1.2s cubic-bezier(0.25, 1, 0.4, 1) 2.8s both; }
+    .anim-slide-right { animation: slide-in-right 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 2.8s both; }
     @keyframes slide-in-right {
       0% { transform: translateX(150vw); opacity: 0; }
       100% { transform: translateX(0); opacity: 1; }
     }
 
-    .anim-slide-top { animation: slide-in-top 1.2s cubic-bezier(0.25, 1, 0.4, 1) 2.8s both; }
+    .anim-slide-top { animation: slide-in-top 1.7s cubic-bezier(0.2, 0.8, 0.2, 1) 2.8s both; }
     @keyframes slide-in-top {
       0% { transform: translateY(-150vh); opacity: 0; }
       100% { transform: translateY(0); opacity: 1; }
@@ -462,19 +443,16 @@
           @touchstart="isHovered = true"
           @touchend="isHovered = false"
           @touchcancel="isHovered = false">
-          <div class="relative w-full">
-            <div class="intro-light-beam"></div>
-            <div class="relative w-full logo-reveal-wrapper">
-              <div class="relative w-full overflow-hidden pointer-events-auto cursor-pointer select-none"
-                style="-webkit-mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
-                <img alt="Y42 Logo" style="width: 100%; height: auto; object-fit: contain; pointer-events: none;"
-                  src="assets/vwvwwvv_logo_upscaled.webp" />
-                <!-- The Shine -->
-                <div
-                  class="absolute top-0 left-[-50%] w-[50%] h-full pointer-events-none bg-gradient-to-r from-transparent via-white to-transparent opacity-80 intro-shine-anim"
-                  :class="isHovered ? 'animate-blade-shine' : ''"
-                  style="transform: skewX(-20deg) translateX(-150%);"></div>
-              </div>
+          <div class="relative w-full logo-reveal-wrapper">
+            <div class="relative w-full overflow-hidden pointer-events-auto cursor-pointer select-none"
+              style="-webkit-mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-image: url('assets/vwvwwvv_logo_upscaled.webp'); mask-size: contain; mask-repeat: no-repeat; mask-position: center;">
+              <img alt="Y42 Logo" style="width: 100%; height: auto; object-fit: contain; pointer-events: none;"
+                src="assets/vwvwwvv_logo_upscaled.webp" />
+              <!-- The Shine -->
+              <div
+                class="absolute top-0 left-[-50%] w-[50%] h-full pointer-events-none bg-gradient-to-r from-transparent via-white to-transparent opacity-80 intro-shine-anim"
+                :class="isHovered ? 'animate-blade-shine' : ''"
+                style="transform: skewX(-20deg) translateX(-150%);"></div>
             </div>
           </div>
         </div>
