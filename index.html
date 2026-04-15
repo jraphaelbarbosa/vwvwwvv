@@ -551,7 +551,8 @@
               class="text-white max-md:self-start md:self-center transition-all duration-700 ease-in-out group-hover/main:scale-105 text-[14vw] sm:text-7xl md:text-[5.5rem]"
               x-bind:class="showDetail ? 'opacity-0 pointer-events-none blur-sm scale-95' : 'opacity-100 scale-100'"
               style="grid-area: 1 / 1; letter-spacing: -2px; font-weight: 800; line-height: 0.85; text-align: left; text-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
-              <span class="hover:text-[#fafafa] transition-colors duration-300">JOÃO<br />RAPHAEL<br />CUNHA</span>
+              <span class="hover:text-[#fafafa] transition-colors duration-300 block">JOÃO<br />RAPHAEL<br />CUNHA</span>
+              <div class="mt-3 flex items-center gap-2 text-white/40 text-[0.65rem] md:text-sm font-mono tracking-[0.2em] uppercase font-normal leading-none"><span class="animate-pulse">INTERACT</span><i class="fas fa-long-arrow-alt-right opacity-70"></i></div>
             </h1>
             <!-- Detailed State (Bio) -->
             <div
@@ -629,7 +630,8 @@
               class="text-white transition-all duration-700 ease-in-out flex flex-col justify-end items-end group-hover/right:scale-105 text-[16vw] sm:text-7xl md:text-[5.5rem] max-md:self-end md:self-end"
               x-bind:class="showPlaylist ? 'opacity-0 pointer-events-none blur-sm scale-95' : 'opacity-100 scale-100'"
               style="grid-area: 1 / 1; letter-spacing: -2px; font-weight: 800; line-height: 0.85; text-align: right; text-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
-              <span class="hover:text-[#fafafa] transition-colors duration-300">YAHARD /<br />Y42_BEATS</span>
+              <span class="hover:text-[#fafafa] transition-colors duration-300 block">YAHARD /<br />Y42_BEATS</span>
+              <div class="mt-3 flex items-center gap-2 text-white/40 text-[0.65rem] md:text-sm font-mono tracking-[0.2em] uppercase font-normal leading-none flex-row-reverse"><span class="animate-pulse">INTERACT</span><i class="fas fa-long-arrow-alt-left opacity-70"></i></div>
             </h1>
             <!-- Detailed State (Playlist) -->
             <div
@@ -1730,10 +1732,8 @@
             setTimeout(() => { triggerHighlight('quality-ops-agent'); }, 1500);
             setTimeout(() => { triggerHighlight('gemini'); }, 2000);
             setTimeout(() => { triggerHighlight('data-engineering'); }, 2500);
-            setTimeout(() => { triggerHighlight('playwright'); }, 3000);
-            setTimeout(() => { triggerHighlight('scraper-automation'); }, 3500);
-            setTimeout(() => { triggerHighlight('python'); }, 4000); // Python usually lights everything up
-            setTimeout(() => { resetHighlight(); }, 4800);
+            setTimeout(() => { triggerHighlight('python'); }, 3000); // Python usually lights everything up
+            setTimeout(() => { resetHighlight(); }, 3800);
         };
 
         nodes.forEach(node => {
@@ -1759,7 +1759,7 @@
             setTimeout(() => {
               isGlobalClicked = false;
               resetHighlight();
-            }, 3000);
+            }, 15000);
           };
 
           node.addEventListener('mouseenter', (e) => {
