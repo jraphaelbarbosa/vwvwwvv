@@ -371,34 +371,39 @@
       </div>
     </div>
     <div
-      class="fixed z-[60] flex flex-col items-end w-fit pointer-events-none max-md:top-[27svh] top-[24%] md:top-[8%] max-md:right-[1%] right-4 md:right-[20px] origin-right max-md:scale-[0.655] md:scale-[0.63] transition-all duration-300">
+      class="fixed z-[60] flex flex-col items-end w-fit pointer-events-none max-md:top-[27svh] top-[24%] md:top-[8%] max-md:right-[1%] right-4 md:right-[20px] origin-right max-md:scale-[0.655] md:scale-[0.63] transition-all duration-300 gap-y-3">
 
       <!-- Top Wave -->
-      <div class="flex items-center gap-3 mb-1 w-full justify-end cursor-pointer group pointer-events-auto anim-slide-right"
+      <div class="flex items-center w-full justify-end cursor-pointer group pointer-events-auto anim-slide-right"
         @click="activeSection = 'vwvwwvv'">
-        <span id="nav-item-vwvwwvv"
-          class="font-modern font-bold uppercase transition-all duration-500 leading-none text-sm md:text-xl tracking-wider"
-          :class="[activeSection === 'vwvwwvv' ? 'opacity-100 scale-110 md:scale-125' : 'opacity-40 hover:opacity-80', activeSection === 'vwvwwvv' ? 'text-white' : 'text-[#fffacd]']"
-          style="transform-origin: right;" x-text="i18n[lang].nav.vwvwwvv">VWVWWVV</span>
+        <div class="transition-all duration-400 ease-in-out px-4 py-2 border rounded-md backdrop-blur-md"
+             :class="activeSection === 'vwvwwvv' ? 'bg-[#fffacd]/15 border-[#fffacd]/60 text-white shadow-[0_0_15px_rgba(255,250,205,0.3)] scale-110 origin-right' : 'bg-black/60 border-white/15 text-white/90 hover:bg-[#fffacd]/10 hover:border-[#fffacd]/40 hover:text-white'">
+          <span id="nav-item-vwvwwvv"
+            class="font-modern font-bold uppercase leading-none text-sm md:text-xl tracking-wider block"
+            x-text="i18n[lang].nav.vwvwwvv">VWVWWVV</span>
+        </div>
       </div>
 
       <!-- Center Text -->
-      <div class="w-full border-y py-1 md:py-1.5 my-1 transition-colors duration-500 pointer-events-auto cursor-pointer anim-slide-right" :class="activeSection === 'vwvwwvv' ? 'border-white/50' : 'border-[#fffacd]/50'" @click="activeSection = 'projects'">
-        <h2 id="nav-item-projects"
-          class="w-full text-right font-modern font-bold cursor-pointer transition-all duration-500 leading-none text-base md:text-3xl tracking-widest"
-          :class="[activeSection === 'projects' ? 'opacity-100 scale-110 md:scale-125' : 'opacity-40 hover:opacity-80', activeSection === 'vwvwwvv' ? 'text-white' : 'text-[#fffacd]']"
-          style="transform-origin: right;" x-text="i18n[lang].nav.projects">
-          PROJECTS
-        </h2>
+      <div class="flex items-center w-full justify-end cursor-pointer group pointer-events-auto anim-slide-right" 
+           @click="activeSection = 'projects'">
+        <div class="transition-all duration-400 ease-in-out px-4 py-2 md:py-3 border rounded-md backdrop-blur-md"
+             :class="activeSection === 'projects' ? 'bg-[#fffacd]/15 border-[#fffacd]/60 text-white shadow-[0_0_15px_rgba(255,250,205,0.3)] scale-110 origin-right' : 'bg-black/60 border-white/15 text-white/90 hover:bg-[#fffacd]/10 hover:border-[#fffacd]/40 hover:text-white'">
+          <h2 id="nav-item-projects"
+            class="font-modern font-bold uppercase leading-none text-base md:text-3xl tracking-widest block"
+            x-text="i18n[lang].nav.projects">PROJECTS</h2>
+        </div>
       </div>
 
       <!-- Bottom Wave -->
-      <div class="flex items-center gap-3 mt-1 w-full justify-end cursor-pointer group pointer-events-auto anim-slide-right"
+      <div class="flex items-center w-full justify-end cursor-pointer group pointer-events-auto anim-slide-right"
         @click="activeSection = 'wwwav'">
-        <span id="nav-item-wwwav"
-          class="font-modern font-bold uppercase transition-all duration-500 leading-none text-sm md:text-xl tracking-wider"
-          :class="[activeSection === 'wwwav' ? 'opacity-100 scale-110 md:scale-125' : 'opacity-40 hover:opacity-80', activeSection === 'vwvwwvv' ? 'text-white' : 'text-[#fffacd]']"
-          style="transform-origin: right;" x-text="i18n[lang].nav.wwwav">WWWAV</span>
+        <div class="transition-all duration-400 ease-in-out px-4 py-2 border rounded-md backdrop-blur-md"
+             :class="activeSection === 'wwwav' ? 'bg-[#fffacd]/15 border-[#fffacd]/60 text-white shadow-[0_0_15px_rgba(255,250,205,0.3)] scale-110 origin-right' : 'bg-black/60 border-white/15 text-white/90 hover:bg-[#fffacd]/10 hover:border-[#fffacd]/40 hover:text-white'">
+          <span id="nav-item-wwwav"
+            class="font-modern font-bold uppercase leading-none text-sm md:text-xl tracking-wider block"
+            x-text="i18n[lang].nav.wwwav">WWWAV</span>
+        </div>
       </div>
 
     </div>
