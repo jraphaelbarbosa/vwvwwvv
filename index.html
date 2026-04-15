@@ -76,6 +76,11 @@
       background: rgba(0, 0, 0, 0.6);
       transition: filter 0.5s ease;
     }
+
+    .glitch-light {
+      filter: brightness(3.5) contrast(1.2) blur(1px) !important;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4) !important;
+    }
   </style>
   <style data-purpose="glassmorphism">
     .glass-panel {
@@ -545,30 +550,50 @@
           <div x-data="{ 
               showDetail: false, 
               glitching: false,
+              lightFlash: false,
               doGlitch() {
                 if(this.showDetail && !this.glitching) return;
                 this.glitching = true;
-                this.showDetail = true;
-                setTimeout(() => { this.showDetail = false; }, 150);
-                setTimeout(() => { this.showDetail = true; }, 250);
-                setTimeout(() => { this.showDetail = false; setTimeout(() => { this.glitching = false; }, 50); }, 600);
+                
+                const sequence = [
+                  { d: true, l: true, t: 0 },
+                  { d: false, l: false, t: 250 },
+                  { d: true, l: true, t: 500 },
+                  { d: false, l: false, t: 750 },
+                  { d: true, l: false, t: 1200 }, // Slower reveal
+                  { d: false, l: true, t: 1700 }, // Final flickers start
+                  { d: true, l: false, t: 1780 },
+                  { d: false, l: true, t: 1860 },
+                  { d: true, l: false, t: 1940 },
+                  { d: false, l: false, t: 2300 } // Recover
+                ];
+
+                sequence.forEach(s => {
+                  setTimeout(() => {
+                    this.showDetail = s.d;
+                    this.lightFlash = s.l;
+                    if(s.t === 2300) {
+                      setTimeout(() => { this.glitching = false; }, 50);
+                    }
+                  }, s.t);
+                });
               }
             }"
-            x-init="setInterval(() => doGlitch(), 12000)"
+            x-init="setTimeout(() => { setInterval(() => doGlitch(), 12000); doGlitch(); }, 6000)"
             class="relative cursor-default pointer-events-auto group/main w-[85vw] sm:max-w-md max-md:h-auto sm:h-[180px] md:h-[230px] grid max-md:mt-8"
             style="grid-template-columns: 1fr;"
             @click="if(!glitching) showDetail = !showDetail">
             <!-- Default State (Name) -->
             <h1
               class="text-white max-md:self-start md:self-center ease-in-out group-hover/main:scale-105 text-[14vw] sm:text-7xl md:text-[5.5rem]"
-              x-bind:class="(glitching ? 'transition-none ' : 'transition-all duration-700 ') + (showDetail ? 'opacity-0 pointer-events-none blur-sm scale-95' : 'opacity-100 scale-100')"
+              x-bind:class="(glitching ? 'transition-none ' : 'transition-all duration-700 ') + (showDetail ? 'opacity-0 pointer-events-none blur-sm scale-95' : 'opacity-100 scale-100') + (lightFlash ? ' glitch-light' : '')"
               style="grid-area: 1 / 1; letter-spacing: -2px; font-weight: 800; line-height: 0.85; text-align: left; text-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
               <span class="hover:text-[#fafafa] transition-colors duration-300 block">JOÃO<br />RAPHAEL<br />CUNHA</span>
             </h1>
             <!-- Detailed State (Bio) -->
             <div
               class="text-[#fafafa] font-sans leading-relaxed text-left ease-in-out flex flex-col justify-start opacity-0 pointer-events-none blur-sm scale-105 max-md:self-start md:self-center overflow-y-auto hide-scrollbar max-md:max-h-[22vh] md:max-h-[40vh] max-md:-translate-y-8"
-              x-bind:class="(glitching ? 'transition-none ' : 'transition-all duration-700 ') + (showDetail ? '!opacity-100 !pointer-events-auto !blur-none !scale-100' : '')"
+              x-bind:class="(glitching ? 'transition-none ' : 'transition-all duration-700 ') + (showDetail ? '!opacity-100 !pointer-events-auto !blur-none !scale-100' : '') + (lightFlash ? ' glitch-light' : '')"
               style="grid-area: 1 / 1;">
               <p class="mb-5 text-[0.95rem] font-medium text-white/90" x-text="i18n[lang].hero.bio_p1">17+ years of experience engineering systems—from
                 core technology to sound design. I see
@@ -635,30 +660,50 @@
           <div x-data="{ 
               showPlaylist: false,
               glitching: false,
+              lightFlash: false,
               doGlitch() {
                 if(this.showPlaylist && !this.glitching) return;
                 this.glitching = true;
-                this.showPlaylist = true;
-                setTimeout(() => { this.showPlaylist = false; }, 150);
-                setTimeout(() => { this.showPlaylist = true; }, 250);
-                setTimeout(() => { this.showPlaylist = false; setTimeout(() => { this.glitching = false; }, 50); }, 600);
+                
+                const sequence = [
+                  { d: true, l: true, t: 0 },
+                  { d: false, l: false, t: 250 },
+                  { d: true, l: true, t: 500 },
+                  { d: false, l: false, t: 750 },
+                  { d: true, l: false, t: 1200 }, // Slower reveal
+                  { d: false, l: true, t: 1700 }, // Final flickers start
+                  { d: true, l: false, t: 1780 },
+                  { d: false, l: true, t: 1860 },
+                  { d: true, l: false, t: 1940 },
+                  { d: false, l: false, t: 2300 } // Recover
+                ];
+
+                sequence.forEach(s => {
+                  setTimeout(() => {
+                    this.showPlaylist = s.d;
+                    this.lightFlash = s.l;
+                    if(s.t === 2300) {
+                      setTimeout(() => { this.glitching = false; }, 50);
+                    }
+                  }, s.t);
+                });
               }
             }"
-            x-init="setTimeout(() => setInterval(() => doGlitch(), 12000), 6000)"
+            x-init="setTimeout(() => { setInterval(() => doGlitch(), 12000); doGlitch(); }, 12000)"
             class="relative cursor-default pointer-events-auto group/right w-[85vw] sm:max-w-xl max-md:h-auto sm:h-[120px] md:h-[150px] grid max-md:-mt-[15%]"
             style="grid-template-columns: 1fr;"
             @click="if(!glitching) showPlaylist = !showPlaylist">
             <!-- Default State (Name) -->
             <h1
               class="text-white ease-in-out flex flex-col justify-end items-end group-hover/right:scale-105 text-[16vw] sm:text-7xl md:text-[5.5rem] max-md:self-end md:self-end"
-              x-bind:class="(glitching ? 'transition-none ' : 'transition-all duration-700 ') + (showPlaylist ? 'opacity-0 pointer-events-none blur-sm scale-95' : 'opacity-100 scale-100')"
+              x-bind:class="(glitching ? 'transition-none ' : 'transition-all duration-700 ') + (showPlaylist ? 'opacity-0 pointer-events-none blur-sm scale-95' : 'opacity-100 scale-100') + (lightFlash ? ' glitch-light' : '')"
               style="grid-area: 1 / 1; letter-spacing: -2px; font-weight: 800; line-height: 0.85; text-align: right; text-shadow: 0px 4px 10px rgba(0,0,0,0.1);">
               <span class="hover:text-[#fafafa] transition-colors duration-300 block">YAHARD /<br />Y42_BEATS</span>
             </h1>
             <!-- Detailed State (Playlist) -->
             <div
               class="ease-in-out flex flex-col justify-end items-end text-right opacity-0 pointer-events-none blur-sm scale-105 max-md:self-start md:self-end"
-              x-bind:class="(glitching ? 'transition-none ' : 'transition-all duration-700 ') + (showPlaylist ? '!opacity-100 !pointer-events-auto !blur-none !scale-100' : '')"
+              x-bind:class="(glitching ? 'transition-none ' : 'transition-all duration-700 ') + (showPlaylist ? '!opacity-100 !pointer-events-auto !blur-none !scale-100' : '') + (lightFlash ? ' glitch-light' : '')"
               style="grid-area: 1 / 1; margin-bottom: -10px;">
               <div class="w-full max-w-sm flex flex-col gap-y-1 relative h-full justify-end max-md:scale-[0.85] max-md:origin-bottom-right">
                 <div class="flex-grow w-full"></div>
