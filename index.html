@@ -1725,12 +1725,15 @@
         window.runProjectsIntro = () => {
             if (hasRunProjectsIntro) return;
             hasRunProjectsIntro = true;
-            // Lightning sync flashes
-            setTimeout(() => { triggerHighlight('beatmatch-ai'); }, 800);
-            setTimeout(() => { triggerHighlight('data-engineering'); }, 1000);
-            setTimeout(() => { triggerHighlight('python'); }, 1200);
-            setTimeout(() => { triggerHighlight('ai-automation'); }, 1400);
-            setTimeout(() => { resetHighlight(); }, 1800);
+            // Smoothly animated sequence showcasing different levels of connections
+            setTimeout(() => { triggerHighlight('ai-automation'); }, 1000);
+            setTimeout(() => { triggerHighlight('quality-ops-agent'); }, 1500);
+            setTimeout(() => { triggerHighlight('gemini'); }, 2000);
+            setTimeout(() => { triggerHighlight('data-engineering'); }, 2500);
+            setTimeout(() => { triggerHighlight('playwright'); }, 3000);
+            setTimeout(() => { triggerHighlight('scraper-automation'); }, 3500);
+            setTimeout(() => { triggerHighlight('python'); }, 4000); // Python usually lights everything up
+            setTimeout(() => { resetHighlight(); }, 4800);
         };
 
         nodes.forEach(node => {
