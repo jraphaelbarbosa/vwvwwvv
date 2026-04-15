@@ -1740,6 +1740,7 @@
         const nodes = document.querySelectorAll('.project-node');
         let globalLeaveTimeout = null;
         let isGlobalClicked = false;
+        let activeNodeId = null;
 
         const triggerHighlight = (nodeId) => {
             const connectedList = graph[nodeId] || [];
@@ -1791,14 +1792,21 @@
           };
 
           const handleClick = (e) => {
-            isGlobalClicked = true;
-            if (globalLeaveTimeout) clearTimeout(globalLeaveTimeout);
-            triggerHighlight(node.dataset.node);
+            e.stopPropagation();
+            const nodeId = node.dataset.node;
             
-            setTimeout(() => {
+            if (activeNodeId === nodeId) {
+              // Toggle off
+              activeNodeId = null;
               isGlobalClicked = false;
               resetHighlight();
-            }, 15000);
+            } else {
+              // Selection lock
+              activeNodeId = nodeId;
+              isGlobalClicked = true;
+              if (globalLeaveTimeout) clearTimeout(globalLeaveTimeout);
+              triggerHighlight(nodeId);
+            }
           };
 
           node.addEventListener('mouseenter', (e) => {
@@ -1812,6 +1820,15 @@
           node.addEventListener('touchend', (e) => { if (!isGlobalClicked) handleLeave(); });
           node.addEventListener('touchcancel', (e) => { if (!isGlobalClicked) handleLeave(); });
           node.addEventListener('click', handleClick);
+        });
+
+        // Global reset when clicking outside nodes
+        document.addEventListener('click', (e) => {
+          if (isGlobalClicked && !e.target.closest('.project-node')) {
+            isGlobalClicked = false;
+            activeNodeId = null;
+            resetHighlight();
+          }
         });
       });
     </script>
