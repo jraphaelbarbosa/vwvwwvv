@@ -554,32 +554,18 @@
               doGlitch() {
                 if(this.showDetail && !this.glitching) return;
                 this.glitching = true;
-                
-                const sequence = [
-                  { d: true, l: true, t: 0 },
-                  { d: false, l: false, t: 250 },
-                  { d: true, l: true, t: 500 },
-                  { d: false, l: false, t: 750 },
-                  { d: true, l: false, t: 1200 }, // Slower reveal
-                  { d: false, l: true, t: 1700 }, // Final flickers start
-                  { d: true, l: false, t: 1780 },
-                  { d: false, l: true, t: 1860 },
-                  { d: true, l: false, t: 1940 },
-                  { d: false, l: false, t: 2300 } // Recover
-                ];
-
-                sequence.forEach(s => {
-                  setTimeout(() => {
-                    this.showDetail = s.d;
-                    this.lightFlash = s.l;
-                    if(s.t === 2300) {
-                      setTimeout(() => { this.glitching = false; }, 50);
-                    }
-                  }, s.t);
-                });
+                this.showDetail = true;
+                this.lightFlash = true;
+                setTimeout(() => { this.showDetail = false; this.lightFlash = false; }, 150);
+                setTimeout(() => { this.showDetail = true; this.lightFlash = true; }, 300);
+                setTimeout(() => { 
+                  this.showDetail = false; 
+                  this.lightFlash = false;
+                  setTimeout(() => { this.glitching = false; }, 50); 
+                }, 750);
               }
             }"
-            x-init="setTimeout(() => { setInterval(() => doGlitch(), 12000); doGlitch(); }, 6000)"
+            x-init="setTimeout(() => { setInterval(() => doGlitch(), 12000); doGlitch(); }, 6300)"
             class="relative cursor-default pointer-events-auto group/main w-[85vw] sm:max-w-md max-md:h-auto sm:h-[180px] md:h-[230px] grid max-md:mt-8"
             style="grid-template-columns: 1fr;"
             @click="if(!glitching) showDetail = !showDetail">
@@ -664,32 +650,18 @@
               doGlitch() {
                 if(this.showPlaylist && !this.glitching) return;
                 this.glitching = true;
-                
-                const sequence = [
-                  { d: true, l: true, t: 0 },
-                  { d: false, l: false, t: 250 },
-                  { d: true, l: true, t: 500 },
-                  { d: false, l: false, t: 750 },
-                  { d: true, l: false, t: 1200 }, // Slower reveal
-                  { d: false, l: true, t: 1700 }, // Final flickers start
-                  { d: true, l: false, t: 1780 },
-                  { d: false, l: true, t: 1860 },
-                  { d: true, l: false, t: 1940 },
-                  { d: false, l: false, t: 2300 } // Recover
-                ];
-
-                sequence.forEach(s => {
-                  setTimeout(() => {
-                    this.showPlaylist = s.d;
-                    this.lightFlash = s.l;
-                    if(s.t === 2300) {
-                      setTimeout(() => { this.glitching = false; }, 50);
-                    }
-                  }, s.t);
-                });
+                this.showPlaylist = true;
+                this.lightFlash = true;
+                setTimeout(() => { this.showPlaylist = false; this.lightFlash = false; }, 150);
+                setTimeout(() => { this.showPlaylist = true; this.lightFlash = true; }, 300);
+                setTimeout(() => { 
+                  this.showPlaylist = false; 
+                  this.lightFlash = false;
+                  setTimeout(() => { this.glitching = false; }, 50); 
+                }, 750);
               }
             }"
-            x-init="setTimeout(() => { setInterval(() => doGlitch(), 12000); doGlitch(); }, 12000)"
+            x-init="setTimeout(() => { setInterval(() => doGlitch(), 12000); doGlitch(); }, 12300)"
             class="relative cursor-default pointer-events-auto group/right w-[85vw] sm:max-w-xl max-md:h-auto sm:h-[120px] md:h-[150px] grid max-md:-mt-[15%]"
             style="grid-template-columns: 1fr;"
             @click="if(!glitching) showPlaylist = !showPlaylist">
