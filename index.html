@@ -306,7 +306,7 @@
 
 <body x-data="{ activeSection: 'vwvwwvv', lang: 'en' }"
   class="h-[100dvh] w-full text-text-dark overflow-hidden relative selection:bg-black selection:text-white intro-active" 
-  x-init="setTimeout(() => { document.body.classList.remove('intro-active'); }, 2800); $watch('lang', l => { document.documentElement.lang = l; if(typeof window.updateProjectData === 'function') window.updateProjectData() })" x-cloak>
+  x-init="setTimeout(() => { document.body.classList.remove('intro-active'); }, 2800); $watch('lang', l => { document.documentElement.lang = l; if(typeof window.updateProjectData === 'function') window.updateProjectData() }); $watch('activeSection', val => { if(val === 'projects' && typeof window.runProjectsIntro === 'function') window.runProjectsIntro() })" x-cloak>
   <!-- Landscape Block Overlay -->
   <div class="landscape-block">
     <i class="fas fa-mobile-alt"></i>
@@ -1697,60 +1697,78 @@
         };
 
         const nodes = document.querySelectorAll('.project-node');
+        let globalLeaveTimeout = null;
+        let isGlobalClicked = false;
 
-        nodes.forEach(node => {
-          let timeoutId = null;
-          let isClickedActive = false;
-
-          const handleEnter = () => {
-            if (isClickedActive) return;
-            const nodeId = node.dataset.node;
+        const triggerHighlight = (nodeId) => {
             const connectedList = graph[nodeId] || [];
             const connectedSet = new Set(connectedList);
-
             nodes.forEach(other => {
               const otherId = other.dataset.node;
               if (otherId === nodeId || connectedSet.has(otherId)) {
-                // Node is active or linked
                 other.classList.remove('project-dimmed');
                 other.classList.add('glow-active');
               } else {
-                // Not linked
                 other.classList.remove('glow-active');
                 other.classList.add('project-dimmed');
               }
             });
-          };
+        };
 
-          const handleLeave = () => {
-            if (isClickedActive) return;
-            // Reset all nodes
+        const resetHighlight = () => {
             nodes.forEach(other => {
               other.classList.remove('project-dimmed', 'glow-active');
             });
+        };
+
+        let hasRunProjectsIntro = false;
+        window.runProjectsIntro = () => {
+            if (hasRunProjectsIntro) return;
+            hasRunProjectsIntro = true;
+            // Lightning sync flashes
+            setTimeout(() => { triggerHighlight('beatmatch-ai'); }, 800);
+            setTimeout(() => { triggerHighlight('data-engineering'); }, 1000);
+            setTimeout(() => { triggerHighlight('python'); }, 1200);
+            setTimeout(() => { triggerHighlight('ai-automation'); }, 1400);
+            setTimeout(() => { resetHighlight(); }, 1800);
+        };
+
+        nodes.forEach(node => {
+          const handleEnter = () => {
+            if (isGlobalClicked) return;
+            if (globalLeaveTimeout) { clearTimeout(globalLeaveTimeout); globalLeaveTimeout = null; }
+            triggerHighlight(node.dataset.node);
+          };
+
+          const handleLeave = () => {
+            if (isGlobalClicked) return;
+            if (globalLeaveTimeout) clearTimeout(globalLeaveTimeout);
+            globalLeaveTimeout = setTimeout(() => {
+              resetHighlight();
+            }, 1000); // 1 second linger
           };
 
           const handleClick = (e) => {
-            isClickedActive = true;
-            if (timeoutId) clearTimeout(timeoutId);
-            handleEnter(); // Force highlight
+            isGlobalClicked = true;
+            if (globalLeaveTimeout) clearTimeout(globalLeaveTimeout);
+            triggerHighlight(node.dataset.node);
             
-            timeoutId = setTimeout(() => {
-              isClickedActive = false;
-              handleLeave();
+            setTimeout(() => {
+              isGlobalClicked = false;
+              resetHighlight();
             }, 3000);
           };
 
           node.addEventListener('mouseenter', (e) => {
             if (window.matchMedia('(hover: hover)').matches) handleEnter();
           });
-          node.addEventListener('touchstart', (e) => { if (!isClickedActive) handleEnter(); }, { passive: true });
+          node.addEventListener('touchstart', (e) => { if (!isGlobalClicked) handleEnter(); }, { passive: true });
 
           node.addEventListener('mouseleave', (e) => {
             if (window.matchMedia('(hover: hover)').matches) handleLeave();
           });
-          node.addEventListener('touchend', (e) => { if (!isClickedActive) handleLeave(); });
-          node.addEventListener('touchcancel', (e) => { if (!isClickedActive) handleLeave(); });
+          node.addEventListener('touchend', (e) => { if (!isGlobalClicked) handleLeave(); });
+          node.addEventListener('touchcancel', (e) => { if (!isGlobalClicked) handleLeave(); });
           node.addEventListener('click', handleClick);
         });
       });
