@@ -597,7 +597,7 @@
         </div>
 
         <!-- Right Text Group: SOUND DESIGNER -->
-        <div x-data="{ showPlaylist: false }" @click.outside="showPlaylist = false"
+        <div
           class="absolute z-30 pointer-events-none max-md:!top-[78%] max-md:!bottom-auto max-md:scale-[0.74] md:scale-[1.03] max-md:origin-top-right transition-all duration-300"
           style="right: 4%; top: 65%; z-index: 10; text-align: right;">
           <div class="anim-slide-right w-full h-full">
@@ -664,7 +664,8 @@
             x-init="setTimeout(() => { setInterval(() => doGlitch(), 25000); doGlitch(); }, 18800)"
             class="relative cursor-default pointer-events-auto group/right w-[85vw] sm:max-w-xl max-md:h-auto sm:h-[120px] md:h-[150px] grid max-md:-mt-[15%]"
             style="grid-template-columns: 1fr;"
-            @click="if(!glitching) showPlaylist = !showPlaylist">
+            @click="if(!glitching) showPlaylist = !showPlaylist"
+            @click.outside="showPlaylist = false">
             <!-- Default State (Name) -->
             <h1
               class="text-white ease-in-out flex flex-col justify-end items-end group-hover/right:scale-105 text-[16vw] sm:text-7xl md:text-[5.5rem] max-md:self-end md:self-end"
@@ -911,7 +912,7 @@
               class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] md:max-w-[170px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
               data-node="beatmatch-ai">
               <!-- Clickable Center Area -->
-              <div class="absolute inset-0 z-20 cursor-pointer rounded-xl" onclick="openProjectModal('BEATMATCH AI')"></div>
+              <div class="absolute top-[20%] left-[20%] w-[60%] h-[60%] z-20 cursor-pointer rounded-xl" onclick="openProjectModal('BEATMATCH AI')"></div>
               <img src="assets/project_cover_1.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span
                 class="relative z-10 font-sans font-black text-[11px] sm:text-[13px] md:text-[14px] lg:text-[15px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;" x-html="i18n[lang].projects.cards.beatmatch_ai">BEATMATCH<br />AI</span>
@@ -921,7 +922,7 @@
               class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
               data-node="quality-ops-agent">
               <!-- Clickable Center Area -->
-              <div class="absolute inset-0 z-20 cursor-pointer rounded-xl" onclick="openProjectModal('INTERNAL SUPPORT RAG AGENT')"></div>
+              <div class="absolute top-[20%] left-[20%] w-[60%] h-[60%] z-20 cursor-pointer rounded-xl" onclick="openProjectModal('INTERNAL SUPPORT RAG AGENT')"></div>
               <img src="assets/project_cover_2.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span
                 class="relative z-10 font-sans font-black text-[9px] sm:text-[11px] md:text-[13px] lg:text-[14px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;" x-html="i18n[lang].projects.cards.quality_ops">INTERNAL<br />SUPPORT<br />RAG
@@ -932,7 +933,7 @@
               class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
               data-node="enterprise-orchestration">
               <!-- Clickable Center Area -->
-              <div class="absolute inset-0 z-20 cursor-pointer rounded-xl" onclick="openProjectModal('ENTERPRISE ORCHESTRATION & ECOSYSTEMS')"></div>
+              <div class="absolute top-[20%] left-[20%] w-[60%] h-[60%] z-20 cursor-pointer rounded-xl" onclick="openProjectModal('ENTERPRISE ORCHESTRATION & ECOSYSTEMS')"></div>
               <img src="assets/project_cover_3.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span
                 class="relative z-10 font-sans font-black text-[8px] sm:text-[10px] md:text-[12px] lg:text-[13px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;" x-html="i18n[lang].projects.cards.enterprise_orch">ENTERPRISE<br />ORCHESTRATION<br />&
@@ -943,7 +944,7 @@
               class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
               data-node="scraper-automation">
               <!-- Clickable Center Area -->
-              <div class="absolute inset-0 z-20 cursor-pointer rounded-xl" onclick="openProjectModal('AI-DRIVEN WEB SCRAPER AUTOMATION')"></div>
+              <div class="absolute top-[20%] left-[20%] w-[60%] h-[60%] z-20 cursor-pointer rounded-xl" onclick="openProjectModal('AI-DRIVEN WEB SCRAPER AUTOMATION')"></div>
               <img src="assets/project_cover_4.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span
                 class="relative z-10 font-sans font-black text-[9px] sm:text-[10px] md:text-[12px] lg:text-[13px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 break-words hyphens-auto drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;" x-html="i18n[lang].projects.cards.scraper">AI-DRIVEN<br />WEB
@@ -954,7 +955,7 @@
               class="project-node relative group flex flex-col items-center justify-center p-2 md:p-4 w-[30%] sm:w-[22%] max-w-[150px] aspect-square border border-white/20 bg-black/50 overflow-hidden cursor-default backdrop-blur-sm shadow-xl hover:bg-white/5 transition-all duration-300 rounded-xl"
               data-node="beats-custom">
               <!-- Clickable Center Area -->
-              <div class="absolute inset-0 z-20 cursor-pointer rounded-xl" onclick="openProjectModal('BEATS & CUSTOM MUSIC PROJECTS')"></div>
+              <div class="absolute top-[20%] left-[20%] w-[60%] h-[60%] z-20 cursor-pointer rounded-xl" onclick="openProjectModal('BEATS & CUSTOM MUSIC PROJECTS')"></div>
               <img src="assets/project_cover_5.jpg" alt="Project background" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               <span
                 class="relative z-10 font-sans font-black text-[10px] sm:text-[11px] md:text-[13px] lg:text-[14px] text-center tracking-wider leading-[1.1] md:leading-tight text-[#fffacd] transition-transform group-hover:scale-105 duration-300 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] pointer-events-none select-none" style="-webkit-user-select: none;" x-html="i18n[lang].projects.cards.beats">BEATS
