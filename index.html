@@ -1382,16 +1382,36 @@
         const togglePlay = () => {
           if (isPlaying) {
             audio.pause();
-            playText.innerHTML = '<i class="fas fa-play"></i>';
-            playingIndicator.style.opacity = '0';
           } else {
-            audio.play().then(() => {
-              playText.innerHTML = '<i class="fas fa-pause"></i>';
-              playingIndicator.style.opacity = '1';
-            }).catch(e => console.error("Error playing audio:", e));
+            audio.play().catch(e => console.error("Error playing audio:", e));
           }
-          isPlaying = !isPlaying;
         };
+
+        // Sync UI with audio state
+        audio.onplaying = () => {
+          isPlaying = true;
+          playText.innerHTML = '<i class="fas fa-pause"></i>';
+          playingIndicator.style.opacity = '1';
+        };
+        audio.onpause = () => {
+          isPlaying = false;
+          playText.innerHTML = '<i class="fas fa-play"></i>';
+          playingIndicator.style.opacity = '0';
+        };
+
+        // Trigger first play after intro animation (3.2s)
+        setTimeout(() => {
+          audio.play().catch(e => {
+            console.log("Autoplay blocked. Waiting for interaction.");
+            const startOnInteraction = () => {
+              audio.play();
+              document.removeEventListener('click', startOnInteraction);
+              document.removeEventListener('touchstart', startOnInteraction);
+            };
+            document.addEventListener('click', startOnInteraction);
+            document.addEventListener('touchstart', startOnInteraction);
+          });
+        }, 3200);
 
         playerContainer.addEventListener('click', togglePlay);
 
