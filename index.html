@@ -694,44 +694,11 @@
 
                   <div
                     class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
-                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0021_DANGER.mp3', 'YAHARD-BEAT0021_DANGER')">
-                    <span class="font-bold flex items-center gap-2">
-                      <div
-                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
-                      </div>BEAT0021_DANGER
-                    </span>
-                    <span class="font-mono text-xs opacity-50">WAV</span>
-                  </div>
-
-                  <div
-                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
-                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0089_WIND.mp3', 'YAHARD-BEAT0089_WIND')">
-                    <span class="font-bold flex items-center gap-2">
-                      <div
-                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
-                      </div>BEAT0089_WIND
-                    </span>
-                    <span class="font-mono text-xs opacity-50">WAV</span>
-                  </div>
-
-                  <div
-                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
                     onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0167_FEEL.mp3', 'YAHARD-BEAT0167_FEEL')">
                     <span class="font-bold flex items-center gap-2">
                       <div
                         class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
                       </div>BEAT0167_FEEL
-                    </span>
-                    <span class="font-mono text-xs opacity-50">WAV</span>
-                  </div>
-
-                  <div
-                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
-                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0176_FRI8PM.mp3', 'YAHARD-BEAT0176_FRI8PM')">
-                    <span class="font-bold flex items-center gap-2">
-                      <div
-                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
-                      </div>BEAT0176_FRI8PM
                     </span>
                     <span class="font-mono text-xs opacity-50">WAV</span>
                   </div>
@@ -754,6 +721,39 @@
                       <div
                         class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
                       </div>BEAT0345_VISIONS
+                    </span>
+                    <span class="font-mono text-xs opacity-50">WAV</span>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
+                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0021_DANGER.mp3', 'YAHARD-BEAT0021_DANGER')">
+                    <span class="font-bold flex items-center gap-2">
+                      <div
+                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
+                      </div>BEAT0021_DANGER
+                    </span>
+                    <span class="font-mono text-xs opacity-50">WAV</span>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
+                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0089_WIND.mp3', 'YAHARD-BEAT0089_WIND')">
+                    <span class="font-bold flex items-center gap-2">
+                      <div
+                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
+                      </div>BEAT0089_WIND
+                    </span>
+                    <span class="font-mono text-xs opacity-50">WAV</span>
+                  </div>
+
+                  <div
+                    class="flex justify-between items-center text-sm font-sans text-white/80 hover:text-white transition-colors cursor-pointer py-1 group/row"
+                    onclick="event.stopPropagation(); playBeat('assets/beats/YAHARD-BEAT0176_FRI8PM.mp3', 'YAHARD-BEAT0176_FRI8PM')">
+                    <span class="font-bold flex items-center gap-2">
+                      <div
+                        class="w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/row:opacity-100 transition-opacity">
+                      </div>BEAT0176_FRI8PM
                     </span>
                     <span class="font-mono text-xs opacity-50">WAV</span>
                   </div>
@@ -1355,12 +1355,12 @@
         let currentTrackIndex = 0;
 
         const playlist = [
+          { src: 'assets/beats/YAHARD-BEAT0167_FEEL.mp3', title: 'YAHARD-BEAT0167_FEEL' },
+          { src: 'assets/beats/YAHARD-BEAT0265_TUE11PM.mp3', title: 'YAHARD-BEAT0265_TUE11PM' },
+          { src: 'assets/beats/YAHARD-BEAT0345_VISIONS.mp3', title: 'YAHARD-BEAT0345_VISIONS' },
           { src: 'assets/beats/YAHARD-BEAT0021_DANGER.mp3', title: 'YAHARD-BEAT0021_DANGER' },
           { src: 'assets/beats/YAHARD-BEAT0089_WIND.mp3', title: 'YAHARD-BEAT0089_WIND' },
-          { src: 'assets/beats/YAHARD-BEAT0167_FEEL.mp3', title: 'YAHARD-BEAT0167_FEEL' },
-          { src: 'assets/beats/YAHARD-BEAT0176_FRI8PM.mp3', title: 'YAHARD-BEAT0176_FRI8PM' },
-          { src: 'assets/beats/YAHARD-BEAT0265_TUE11PM.mp3', title: 'YAHARD-BEAT0265_TUE11PM' },
-          { src: 'assets/beats/YAHARD-BEAT0345_VISIONS.mp3', title: 'YAHARD-BEAT0345_VISIONS' }
+          { src: 'assets/beats/YAHARD-BEAT0176_FRI8PM.mp3', title: 'YAHARD-BEAT0176_FRI8PM' }
         ];
 
         // Format time helper
