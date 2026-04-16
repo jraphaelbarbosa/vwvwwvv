@@ -78,8 +78,8 @@
     }
 
     .glitch-light {
-      filter: brightness(3.5) contrast(1.2) blur(1px) !important;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.4) !important;
+      filter: brightness(1.8) contrast(1.1) blur(0.5px) !important;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4) !important;
     }
   </style>
   <style data-purpose="glassmorphism">
@@ -500,7 +500,7 @@
                 src="assets/vwvwwvv_logo_upscaled.webp" class="relative anim-logo-morph z-[2]" />
               <!-- The Shine -->
               <div
-                class="absolute top-0 left-[-50%] w-[50%] h-full pointer-events-none bg-gradient-to-r from-transparent via-white to-transparent opacity-0 z-[3]"
+                class="absolute top-0 left-[-50%] w-[50%] h-full pointer-events-none bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 z-[3]"
                 :class="shining ? 'run-shine' : ''"
                 style="transform: skewX(-20deg) translateX(-150%);"></div>
             </div>
