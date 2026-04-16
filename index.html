@@ -133,6 +133,23 @@
       /* Firefox */
     }
 
+    /* Subtle scrollbar for bio */
+    .subtle-scrollbar::-webkit-scrollbar {
+      width: 3px;
+    }
+    .subtle-scrollbar::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+    }
+    .subtle-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(255, 250, 205, 0.2);
+      border-radius: 10px;
+    }
+    .subtle-scrollbar {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 250, 205, 0.2) rgba(255, 255, 255, 0.03);
+    }
+
     .fade-out-text {
       opacity: 0 !important;
       transform: translateY(30px) !important;
@@ -578,18 +595,11 @@
             </h1>
             <!-- Detailed State (Bio) -->
             <div
-              class="text-[#fafafa] font-sans leading-relaxed text-left ease-in-out flex flex-col justify-start opacity-0 pointer-events-none blur-sm scale-105 max-md:self-start md:self-center overflow-y-auto hide-scrollbar max-md:max-h-[22vh] md:max-h-[40vh] max-md:-translate-y-8"
+              class="text-[#fafafa] font-sans leading-relaxed text-left ease-in-out flex flex-col justify-start opacity-0 pointer-events-none blur-sm scale-105 max-md:self-start md:self-center overflow-y-auto subtle-scrollbar max-md:max-h-[30vh] md:max-h-[40vh] max-md:-translate-y-8 pr-4"
               x-bind:class="(glitching ? 'transition-none ' : 'transition-all duration-700 ') + (showDetail ? '!opacity-100 !pointer-events-auto !blur-none !scale-100' : '') + (lightFlash ? ' glitch-light' : '')"
               style="grid-area: 1 / 1;">
-              <p class="mb-5 text-[0.95rem] font-medium text-white/90" x-text="i18n[lang].hero.bio_p1">17+ years of experience engineering systems—from
-                core technology to sound design. I see
-                no boundary between routing audio signals and architecting data pipelines; both require the same mastery
-                of logic and flow.</p>
-              <p class="text-[0.95rem] font-medium text-white/90" x-text="i18n[lang].hero.bio_p2">Operating as a Software Engineer and Sound Designer
-                with a focus on creative product
-                thinking, I bridge the gap between AI Engineering and Solutions Architecture. This hybrid expertise
-                defines my approach to Context Engineering: translating abstract domain nuances into scalable, efficient
-                infrastructure.</p>
+              <p class="mb-5 text-[0.9rem] font-medium text-white/90" x-text="i18n[lang].hero.bio_p1">17+ years of experience engineering systems—from core technology to sound design. I see no boundary between routing audio signals and architecting data pipelines; both require the same mastery of logic, flow, and context. Operating as a Full-Stack Software Engineer with a deep focus on Data and AI Engineering, I bridge the gap between backend ecosystems—handling web scraping, data science, and AI integrations—and meticulously crafted front-end interfaces. I am an AI Software/Context Engineer, leveraging AI-assisted development to translate abstract domain nuances into scalable, efficient products.</p>
+              <p class="text-[0.9rem] font-medium text-white/90" x-text="i18n[lang].hero.bio_p2">Beyond the code, this portal is divided into two main characters and two ecosystems. It presents the intrinsic duality between João Raphael Cunha, the software engineer and systems architect, and Yahard, my artistic persona and music producer identity. This site serves as a live laboratory built under the banner of VWVWWVV (Versatility Wins Vultures When We Vibe Virtuously). Through the Projects section, you will find the practical application of my hybrid expertise, showcasing the tools and architectures used to build data-driven applications. Alongside it runs WWWAV, my continuous portal and blog—a dedicated space for putting new front-end concepts, technological essays, and creative ideas into immediate practice.</p>
             </div>
           </div>
           </div>
@@ -1262,8 +1272,8 @@
             audio_engineer: 'AUDIO ENGINEER',
             beatmaker: 'BEATMAKER',
             multi_instrumentist: 'MULTI-INSTRUMENTIST',
-            bio_p1: '17+ years of experience engineering systems—from core technology to sound design. I see no boundary between routing audio signals and architecting data pipelines; both require the same mastery of logic and flow.',
-            bio_p2: 'Operating as a Software Engineer and Sound Designer with a focus on creative product thinking, I bridge the gap between AI Engineering and Solutions Architecture. This hybrid expertise defines my approach to Context Engineering: translating abstract domain nuances into scalable, efficient infrastructure.'
+            bio_p1: '17+ years of experience engineering systems—from core technology to sound design. I see no boundary between routing audio signals and architecting data pipelines; both require the same mastery of logic, flow, and context. Operating as a Full-Stack Software Engineer with a deep focus on Data and AI Engineering, I bridge the gap between backend ecosystems—handling web scraping, data science, and AI integrations—and meticulously crafted front-end interfaces. I am an AI Software/Context Engineer, leveraging AI-assisted development to translate abstract domain nuances into scalable, efficient products.',
+            bio_p2: 'Beyond the code, this portal is divided into two main characters and two ecosystems. It presents the intrinsic duality between João Raphael Cunha, the software engineer and systems architect, and Yahard, my artistic persona and music producer identity. This site serves as a live laboratory built under the banner of VWVWWVV (Versatility Wins Vultures When We Vibe Virtuously). Through the Projects section, you will find the practical application of my hybrid expertise, showcasing the tools and architectures used to build data-driven applications. Alongside it runs WWWAV, my continuous portal and blog—a dedicated space for putting new front-end concepts, technological essays, and creative ideas into immediate practice.'
           },
           projects: {
             categories: {
@@ -1301,8 +1311,8 @@
             audio_engineer: 'ENGENHEIRO DE ÁUDIO',
             beatmaker: 'BEATMAKER',
             multi_instrumentist: 'MULTI-INSTRUMENTISTA',
-            bio_p1: '17+ anos de experiência na engenharia de sistemas — da tecnologia principal ao design de som. Não vejo fronteiras entre o roteamento de sinais de áudio e a arquitetura de pipelines de dados; ambos exigem a mesma maestria de lógica e fluxo.',
-            bio_p2: 'Atuando como Engenheiro de Software e Sound Designer com foco em pensamento criativo de produto, faço a ponte entre a Engenharia de IA e a Arquitetura de Soluções. Essa expertise híbrida define minha abordagem à Engenharia de Contexto: traduzindo nuances abstratas de domínio em infraestrutura escalável e eficiente.'
+            bio_p1: '17+ anos de experiência na engenharia de sistemas — da tecnologia principal ao design de som. Não vejo fronteiras entre o roteamento de sinais de áudio e a arquitetura de pipelines de dados; ambos exigem a mesma maestria de lógica, fluxo e contexto. Atuando como Engenheiro de Software Full-Stack com foco profundo em Engenharia de Dados e IA, faço a ponte entre ecossistemas de backend — liderando web scraping, ciência de dados e integrações de IA — e interfaces front-end meticulosamente esculpidas. Sou um Engenheiro de Software/Contexto de IA, utilizando desenvolvimento assistido por IA para traduzir nuances abstratas de domínio em produtos escaláveis e eficientes.',
+            bio_p2: 'Além do código, este portal divide-se em dois personagens principais e dois ecossistemas. Ele apresenta a dualidade intrínseca entre João Raphael Cunha, o engenheiro de software e arquiteto de sistemas, e Yahard, minha persona artística e identidade como produtor musical. Este site funciona como um laboratório vivo sob a bandeira da VWVWWVV (Versatility Wins Vultures When We Vibe Virtuously). Através da seção Projetos, você encontrará a aplicação prática da minha expertise híbrida, apresentando as ferramentas e arquiteturas usadas para construir aplicações orientadas a dados. Paralelamente corre o WWWAV, meu portal e blog contínuo — um espaço dedicado para colocar novos conceitos de front-end, ensaios tecnológicos e ideias criativas em prática imediata.'
           },
           projects: {
             categories: {
